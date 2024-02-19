@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="pink">#FF5757</color>
-    <color name="starDefaultColor">#999999</color>
-    <color name="starSelectedColor">#FFD700</color>
-
-</resources>

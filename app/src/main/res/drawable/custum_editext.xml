@@ -8,7 +8,7 @@
 
     <stroke
 
-        android:color="@color/usrnameBack"
+        android:color="@color/usernameBack"
         />
     <corners
         android:radius="6dp"
