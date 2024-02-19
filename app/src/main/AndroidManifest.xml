@@ -12,15 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RR"
         tools:targetApi="31">
-<!--        <activity-->
-<!--            android:name="com.example.rr.SignUpPage"-->
-<!--            android:exported="true" />-->
-<!--        <activity-->
-<!--            android:name="com.example.rr.LoginScreen"-->
-<!--            android:exported="true" />-->
-<!--        <activity-->
-<!--            android:name=".LoginScreen"-->
-<!--            android:exported="false" />-->
         <activity
             android:name="com.example.rr.splashActivity"
             android:exported="true">
@@ -31,14 +22,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.rr.SignUpPage"
-            android:exported="true" />
-        <activity
-            android:name="com.example.rr.LoginScreen"
-            android:exported="true" />
-        <activity
             android:name="com.example.rr.MainActivity"
-            android:exported="true" />
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
