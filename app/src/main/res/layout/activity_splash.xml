@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/giff"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="401dp"
         android:layout_gravity="center"
         android:translationY="150dp"
         android:scaleType="fitXY"
