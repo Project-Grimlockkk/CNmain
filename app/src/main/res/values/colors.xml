@@ -16,7 +16,8 @@
     <color name="usernameBack">#8F8E8E</color>
     <color name="mainTheme">#FF5757</color>
     <color name="grey">#888888</color>
-
+    <color name="dialog_color_1">#ff5757</color>
+    <color name="dialog_color_2">#ff5757</color>
     <color name="transparentBack">#99888888</color>
 
 </resources>
