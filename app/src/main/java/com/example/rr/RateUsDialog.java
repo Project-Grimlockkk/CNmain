@@ -1,4 +1,4 @@
-package com.example.rr;
+package com.example.rateusdialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -11,8 +11,6 @@ import android.widget.RatingBar;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
-
-import com.example.learn.R;
 
 public class RateUsDialog extends Dialog {
     private float userRate=0;
@@ -76,3 +74,4 @@ public class RateUsDialog extends Dialog {
         ratingimage.startAnimation(scaleAnimation);
     }
 }
+g
