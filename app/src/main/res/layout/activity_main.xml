@@ -13,14 +13,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginTop="400dp"
-=======
-        android:layout_marginTop="198dp"
->>>>>>> 9ce2caccea2d2a626c34ee5482f8d613ce2a90b7
         android:layout_gravity="center_horizontal"
         app:cardCornerRadius="30dp"
-        app:cardElevation="31dp">
+        app:cardElevation="34dp">
 
         <LinearLayout
             android:layout_width="360dp"
