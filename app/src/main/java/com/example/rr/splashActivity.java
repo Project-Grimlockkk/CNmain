@@ -29,7 +29,7 @@ public class splashActivity extends AppCompatActivity {
                 startActivity(iHome);
                 finish();
             }
-        },4000);
+        },1000);
 
     }
 }

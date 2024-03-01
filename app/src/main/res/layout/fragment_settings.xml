@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settingsFrame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,6 +13,7 @@
     <!--     Red bar above-->
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="0dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
@@ -22,17 +24,6 @@
             android:background="#FF5757" />
 
         <!--        settings text-->
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="22dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="35dp"
-            android:scaleX="1.8"
-            android:scaleY="1.8"
-            app:srcCompat="@drawable/back_svgrepo_com"
-            app:tint="#FFFFFF" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,7 +43,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp">
 
         <!--        red bg-->
         <View
@@ -83,6 +75,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="140dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
@@ -124,6 +117,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="190dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
@@ -154,12 +148,14 @@
     </FrameLayout>
 
     <FrameLayout
+        android:id="@+id/aboutViewFrame"
         android:layout_width="match_parent"
+        android:layout_marginTop="250dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
         <View
-            android:id="@+id/Aboutview"
+            android:id="@+id/AboutView1"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -195,6 +191,7 @@
     </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="300dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
@@ -235,6 +232,7 @@
     </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="350dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
@@ -275,6 +273,7 @@
     </FrameLayout>
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_marginTop="400dp"
         android:layout_height="wrap_content">
 
         <!--        red bg-->
@@ -314,4 +313,4 @@
 
     </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>

@@ -23,6 +23,16 @@ public class LoginScreen extends AppCompatActivity {
     private ActivityLoginScreenBinding binding;
     private FirebaseAuth auth;
 
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentusr = auth.getCurrentUser();
+//        if(currentusr!= null){
+//            startActivity(new Intent(LoginScreen.this,MainActivity.class));
+//            finish();
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
