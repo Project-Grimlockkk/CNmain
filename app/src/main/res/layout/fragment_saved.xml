@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.rr.SettingsFragment"
+    >
+
+    <!--     Red bar above-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/your_view"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#FF5757" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            app:srcCompat="@drawable/back_svgrepo_com"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Saved"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

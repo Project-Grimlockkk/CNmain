@@ -8,8 +8,6 @@
     android:gravity="center"
     tools:context="com.example.rr.listingpage">
 
-    <?xml version="1.0" encoding="utf-8"?>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +45,7 @@
                 android:layout_gravity="center"
                 android:hint="    Search location"
                 android:textColor="@color/white"
-
+                android:height="48dp"
                 android:textColorHint="@color/white"
                 android:background="@drawable/roundedsqr"
                 ></EditText>
@@ -94,7 +92,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/your_view2"
                 app:layout_constraintTop_toTopOf="@+id/your_view2"
-                app:srcCompat="@drawable/home_svgrepo_com"
+                app:srcCompat="@drawable/home"
                 app:tint="#FFFFFF" />
 
             <ImageView
@@ -108,7 +106,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/your_view2"
                 app:layout_constraintTop_toTopOf="@+id/your_view2"
-                app:srcCompat="@drawable/settings_svgrepo_com"
+                app:srcCompat="@drawable/settings"
                 app:tint="#FFFFFF" />
 
             <ImageView
@@ -122,7 +120,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/your_view2"
                 app:layout_constraintTop_toTopOf="@+id/your_view2"
-                app:srcCompat="@drawable/save_2_svgrepo_com"
+                app:srcCompat="@drawable/save"
                 app:tint="#FFFFFF" />
 
             <ImageView
@@ -136,7 +134,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/your_view2"
                 app:layout_constraintTop_toTopOf="@+id/your_view2"
-                app:srcCompat="@drawable/profile_default_svgrepo_com"
+                app:srcCompat="@drawable/profile"
                 app:tint="#FFFFFF" />
 
 

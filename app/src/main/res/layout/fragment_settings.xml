@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.example.rr.SettingsFragment"
+    >
+
+    <!--     Red bar above-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/your_view"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#FF5757" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            app:srcCompat="@drawable/back_svgrepo_com"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Settings"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/generalSettingsBar"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#E6E3E3" />
+
+        <!--        settings text-->
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="General Settings"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/ChangePwbar"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/imageVie5"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            app:srcCompat="@drawable/baseline_key_24"
+            app:tint="@color/mainTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/poppins"
+            android:text="Change Password"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/Informationbar"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#E6E3E3" />
+
+        <!--        settings text-->
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Information"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/Aboutview"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/phoneicon"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            app:srcCompat="@drawable/smartphone_material_svgrepo_com"
+            app:tint="@color/mainTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/poppins"
+            android:text="About App"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/termsBar"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/termsIcon"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            app:srcCompat="@drawable/doc_svgrepo_com"
+            app:tint="@color/mainTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/poppins"
+            android:text="Terms and Conditions"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/PrivacyView"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/privacyicon"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            app:srcCompat="@drawable/privacy_tips_svgrepo_com"
+            app:tint="@color/mainTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/poppins"
+            android:text="Privacy Policy"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--        red bg-->
+        <View
+            android:id="@+id/shareview"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white" />
+
+        <!--        settings text-->
+        <ImageView
+            android:id="@+id/shareicon"
+            android:layout_width="22dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="35dp"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            app:srcCompat="@drawable/share_svgrepo_com"
+            app:tint="@color/mainTheme" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="@font/poppins"
+            android:text="Share this App"
+            android:textColor="@color/greyBar"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+
+
+    </FrameLayout>
+
+</LinearLayout>
