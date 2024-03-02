@@ -31,6 +31,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.rr.listingpage"
+            android:exported="true" />
+        <activity
             android:name="com.example.rr.SignUpPage"
             android:exported="true" />
         <activity

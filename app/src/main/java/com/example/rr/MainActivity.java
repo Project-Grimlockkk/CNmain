@@ -1,5 +1,6 @@
 package com.example.rr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView= findViewById(R.id.bottom_nav_view);
         frameLayout= findViewById(R.id.frame);
 
-        loadFragment(new HomeFragment(), true);
+//        loadFragment(new HomeFragment(), true);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -42,7 +43,12 @@ public class MainActivity extends AppCompatActivity {
                 int itemId = item.getItemId();
 
                 if(itemId == R.id.navHome){
-                    loadFragment(new HomeFragment(),false);
+//                    loadFragment(new HomeFragment(),false);
+                    startActivity(new Intent(MainActivity.this, listingpage.class));
+                    // Finish the current activity if needed
+                    finish();
+                    return true;
+
                 }
 
                 else if (itemId == R.id.navProfile) {

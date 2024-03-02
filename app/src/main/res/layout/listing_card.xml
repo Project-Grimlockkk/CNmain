@@ -28,7 +28,8 @@
                 android:layout_gravity="center"
                 
                 android:layout_marginTop="15dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:id="@+id/apImg">
 
             </LinearLayout>
 
@@ -39,6 +40,7 @@
                 >
 
                 <TextView
+                    android:id="@+id/apName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -47,6 +49,7 @@
                     android:text="Apartment" />
 
                 <TextView
+                    android:id="@+id/apPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -61,7 +64,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/people"
+                        android:id="@+id/vcImg"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
@@ -75,7 +78,7 @@
                         app:tint="@color/card" />
 
                     <TextView
-                        android:id="@+id/peoples"
+                        android:id="@+id/apVacancy"
                         android:layout_width="10dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="10dp"
@@ -85,7 +88,7 @@
                         android:textSize="15sp"/>
 
                     <ImageView
-                        android:id="@+id/to_home"
+                        android:id="@+id/distImg"
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
@@ -100,7 +103,7 @@
 
 
                     <TextView
-                        android:id="@+id/dist"
+                        android:id="@+id/apDistance"
                         android:layout_width="50dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="10dp"
