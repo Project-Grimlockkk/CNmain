@@ -10,19 +10,16 @@
     tools:context="com.example.rr.privacyPage"
     >
 
-    <!--     Red bar above-->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!--        red bg-->
         <View
             android:id="@+id/your_view"
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:background="#FF5757" />
 
-        <!--        settings text-->
         <ImageView
             android:id="@+id/backPrivacy"
             android:layout_width="22dp"
@@ -47,5 +44,91 @@
             android:textStyle="bold" />
 
     </FrameLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:layout_marginTop="40dp"
+                android:gravity="fill_horizontal"
+                android:fontFamily="@font/poppins"
+                android:text="Welcome to PG Finder, your go-to app for finding the perfect paying guest accommodation. At PG Finder, we are committed to protecting your privacy and ensuring the security of your personal information. This privacy policy outlines how we collect, use, and safeguard the data you provide to us through the app."
+                android:textColor="@color/greyBar"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="fill_horizontal"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Information We Collect"
+                android:textColor="@color/greyBar"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="fill_horizontal"
+                android:fontFamily="@font/poppins"
+                android:text="PG Finder collects various types of information to facilitate the use of our services. This includes personal information such as your name, email address, phone number, and payment details, which are necessary for creating an account and processing bookings. We may also collect non-personal information such as device identifiers, location data, and usage statistics to improve our app's performance and provide a personalized experience."
+                android:textColor="@color/greyBar"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="fill_horizontal"
+                android:fontFamily="@font/poppins_bold"
+                android:text=" How We Use Your Information"
+                android:textColor="@color/greyBar"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="fill_horizontal"
+                android:fontFamily="@font/poppins"
+                android:text=" The information collected by PG Finder is used for purposes such as facilitating bookings, communicating with users, personalizing content, analyzing app usage trends, and ensuring the security of our platform. We may also use your information to send you promotional offers, updates, and important notifications related to your account or the app."
+                android:textColor="@color/greyBar"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:gravity="fill_horizontal"
+                android:fontFamily="@font/poppins"
+                android:text="By using PG Finder, you consent to the collection and use of your information as described in this privacy policy."
+                android:textColor="@color/greyBar"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

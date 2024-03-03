@@ -66,12 +66,13 @@ public class SettingsFragment extends Fragment {
         shareView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Fragment fragment= new sharePage();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.settingsFrame, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain"); // Set MIME type to text/plain for sharing text
+                String body = "Download This App";
+                String sub = "https://www.youtube.com/watch?v=i41rmT-GDXc"; // This is the subject
+                intent.putExtra(Intent.EXTRA_TEXT, body); // Set the body of the message
+                intent.putExtra(Intent.EXTRA_SUBJECT, sub); // Set the subject of the message
+                startActivity(Intent.createChooser(intent, "Share using: "));
             }
         });
         return view;
