@@ -26,7 +26,11 @@
         <ImageView
             android:id="@+id/backAbout"
             android:layout_width="22dp"
+<<<<<<< HEAD
             android:layout_height="21dp"
+=======
+            android:layout_height="20dp"
+>>>>>>> 9a7115cedbc06954b6f5e1321d2cdf9cf15982b8
             android:layout_marginTop="10dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="35dp"
