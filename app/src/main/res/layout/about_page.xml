@@ -19,7 +19,10 @@
         <View
             android:id="@+id/your_view"
             android:layout_width="match_parent"
+
             android:layout_height="90dp"
+
+>>>>>>> 988ff535040edd1d12bf81e09fe31880c3ae0072
             android:background="#FF5757" />
 
         <!--        settings text-->
