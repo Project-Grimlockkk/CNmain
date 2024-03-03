@@ -33,7 +33,7 @@
                 android:layout_width="22dp"
                 android:layout_height="19dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="25dp"
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 app:srcCompat="@drawable/menu"
@@ -43,7 +43,8 @@
                 android:layout_width="250dp"
                 android:layout_height="100px"
                 android:layout_gravity="center"
-                android:hint="    Search location"
+                android:paddingLeft="30dp"
+                android:hint=" Search location"
                 android:textColor="@color/white"
                 android:height="48dp"
                 android:textColorHint="@color/white"
@@ -55,7 +56,7 @@
                 android:layout_width="22dp"
                 android:layout_height="19dp"
                 android:layout_gravity="end|center"
-                android:layout_marginRight="35dp"
+                android:layout_marginRight="25dp"
                 android:scaleX="1.8"
                 android:scaleY="1.8"
                 app:srcCompat="@drawable/filter_svgrepo_com"
@@ -69,11 +70,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent">-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
     </LinearLayout>
