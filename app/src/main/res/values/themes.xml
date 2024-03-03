@@ -6,4 +6,25 @@
     </style>
 
     <style name="Theme.RR" parent="Base.Theme.RR" />
+
+<!--    Theme style for Night Mode Switch-->
+    <style name="nightModeSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated"> @color/night_mode</item>
+        <item name="colorSwitchThumbNormal"> @color/white</item>
+        <item name="android:colorForeground"> #99FFFFFF</item>
+    </style>
+
+<!--    Theme style for Notification Switch-->
+    <style name="notifiactionSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated"> @color/notification</item>
+        <item name="colorSwitchThumbNormal"> @color/white</item>
+        <item name="android:colorForeground"> #99FFFFFF</item>
+    </style>
+
+    <!--    Theme style for private account Switch-->
+    <style name="privateAccountSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated"> @color/private_account</item>
+        <item name="colorSwitchThumbNormal"> @color/white</item>
+        <item name="android:colorForeground"> #99FFFFFF</item>
+    </style>
 </resources>

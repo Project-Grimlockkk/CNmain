@@ -80,8 +80,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:background="#FF5757"
-                tools:layout_editor_absoluteX="-40dp"
-                tools:layout_editor_absoluteY="357dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:layout_editor_absoluteX="-40dp" />
 
             <ImageView
                 android:id="@+id/to_home"
