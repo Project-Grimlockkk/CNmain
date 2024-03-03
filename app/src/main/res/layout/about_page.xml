@@ -19,17 +19,14 @@
         <View
             android:id="@+id/your_view"
             android:layout_width="match_parent"
-
-            android:layout_height="91dp"
-
->>>>>>> 988ff535040edd1d12bf81e09fe31880c3ae0072
+            android:layout_height="90dp"
             android:background="#FF5757" />
 
         <!--        settings text-->
         <ImageView
             android:id="@+id/backAbout"
             android:layout_width="22dp"
-            android:layout_height="19dp"
+            android:layout_height="21dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="35dp"

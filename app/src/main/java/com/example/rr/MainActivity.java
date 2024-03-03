@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 else if (itemId == R.id.navProfile) {
-                    loadFragment(new ProfileFragment(),false);
+                    loadFragment(new fragment_profile2(),false);
                 }
 
                 else if (itemId == R.id.navSaved) {
