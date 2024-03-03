@@ -19,7 +19,9 @@
         <View
             android:id="@+id/your_view"
             android:layout_width="match_parent"
+
             android:layout_height="92dp"
+
             android:background="#FF5757" />
 
         <!--        settings text-->
