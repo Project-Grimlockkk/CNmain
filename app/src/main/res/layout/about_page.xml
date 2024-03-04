@@ -27,6 +27,7 @@
             android:id="@+id/backAbout"
             android:layout_width="22dp"
             android:layout_height="20dp"
+
             android:layout_marginTop="10dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="35dp"
