@@ -1,8 +1,10 @@
 package com.example.rr;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,16 +31,6 @@ public class fragment_profile2 extends Fragment {
     public fragment_profile2() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_profile2.
-     */
-    // TODO: Rename and change types and number of parameters
     public static fragment_profile2 newInstance(String param1, String param2) {
         fragment_profile2 fragment = new fragment_profile2();
         Bundle args = new Bundle();
@@ -61,6 +53,61 @@ public class fragment_profile2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile2, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile2, container, false);
+
+        View aboutView = view.findViewById(R.id.aboutapp);
+        View termsView = view.findViewById(R.id.termss);
+        View privacyView = view.findViewById(R.id.privacy);
+        View shareView = view.findViewById(R.id.share);
+
+        aboutView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment= new aboutPage();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        termsView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment= new termsPage();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        privacyView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment= new privacyPage();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        shareView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain"); // Set MIME type to text/plain for sharing text
+                String body = "Download This App";
+                String sub = "https://www.youtube.com/watch?v=i41rmT-GDXc"; // This is the subject
+                intent.putExtra(Intent.EXTRA_TEXT, body); // Set the body of the message
+                intent.putExtra(Intent.EXTRA_SUBJECT, sub); // Set the subject of the message
+                startActivity(Intent.createChooser(intent, "Share using: "));
+            }
+        });
+        return view;
     }
 }

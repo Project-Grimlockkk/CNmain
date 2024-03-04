@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/profilePage"
     android:background="@color/white"
     android:orientation="vertical"
     tools:context="com.example.rr.fragment_profile2">
@@ -12,7 +13,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/loginB">
+        android:background="@color/mainTheme">
 
         <ImageView
             android:layout_width="50dp"
@@ -100,9 +101,9 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:padding="12dp"
-                        android:src="@drawable/icons8_night_mode_67"
+                        android:src="@drawable/moon_stars_svgrepo_com"
 
-                        />
+                        app:tint="@color/profileIcons" />
 
                     <TextView
                         android:layout_marginStart="20dp"
@@ -136,10 +137,10 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:padding="12dp"
-                        android:src="@drawable/icons8_night_mode_67"
+                        android:src="@drawable/notifications_off_circle_sharp_svgrepo_com"
 
 
-                        />
+                        app:tint="@color/profileIcons" />
 <!--                    android:background="@drawable/round_back_notifications"-->
 
                     <TextView
@@ -174,7 +175,7 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:padding="12dp"
-                        android:src="@drawable/icons8_night_mode_67"
+                        android:src="@drawable/_password_svgrepo_com"
 
                         />
 
@@ -183,7 +184,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Private Account"
+                        android:text="Change Password"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:layout_toEndOf="@+id/privateAccountIcon"
@@ -214,6 +215,7 @@
 
 <!--            Security-->
             <RelativeLayout
+                android:id="@+id/termss"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -222,16 +224,17 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:padding="12dp"
-                    android:src="@drawable/roung_back_security"
+                    android:src="@drawable/credit_card_contract_round_svgrepo_com"
 
-                    />
+                    app:tint="@color/profileIcons" />
 
                 <TextView
+                    android:id="@+id/terms"
                     android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Security &amp; privacy"
+                    android:text="Terms &amp; Conditions"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/securityIcon"
@@ -249,6 +252,7 @@
 
 <!--            text size-->
             <RelativeLayout
+                android:id="@+id/privacy"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -258,7 +262,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:padding="12dp"
-                    android:src="@drawable/icons8_night_mode_67"
+                    android:src="@drawable/secure_svgrepo_com"
 
                     />
 
@@ -267,7 +271,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Text Size"
+                    android:text="Privacy Policy"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/textSizeIcon"
@@ -285,6 +289,7 @@
 
 <!--            language-->
             <RelativeLayout
+                android:id="@+id/share"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -294,16 +299,16 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:padding="12dp"
-                    android:src="@drawable/icons8_night_mode_67"
+                    android:src="@drawable/share_round_svgrepo_com"
 
-                    />
+                    app:tint="#020253" />
 
                 <TextView
                     android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="languages"
+                    android:text="Share This App"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/languageIcon"
@@ -333,6 +338,7 @@
 
 <!--            Send us a Messages-->
             <RelativeLayout
+                android:id="@+id/aboutapp"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -342,7 +348,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:padding="12dp"
-                    android:src="@drawable/roung_back_security"
+                    android:src="@drawable/info_circle_svgrepo_com"
 
                     />
 
@@ -351,7 +357,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Send us a Message"
+                    android:text="About App"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/messageIcon"
@@ -369,6 +375,7 @@
 
             <!-- About us-->
             <RelativeLayout
+                android:id="@+id/rateus"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -378,16 +385,16 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:padding="12dp"
-                    android:src="@drawable/icons8_night_mode_67"
+                    android:src="@drawable/star_circle_fill_svgrepo_com"
 
-                    />
+                    app:tint="@color/profileIcons" />
 
                 <TextView
                     android:layout_marginStart="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="About Us"
+                    android:text="Rate Us"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/aboutusIcon"
@@ -404,40 +411,6 @@
             </RelativeLayout>
 
             <!--  FAQs-->
-            <RelativeLayout
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/faqIcon"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:padding="12dp"
-                    android:src="@drawable/icons8_night_mode_67"
-
-                    />
-
-                <TextView
-                    android:layout_marginStart="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="FAQs"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/faqIcon"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/right_arrow_icon"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    />
-
-            </RelativeLayout>
 
         </LinearLayout>
 
@@ -454,6 +427,7 @@
 
                 <!--  Log Out-->
                 <RelativeLayout
+                    android:id="@+id/logout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -462,9 +436,9 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:padding="12dp"
-                        android:src="@drawable/roung_back_security"
+                        android:src="@drawable/log_out_symbol_svgrepo_com"
 
-                        />
+                        app:tint="@color/profileIcons" />
 
                     <TextView
                         android:layout_marginStart="20dp"
