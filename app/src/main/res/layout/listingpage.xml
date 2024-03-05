@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical"
         >
 
@@ -62,7 +63,20 @@
                 app:srcCompat="@drawable/filter_svgrepo_com"
                 app:tint="#FFFFFF" />
 
+
+
         </FrameLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:background="@drawable/round_back_secondary_100"
+            android:text="+ Add a PG"
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
 
 
     <androidx.recyclerview.widget.RecyclerView

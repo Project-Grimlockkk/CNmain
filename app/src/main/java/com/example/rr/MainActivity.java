@@ -53,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
                     loadFragment(new SavedFragment(),false);
                 }
 
-                else if (itemId == R.id.navSettings) {
-                    loadFragment(new SettingsFragment(),false);
-                }
                 return true;
             }
         });
