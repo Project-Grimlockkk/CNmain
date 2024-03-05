@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,39 +10,43 @@
     tools:context="com.example.rr.fragment_profile2">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/mainTheme">
 
-        <ImageView
-            android:layout_width="50dp"
-            android:layout_height="90dp"
-            android:padding="14dp"
-            android:src="@drawable/back_btn"
-            app:tint="@color/white" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/poppins_bold"
-            android:text="Profile"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
+
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/mainTheme">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="90dp"
+                    android:padding="14dp"
+                    android:src="@drawable/back_btn"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="100dp"
@@ -190,14 +194,6 @@
                         android:layout_toEndOf="@+id/privateAccountIcon"
                         />
 
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp"
-                        android:theme="@style/privateAccountSwitch"/>
-
                 </RelativeLayout>
 
 
@@ -215,9 +211,14 @@
 
 <!--            Security-->
             <RelativeLayout
-                android:id="@+id/termss"
+
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:id="@+id/termss"
+                android:layout_height="wrap_content"
+                android:background="@drawable/click_effect"
+                android:clickable="true"
+                android:focusable="true"
+                >
 
                 <ImageView
                     android:id="@+id/securityIcon"
@@ -474,4 +475,4 @@
     </ScrollView>
 
 
-</LinearLayout>
+</FrameLayout>

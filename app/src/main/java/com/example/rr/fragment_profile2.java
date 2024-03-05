@@ -9,6 +9,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.learn.R;
 
@@ -55,10 +57,10 @@ public class fragment_profile2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile2, container, false);
 
-        View aboutView = view.findViewById(R.id.aboutapp);
-        View termsView = view.findViewById(R.id.termss);
-        View privacyView = view.findViewById(R.id.privacy);
-        View shareView = view.findViewById(R.id.share);
+        RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
+        RelativeLayout termsView = view.findViewById(R.id.termss);
+        RelativeLayout privacyView = view.findViewById(R.id.privacy);
+        RelativeLayout shareView = view.findViewById(R.id.share);
 
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +77,16 @@ public class fragment_profile2 extends Fragment {
         termsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                view.setScaleX(0.9f);
+                view.setScaleY(0.9f);
+                view.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.setScaleX(1.0f);
+                        view.setScaleY(1.0f);
+                    }
+                }, 100);
 
                 Fragment fragment= new termsPage();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
