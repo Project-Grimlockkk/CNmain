@@ -1,0 +1,16 @@
+<resources>
+    <array name="tenant_types">
+        <item>Flat</item>
+        <item>Room</item>
+        <item>Private Hostel</item>
+
+    </array>
+
+    <array name="bed_options">
+        <item>1 Bed</item>
+        <item>2 Beds</item>
+        <item>3 Beds</item>
+        <item>4 Beds</item>
+
+    </array>
+</resources>

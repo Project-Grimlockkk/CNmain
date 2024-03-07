@@ -29,5 +29,7 @@
     <color name="notification">#1382C3</color>
     <color name="private_account">#E6A326</color>
     <color name="security">#D95F69</color>
+    <color name="radioButton1">#FFFF</color>
+    <color name="radioButton1Color">#fff</color>
 
 </resources>
