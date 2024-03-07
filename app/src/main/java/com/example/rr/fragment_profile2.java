@@ -17,8 +17,12 @@ import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.learn.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.ktx.Firebase;
 
 public class fragment_profile2 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -30,6 +34,8 @@ public class fragment_profile2 extends Fragment {
     SharedPreferences.Editor editor;
     private String mParam1;
     private String mParam2;
+    private FirebaseFirestore dp;
+    private FirebaseAuth mAuth;
 
     public fragment_profile2() {
         // Required empty public constructor
@@ -50,6 +56,7 @@ public class fragment_profile2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -64,7 +71,10 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout shareView = view.findViewById(R.id.share);
         RelativeLayout changePass = view.findViewById(R.id.changePass);
         RelativeLayout feedback = view.findViewById(R.id.feedback);
+        RelativeLayout logout = view.findViewById(R.id.logout);
 
+        dp = FirebaseFirestore.getInstance();
+        mAuth= FirebaseAuth.getInstance();
 
         nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
 
@@ -194,6 +204,16 @@ public class fragment_profile2 extends Fragment {
                 startActivity(Intent.createChooser(intent, "Share using: "));
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent intent= new Intent(requireContext(),LoginScreen.class);
+                startActivity(intent);
+                requireActivity().finish();
+                Toast.makeText(requireContext(), "Successfully logout", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 
@@ -206,4 +226,5 @@ public class fragment_profile2 extends Fragment {
         }
         transaction.commit();
     }
+
 }
