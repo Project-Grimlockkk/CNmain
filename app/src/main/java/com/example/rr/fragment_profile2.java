@@ -66,6 +66,7 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
         RelativeLayout shareView = view.findViewById(R.id.share);
+        RelativeLayout feedback = view.findViewById(R.id.feedback);
 
         nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
 
@@ -125,6 +126,28 @@ public class fragment_profile2 extends Fragment {
                 }, 100);
 
                 Fragment fragment= new termsPage();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                view.setScaleX(0.9f);
+                view.setScaleY(0.9f);
+                view.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.setScaleX(1.0f);
+                        view.setScaleY(1.0f);
+                    }
+                }, 100);
+
+                Fragment fragment= new FeedbackFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.profilePage, fragment);
                 transaction.addToBackStack(null);
