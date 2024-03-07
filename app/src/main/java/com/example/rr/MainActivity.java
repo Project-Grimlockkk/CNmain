@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
     }
 
     private void loadFragment(Fragment fragment, boolean isAppInitiasled){

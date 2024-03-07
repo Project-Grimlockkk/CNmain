@@ -1,15 +1,20 @@
 package com.example.rr;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.learn.R;
@@ -20,13 +25,13 @@ import com.example.learn.R;
  * create an instance of this fragment.
  */
 public class fragment_profile2 extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
+    Switch nightModeSwitch;
+    boolean nightModeEnabled;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     private String mParam1;
     private String mParam2;
 
@@ -61,6 +66,37 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
         RelativeLayout shareView = view.findViewById(R.id.share);
+
+        nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
+
+        // Load night mode state from SharedPreferences
+        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", false);
+        nightModeSwitch.setChecked(nightModeEnabled);
+
+        nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // Save night mode state to SharedPreferences
+                editor = sharedPreferences.edit();
+                editor.putBoolean("nightModeEnabled", isChecked);
+                editor.apply();
+
+                if (isChecked) {
+                    // Enable night mode
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                } else {
+                    // Disable night mode
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                }
+
+                Fragment currentFragment = getParentFragmentManager().findFragmentById(R.id.profilePage);
+                if (currentFragment instanceof fragment_profile2) {
+                    // If the current fragment is the profile fragment, reload it
+                    loadFragment(new fragment_profile2(), false);
+                }
+            }
+        });
 
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,5 +157,15 @@ public class fragment_profile2 extends Fragment {
             }
         });
         return view;
+    }
+
+    private void loadFragment(Fragment fragment, boolean isAppInitialized) {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        if (isAppInitialized) {
+            transaction.replace(R.id.profilePage, fragment);
+        } else {
+            transaction.replace(R.id.profilePage, fragment);
+        }
+        transaction.commit();
     }
 }
