@@ -24,32 +24,22 @@ public class listingpage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listingpage);
 
-        AppCompatButton addingPGButton = findViewById(R.id.addingPG);
+        Button addingPGButton = findViewById(R.id.addingPG);
+
         addingPGButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                // Load InputActivity fragment
-                loadInputActivityFragment();
+            public void onClick(View view) {
+                loadFragment(new aboutPage(), true);
             }
         });
     }
-    private void loadInputActivityFragment() {
-        // Create an instance of the InputActivity fragment
-        Fragment inputActivityFragment = new InputActivity();
 
-        // Get the FragmentManager
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        // Begin a FragmentTransaction
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        // Replace the fragment_container with the inputActivityFragment
-        fragmentTransaction.replace(R.id.homepage, inputActivityFragment);
-
-        // Add the transaction to the back stack
-        fragmentTransaction.addToBackStack(null);
-
-        // Commit the transaction
-        fragmentTransaction.commit();
+    private void loadFragment(Fragment fragment, boolean addToBackStack) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.homepage, fragment);
+        if (addToBackStack) {
+            transaction.addToBackStack(null);
+        }
+        transaction.commit();
     }
 }

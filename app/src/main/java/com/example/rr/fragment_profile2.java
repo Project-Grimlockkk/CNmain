@@ -146,6 +146,28 @@ public class fragment_profile2 extends Fragment {
             }
         });
 
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                view.setScaleX(0.9f);
+                view.setScaleY(0.9f);
+                view.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.setScaleX(1.0f);
+                        view.setScaleY(1.0f);
+                    }
+                }, 100);
+
+                Fragment fragment= new FeedbackFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
         privacyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

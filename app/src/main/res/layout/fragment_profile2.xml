@@ -74,7 +74,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="48dp"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
                 android:layout_marginTop="20sp"
@@ -121,6 +121,7 @@
 
                     <Switch
                         android:id="@+id/nightModeSwitch1"
+                        android:height="48dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -163,6 +164,7 @@
 
                     <Switch
                         android:layout_width="wrap_content"
+                        android:height="48dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
@@ -212,6 +214,50 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             android:padding="15dp">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:id="@+id/feedback"
+                android:layout_height="wrap_content"
+                android:background="@drawable/click_effect"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="10dp"
+                >
+
+                <ImageView
+                    android:id="@+id/feedbackicon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:padding="12dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    android:src="@drawable/feedback_positive_svgrepo_com"
+
+                    app:tint="@color/profileIcons" />
+
+                <TextView
+                    android:id="@+id/feedbacktext"
+                    android:layout_marginStart="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="Feedback &amp; Support"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:layout_toEndOf="@+id/feedbackicon"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/right_arrow_icon"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    />
+
+            </RelativeLayout>
 
 <!--            Security-->
             <RelativeLayout
