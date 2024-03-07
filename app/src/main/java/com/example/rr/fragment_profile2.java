@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
@@ -66,7 +67,8 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
         RelativeLayout shareView = view.findViewById(R.id.share);
-        RelativeLayout feedback = view.findViewById(R.id.feedback);
+        RelativeLayout changePass = view.findViewById(R.id.changePass);
+
 
         nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
 
@@ -163,6 +165,27 @@ public class fragment_profile2 extends Fragment {
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.profilePage, fragment);
                 transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+        changePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment_forgetPass forgetPassFragment = new fragment_forgetPass();
+
+                // Get the FragmentManager
+                FragmentManager fragmentManager = getParentFragmentManager();
+
+                // Begin a FragmentTransaction
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+
+                // Replace the current fragment with fragment_forgetPass
+                transaction.replace(R.id.profilePage, forgetPassFragment);
+
+                // Add the transaction to the back stack
+                transaction.addToBackStack(null);
+
+                // Commit the transaction
                 transaction.commit();
             }
         });
