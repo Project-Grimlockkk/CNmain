@@ -153,7 +153,5 @@ public class fragment_forgetPass extends Fragment {
                 });
     }
 
-
-
 }
 //        return inflater.inflate(R.layout.fragment_forget_pass, container, false);

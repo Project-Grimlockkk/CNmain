@@ -20,11 +20,6 @@ import android.widget.TextView;
 
 import com.example.learn.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link fragment_profile2#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class fragment_profile2 extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -68,6 +63,7 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
         RelativeLayout shareView = view.findViewById(R.id.share);
         RelativeLayout changePass = view.findViewById(R.id.changePass);
+        RelativeLayout feedback = view.findViewById(R.id.feedback);
 
 
         nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
@@ -92,14 +88,10 @@ public class fragment_profile2 extends Fragment {
                     // Disable night mode
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
-
-                Fragment currentFragment = getParentFragmentManager().findFragmentById(R.id.profilePage);
-                if (currentFragment instanceof fragment_profile2) {
-                    // If the current fragment is the profile fragment, reload it
-                    loadFragment(new fragment_profile2(), false);
-                }
             }
         });
+
+
 
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override

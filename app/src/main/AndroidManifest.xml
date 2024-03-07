@@ -30,6 +30,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.example.rr.SignUpPage"
             android:exported="true" />
@@ -38,6 +39,9 @@
             android:exported="true" />
         <activity
             android:name="com.example.rr.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.rr.InputActivity"
             android:exported="true" />
 
         <meta-data

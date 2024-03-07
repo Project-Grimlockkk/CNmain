@@ -8,6 +8,8 @@
     android:gravity="center"
     tools:context="com.example.rr.listingpage">
 
+
+
      <FrameLayout
          android:id="@+id/frame"
          android:layout_width="match_parent"

@@ -1,58 +1,54 @@
 package com.example.rr;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn.R;
 
-public class InputActivity extends Fragment {
+public class InputActivity extends AppCompatActivity {
 
     private EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText;
     private Spinner tenantTypeSpinner, noOfBedsSpinner;
     private RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     private Button submitButton;
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.input_page, container, false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.input_page1);
 
         // Initialize views
-        firstNameEditText = rootView.findViewById(R.id.firstname);
-        lastNameEditText = rootView.findViewById(R.id.lastname);
-        phoneNoEditText = rootView.findViewById(R.id.phoneno);
-        addressEditText = rootView.findViewById(R.id.address);
-        rentInrEditText = rootView.findViewById(R.id.RENTINR);
-        depositInrEditText = rootView.findViewById(R.id.DEPOSITINR);
-        descriptionEditText = rootView.findViewById(R.id.descriptionEditText);
+        firstNameEditText = findViewById(R.id.FirstNameInput);
+        lastNameEditText = findViewById(R.id.LastNameInput);
+        phoneNoEditText = findViewById(R.id.PhoneNoText);
+        addressEditText = findViewById(R.id.AddressInput);
+        rentInrEditText = findViewById(R.id.RentInput);
+        depositInrEditText = findViewById(R.id.RentInput);
+        descriptionEditText = findViewById(R.id.DescriptionInput);
 
-        tenantTypeSpinner = rootView.findViewById(R.id.tenantTypeSpinner);
-        noOfBedsSpinner = rootView.findViewById(R.id.noOfBedsSpinner);
+        tenantTypeSpinner = findViewById(R.id.tenantTypeSpinner);
+        noOfBedsSpinner = findViewById(R.id.noOfBedsSpinner);
 
-        radioButton1 = rootView.findViewById(R.id.radioButton1);
-        radioButton2 = rootView.findViewById(R.id.radioButton2);
-        radioButton3 = rootView.findViewById(R.id.radioButton3);
-        radioButton4 = rootView.findViewById(R.id.radioButton4);
+        radioButton1 = findViewById(R.id.radioButton1);
+        radioButton2 = findViewById(R.id.radioButton2);
+        radioButton3 = findViewById(R.id.radioButton3);
+        radioButton4 = findViewById(R.id.radioButton4);
 
-        submitButton = rootView.findViewById(R.id.submitButton);
+        submitButton = findViewById(R.id.submitButton);
 
         // Set up Spinner adapters
-        ArrayAdapter<CharSequence> tenantTypeAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.tenant_types, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> tenantTypeAdapter = ArrayAdapter.createFromResource(this, R.array.tenant_types, android.R.layout.simple_spinner_item);
         tenantTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tenantTypeSpinner.setAdapter(tenantTypeAdapter);
 
-        ArrayAdapter<CharSequence> bedsAdapter = ArrayAdapter.createFromResource(requireContext(), R.array.bed_options, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> bedsAdapter = ArrayAdapter.createFromResource(this, R.array.bed_options, android.R.layout.simple_spinner_item);
         bedsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         noOfBedsSpinner.setAdapter(bedsAdapter);
 
@@ -64,7 +60,5 @@ public class InputActivity extends Fragment {
                 // Your code here...
             }
         });
-
-        return rootView;
     }
 }
