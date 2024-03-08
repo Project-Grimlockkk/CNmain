@@ -1,10 +1,12 @@
 package com.example.rr;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -100,8 +102,6 @@ public class fragment_profile2 extends Fragment {
                 }
             }
         });
-
-
 
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -207,11 +207,28 @@ public class fragment_profile2 extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mAuth.signOut();
-                Intent intent= new Intent(requireContext(),LoginScreen.class);
-                startActivity(intent);
-                requireActivity().finish();
-                Toast.makeText(requireContext(), "Successfully logout", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle("Log Out");
+                builder.setMessage("Are you sure you want to logout?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        mAuth.signOut();
+                        Intent intent = new Intent(requireContext(), LoginScreen.class);
+                        startActivity(intent);
+                        requireActivity().finish();
+                        Toast.makeText(requireContext(), "Successfully logged out", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing, simply dismiss the dialog
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
         return view;

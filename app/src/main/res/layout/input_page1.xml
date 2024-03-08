@@ -33,7 +33,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Input Page"
+                    android:text="+ Add a PG"
                     android:fontFamily="@font/poppins_semibold"
                     android:textSize="20dp"
                     android:textStyle="bold"
@@ -407,6 +407,20 @@
                         android:singleLine="false"
                         android:textColor="@color/black" />
 
+                    <Button
+                        android:id="@+id/submitButton"
+                        android:layout_width="200dp"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/secondCardView"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="20sp"
+                        android:layout_marginTop="1dp"
+                        android:text="Submit"
+                        app:backgroundTint="#ff5757"
+                        android:textColor="@android:color/white" />
+
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
@@ -414,16 +428,7 @@
 
         <!-- Your XML layout with corrections -->
 
-        <Button
-            android:id="@+id/submitButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/secondCardView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
-            android:text="Submit"
-            app:backgroundTint="#ff5757"
-            android:textColor="@android:color/white" />
+
 
     </RelativeLayout>
 
