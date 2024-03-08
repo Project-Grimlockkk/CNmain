@@ -1,13 +1,18 @@
 package com.example.rr;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn.R;
@@ -18,6 +23,9 @@ public class InputActivity extends AppCompatActivity {
     private Spinner tenantTypeSpinner, noOfBedsSpinner;
     private RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     private Button submitButton;
+
+    private final int GALLARY_REQ_CODE= 1000;
+    ImageView imgGallary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +40,8 @@ public class InputActivity extends AppCompatActivity {
         rentInrEditText = findViewById(R.id.RentInput);
         depositInrEditText = findViewById(R.id.RentInput);
         descriptionEditText = findViewById(R.id.DescriptionInput);
-
+        imgGallary= findViewById(R.id.PGphotos);
+        Button AddPG= findViewById(R.id.AddImagebutton);
         tenantTypeSpinner = findViewById(R.id.tenantTypeSpinner);
         noOfBedsSpinner = findViewById(R.id.noOfBedsSpinner);
 
@@ -53,6 +62,16 @@ public class InputActivity extends AppCompatActivity {
         noOfBedsSpinner.setAdapter(bedsAdapter);
 
         // Set up Submit button click listener
+
+        AddPG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent iGallary = new Intent(Intent.ACTION_PICK);
+                iGallary.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(iGallary,GALLARY_REQ_CODE);
+            }
+        });
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,5 +79,16 @@ public class InputActivity extends AppCompatActivity {
                 // Your code here...
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == RESULT_OK){
+            if(requestCode == GALLARY_REQ_CODE){
+                imgGallary.setImageURI(data.getData());
+            }
+        }
     }
 }
