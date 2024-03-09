@@ -20,11 +20,18 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Firebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -39,11 +46,13 @@ public class InputActivity extends AppCompatActivity {
 
     private final int GALLARY_REQ_CODE= 1000;
     ImageView imgGallary;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_page1);
+        databaseReference = FirebaseDatabase.getInstance().getReference("properties");
 
         // Initialize views
         firstNameEditText = findViewById(R.id.FirstNameInput);
@@ -77,6 +86,44 @@ public class InputActivity extends AppCompatActivity {
         noOfBedsSpinner.setAdapter(bedsAdapter);
 
         // Set up Submit button click listener
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle the form submission here
+                // Your code here...
+                Property property = new Property();
+                property.setFirstName(firstNameEditText.getText().toString());
+                property.setLastName(lastNameEditText.getText().toString());
+                property.setPhoneNo(phoneNoEditText.getText().toString());
+                property.setAddress(addressEditText.getText().toString());
+                property.setRentInr(Integer.parseInt(rentInrEditText.getText().toString()));
+                property.setDepositInr(Integer.parseInt(depositInrEditText.getText().toString()));
+                // Set other properties as needed
+
+                // Get Firestore instance
+//                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                String propertyId = databaseReference.push().getKey();
+
+                // Add a new document with a generated ID
+                databaseReference.child(propertyId).setValue(property)
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                // Data added successfully
+                                Toast.makeText(InputActivity.this, "Property added successfully!", Toast.LENGTH_SHORT).show();
+                                clearInputFields();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                // Failed to add data
+                                Toast.makeText(InputActivity.this, "Failed to add property. Please try again.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+            }
+        });
 
         AddPG.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,6 +166,16 @@ public class InputActivity extends AppCompatActivity {
 //                saveData();
 //            }
 //        });
+    }
+
+    private void clearInputFields() {
+        firstNameEditText.setText("");
+        lastNameEditText.setText("");
+        phoneNoEditText.setText("");
+        addressEditText.setText("");
+        rentInrEditText.setText("");
+        depositInrEditText.setText("");
+        // Clear other input fields as needed
     }
 //    public void saveData(){
 //
