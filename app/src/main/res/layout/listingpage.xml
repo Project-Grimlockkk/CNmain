@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/listingpagee"
+    style="@style/SCREEN"
     android:gravity="center"
     tools:context="com.example.rr.listingpage">
 

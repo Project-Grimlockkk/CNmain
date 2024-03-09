@@ -5,10 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    style="@style/SCREEN"
     android:gravity="center"
     tools:context="com.example.rr.listingpage">
-
-
 
      <FrameLayout
          android:id="@+id/frame"

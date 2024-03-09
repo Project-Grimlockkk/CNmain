@@ -1,7 +1,10 @@
 package com.example.rr;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -11,18 +14,28 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learn.R;
+import com.google.firebase.Firebase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class InputActivity extends AppCompatActivity {
 
-    private EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText;
-    private Spinner tenantTypeSpinner, noOfBedsSpinner;
-    private RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
-    private Button submitButton;
+    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText;
+    Spinner tenantTypeSpinner, noOfBedsSpinner;
+    RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
+    Button submitButton, addPgPhotos;
+
+    Uri uri;
 
     private final int GALLARY_REQ_CODE= 1000;
     ImageView imgGallary;
@@ -52,6 +65,8 @@ public class InputActivity extends AppCompatActivity {
 
         submitButton = findViewById(R.id.submitButton);
 
+
+
         // Set up Spinner adapters
         ArrayAdapter<CharSequence> tenantTypeAdapter = ArrayAdapter.createFromResource(this, R.array.tenant_types, android.R.layout.simple_spinner_item);
         tenantTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -72,23 +87,46 @@ public class InputActivity extends AppCompatActivity {
                 startActivityForResult(iGallary,GALLARY_REQ_CODE);
             }
         });
-        submitButton.setOnClickListener(new View.OnClickListener() {
+
+        ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if(result.getResultCode() == Activity.RESULT_OK){
+                            Intent data = result.getData();
+                            uri = data.getData();
+                            imgGallary.setImageURI(uri);
+                        }
+                        else{
+                            Toast.makeText(InputActivity.this, "No Image Selected", Toast.LENGTH_SHORT);
+                        }
+                    }
+                }
+        );
+
+        imgGallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Handle the form submission here
-                // Your code here...
+                Intent photoPicker = new Intent(Intent.ACTION_PICK);
+                photoPicker.setType("image/*");
+                activityResultLauncher.launch(photoPicker);
             }
         });
+//        submitButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                saveData();
+//            }
+//        });
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if(resultCode == RESULT_OK){
-            if(requestCode == GALLARY_REQ_CODE){
-                imgGallary.setImageURI(data.getData());
-            }
-        }
-    }
+//    public void saveData(){
+//
+//        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("Android Images")
+//                .child(uri.getLastPathSegment());
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(InputActivity.this);
+//        builder.setCancelable(false);
+//        builder.setView(R.layout.pro)
+//    }
 }

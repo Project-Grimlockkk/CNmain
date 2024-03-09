@@ -6,7 +6,7 @@
     android:id="@+id/aboutFrame"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    style="@style/SCREEN"
     tools:context="com.example.rr.termsPage"
     >
 

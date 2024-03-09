@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    style="@style/SCREEN"
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/profilePage"
-        android:background="@color/white"
+        style="@style/SCREEN"
         android:orientation="vertical"
         tools:context="com.example.rr.fragment_profile2">
 
@@ -177,7 +178,7 @@
                         android:src="@drawable/heart" />
 
                     <ImageView
-                        android:id="@+id/nightModeIcon"
+                        android:id="@+id/WhatsappIcon"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_marginLeft="35dp"

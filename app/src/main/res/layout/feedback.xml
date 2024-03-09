@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dfdfdf">
+    style="@style/SCREEN"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -18,6 +19,7 @@
             android:contentDescription="Back Button"
             android:paddingStart="4dp"
             android:src="@drawable/back_btn"
+
             tools:ignore="HardcodedText,RtlSymmetry" />
 
         <TextView
@@ -25,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_semibold"
             android:text="Feedback and Support"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
@@ -35,6 +37,7 @@
     <!-- TextView below the Toolbar -->
     <TextView
         android:id="@+id/belowToolbarText"
+        android:fontFamily="@font/poppins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/toolbar"
@@ -42,7 +45,7 @@
         android:text="You are:"
         android:layout_marginLeft="10dp"
         android:textSize="16sp"
-        android:textColor="#000000"/>
+        style="@style/TEXT"/>
 
     <!-- RadioButtons for Student and Owner -->
     <RadioGroup
@@ -58,6 +61,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PG Owner"
+            style="@style/TEXT"
+            android:fontFamily="@font/poppins"
             android:layout_marginLeft="30dp"
             />
 
@@ -65,6 +70,7 @@
             android:id="@+id/radioStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="Student"
             android:layout_marginLeft="30dp"/>
     </RadioGroup>
@@ -78,11 +84,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/roleRadioGroup"
+        android:fontFamily="@font/poppins"
         android:layout_marginTop="16dp"
         android:text="Problems Faced:"
         android:layout_marginLeft="10dp"
         android:textSize="16sp"
-        android:textColor="#000000"/>
+        style="@style/TEXT"/>
 
     <LinearLayout
         android:id="@+id/problemsLayout"
@@ -103,10 +110,11 @@
             android:layout_marginEnd="16dp"
             android:background="@drawable/rounded_edittext_bg"
             android:hint="Describe the issue..."
+            android:fontFamily="@font/poppins"
             android:padding="10dp"
             android:inputType="textMultiLine"
             android:minLines="3"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
         <!-- Problem 1 -->
@@ -129,8 +137,9 @@
                 android:layout_alignBaseline="@id/problem1Radio"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins"
                 android:text="Data Issues"
-                android:textColor="#000000"
+                style="@style/TEXT"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -153,9 +162,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/problem2Radio"
                 android:layout_marginLeft="20dp"
+                android:fontFamily="@font/poppins"
                 android:layout_marginTop="24dp"
-                android:text="Data Issues"
-                android:textColor="#000000"
+                android:text="App Crashing"
+                style="@style/TEXT"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -180,7 +190,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
                 android:text="Content Issues"
-                android:textColor="#000000"
+                android:fontFamily="@font/poppins"
+                style="@style/TEXT"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -205,7 +216,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
                 android:text="Data Issues"
-                android:textColor="#000000"
+                style="@style/TEXT"
+                android:fontFamily="@font/poppins"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -230,7 +242,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="24dp"
                 android:text="Account Issues"
-                android:textColor="#000000"
+                style="@style/TEXT"
+                android:fontFamily="@font/poppins"
                 android:textSize="16sp" />
         </RelativeLayout>
 
@@ -244,6 +257,7 @@
            android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:text="Submit"
+            android:fontFamily="@font/poppins_semibold"
             android:textSize="18sp"
             android:backgroundTint="#ff5757"
             android:textColor="#FFFFFF"/>

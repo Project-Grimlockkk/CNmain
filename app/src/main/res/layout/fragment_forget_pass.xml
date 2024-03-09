@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white"
+    style="@style/SCREEN"
     android:scrollbars="none"
     tools:context="com.example.rr.fragment_forgetPass">
 
@@ -38,8 +38,8 @@
             android:layout_marginTop="18dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="Change Password?"
+            style="@style/TEXT"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -50,7 +50,7 @@
             android:fontFamily="@font/poppins"
             android:text="Provide your account's email for which you want to reset your password!"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            style="@style/TEXTgrey"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -61,8 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:hint="Email"
-        android:textColorHint="@color/black"
-        app:boxStrokeColor="@color/black">
+        android:textColorHint="@color/grey"
+        app:boxStrokeColor="@color/greyBar">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtForgotPasswordEmail"
@@ -71,7 +71,7 @@
             android:fontFamily="@font/poppins"
             android:inputType="textEmailAddress"
             android:singleLine="true"
-            android:textColor="@color/black" />
+            android:textColor="@color/grey" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -151,7 +151,7 @@ public class fragment_profile2 extends Fragment {
                     }
                 }, 100);
 
-                Fragment fragment= new FeedbackFragment();
+                Fragment fragment= new pg_info();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.profilePage, fragment);
                 transaction.addToBackStack(null);

@@ -6,7 +6,7 @@
     android:id="@+id/aboutFrame"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    style="@style/SCREEN"
     tools:context="com.example.rr.aboutPage"
     >
 
@@ -69,7 +69,7 @@
                 android:gravity="fill_horizontal"
                 android:fontFamily="@font/poppins"
                 android:text="This App is developed by 2nd year Information Technology of Walchand College of Engineering, Sangli."
-                android:textColor="@color/greyBar"
+                style="@style/TEXTgrey"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -81,7 +81,7 @@
             android:fontFamily="@font/poppins"
             android:lineSpacingExtra="10dp"
             android:text="App Name:  Room Radar\nVersion Number:  1.0\n\nDevelopers:\n   Manali Khedekar,\n   Aditya Khandare,\n   Vidyadhar Dinde\n\nRelease Date:\nContact Information: "
-            android:textColor="@color/greyBar"
+            style="@style/TEXTgrey"
             android:textSize="20sp"
             android:textStyle="bold" />
 

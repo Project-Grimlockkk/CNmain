@@ -13,6 +13,11 @@
         <item name="android:textColor">#FFF</item>
     </style>
 
+    <style name="TEXTgrey">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+
     <style name="BUTTON">
         <item name="android:background">#FF5757</item>
         <item name="android:textColor">#FFF</item>
