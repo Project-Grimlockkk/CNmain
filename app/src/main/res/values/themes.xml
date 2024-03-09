@@ -45,5 +45,14 @@
         <item name="android:textColor">#FFF</item>
     </style>
 
+     <style name="Theme.RateUs" parent="Base.Theme.RateUs" />
+
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar">
+
+
+        <item name="colorControlNormal">#4D0000</item>
+        <item name="colorControlActivated">@color/dialog_color_1</item>
+    </style>
+
 
 </resources>
