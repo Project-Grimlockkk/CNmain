@@ -39,7 +39,16 @@ public class pg_info extends Fragment {
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openWhatsAppChat(); // Call the method to open WhatsApp chat
+                String phoneNumber = "+91 9657557390";
+
+                if(isWhatsappInstalled()){
+
+                    Intent i= new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone="+phoneNumber));
+                    startActivity(i);
+                }
+                else {
+                    Toast.makeText(requireContext(), "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -49,27 +58,15 @@ public class pg_info extends Fragment {
     private boolean isWhatsappInstalled(){
 
         PackageManager packageManager = getActivity().getPackageManager();
-        boolean
-    }
-
-    public void openWhatsAppChat() {
-        String phoneNumber = "9657557390"; // Replace this with the desired phone number
-
-        // Create an Intent with the ACTION_VIEW action
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-
-        // Set the WhatsApp URL with the phone number
-        intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + "+91" +phoneNumber));
-
-        // Verify that WhatsApp is installed on the device before starting the activity
-        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
-            startActivity(intent);
-        } else {
-            // WhatsApp is not installed, display a message or redirect to Play Store
-            Toast.makeText(requireContext(), "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show();
-            // Alternatively, you can redirect the user to the WhatsApp page on Play Store:
-            // Intent playStoreIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.whatsapp"));
-            // startActivity(playStoreIntent);
+        boolean whatsappInstalled;
+        
+        try {
+            packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+            whatsappInstalled = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            whatsappInstalled = false;
         }
+
+        return whatsappInstalled;
     }
 }

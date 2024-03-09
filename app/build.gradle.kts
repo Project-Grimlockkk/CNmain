@@ -45,7 +45,6 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    implementation("com.hbb20:ccp:2.3.7")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
 //    //Firebase Realtime Database

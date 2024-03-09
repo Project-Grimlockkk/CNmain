@@ -45,8 +45,6 @@
         <item name="android:textColor">#FFF</item>
     </style>
 
-     <style name="Theme.RateUs" parent="Base.Theme.RateUs" />
-
     <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar">
 
 
