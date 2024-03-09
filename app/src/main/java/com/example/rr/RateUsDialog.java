@@ -1,4 +1,4 @@
-package com.example.rateus;
+package com.example.rr;
 
 import android.app.Dialog;
 import android.content.Context;

@@ -74,6 +74,7 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout changePass = view.findViewById(R.id.changePass);
         RelativeLayout feedback = view.findViewById(R.id.feedback);
         RelativeLayout logout = view.findViewById(R.id.logout);
+        RelativeLayout rateus = view.findViewById(R.id.rateus);
 
         dp = FirebaseFirestore.getInstance();
         mAuth= FirebaseAuth.getInstance();
@@ -170,6 +171,18 @@ public class fragment_profile2 extends Fragment {
                 transaction.commit();
             }
         });
+
+        rateus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment= new RateUsFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -192,6 +205,7 @@ public class fragment_profile2 extends Fragment {
             }
         });
 
+
         shareView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -204,6 +218,7 @@ public class fragment_profile2 extends Fragment {
                 startActivity(Intent.createChooser(intent, "Share using: "));
             }
         });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
