@@ -23,50 +23,44 @@ public class pg_info extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.pg_info, container, false);
 
-        // Initialize Backbtn
-//        ImageView Backbtn = view.findViewById(R.id.backTerms);
-        ImageView whatsappIcon = view.findViewById(R.id.WhatsappIcon); // Assuming whatsappIcon is the ID of your button
-
-//        Backbtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Handle click event for the back button
-//                // For example, navigate back to the previous fragment or activity
-//                requireActivity().onBackPressed(); // This will navigate back to the previous fragment or activity
-//            }
-//        });
+        ImageView whatsappIcon = view.findViewById(R.id.WhatsappIcon);
 
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "+91 9657557390";
+                String phoneNumber = "9191680 09484";
 
-                if(isWhatsappInstalled()){
-
-                    Intent i= new Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone="+phoneNumber));
-                    startActivity(i);
-                }
-                else {
-                    Toast.makeText(requireContext(), "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show();
-                }
+//                if(isWhatsappInstalled()){
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse("https://api.whatsapp.com/send?phone="+phoneNumber));
+                    startActivity(intent);
+//                }
+//                else {
+//                    Toast.makeText(requireContext(), "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
         return view;
     }
 
-    private boolean isWhatsappInstalled(){
+    private boolean isWhatsappInstalled() {
+        PackageManager packageManager = null;
+        if (getActivity() != null) {
+            packageManager = getActivity().getPackageManager();
+        }
+        boolean whatsappInstalled = false;
 
-        PackageManager packageManager = getActivity().getPackageManager();
-        boolean whatsappInstalled;
-        
-        try {
-            packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
-            whatsappInstalled = true;
-        } catch (PackageManager.NameNotFoundException e) {
-            whatsappInstalled = false;
+        if (packageManager != null) {
+            try {
+                packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
+                whatsappInstalled = true;
+            } catch (PackageManager.NameNotFoundException e) {
+                whatsappInstalled = false;
+            }
         }
 
         return whatsappInstalled;
     }
+
 }
