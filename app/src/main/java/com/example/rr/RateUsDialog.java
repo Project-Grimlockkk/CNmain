@@ -12,6 +12,8 @@ import android.widget.RatingBar;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.learn.R;
+
 public class RateUsDialog extends Dialog {
 
     private float userRate = 0;
