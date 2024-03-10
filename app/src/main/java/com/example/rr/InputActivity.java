@@ -54,6 +54,7 @@ public class InputActivity extends AppCompatActivity {
         setContentView(R.layout.input_page1);
         databaseReference = FirebaseDatabase.getInstance().getReference("properties");
 
+
         // Initialize views
         firstNameEditText = findViewById(R.id.FirstNameInput);
         lastNameEditText = findViewById(R.id.LastNameInput);
@@ -74,9 +75,6 @@ public class InputActivity extends AppCompatActivity {
 
         submitButton = findViewById(R.id.submitButton);
 
-
-
-        // Set up Spinner adapters
         ArrayAdapter<CharSequence> tenantTypeAdapter = ArrayAdapter.createFromResource(this, R.array.tenant_types, android.R.layout.simple_spinner_item);
         tenantTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         tenantTypeSpinner.setAdapter(tenantTypeAdapter);

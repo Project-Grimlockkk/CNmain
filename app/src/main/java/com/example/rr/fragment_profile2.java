@@ -68,6 +68,7 @@ public class fragment_profile2 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile2, container, false);
 
 
+
         RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
@@ -121,16 +122,6 @@ public class fragment_profile2 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                view.setScaleX(0.9f);
-                view.setScaleY(0.9f);
-                view.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.setScaleX(1.0f);
-                        view.setScaleY(1.0f);
-                    }
-                }, 100);
-
                 Fragment fragment= new termsPage();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.profilePage, fragment);
@@ -142,16 +133,6 @@ public class fragment_profile2 extends Fragment {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                view.setScaleX(0.9f);
-                view.setScaleY(0.9f);
-                view.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.setScaleX(1.0f);
-                        view.setScaleY(1.0f);
-                    }
-                }, 100);
 
                 Fragment fragment= new pg_info();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();

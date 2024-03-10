@@ -287,7 +287,6 @@
                     android:layout_height="60dp"
                     android:padding="12dp"
                     android:src="@drawable/credit_card_contract_round_svgrepo_com"
-
                     app:tint="@color/profileIcons" />
 
                 <TextView
@@ -313,6 +312,8 @@
 
             </RelativeLayout>
 
+
+
 <!--            text size-->
             <RelativeLayout
                 android:id="@+id/privacy"
@@ -337,7 +338,6 @@
                     android:layout_centerVertical="true"
                     android:text="Privacy Policy"
                     android:fontFamily="@font/poppins"
-
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/textSizeIcon"

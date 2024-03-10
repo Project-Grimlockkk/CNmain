@@ -7,8 +7,7 @@
     android:orientation="vertical"
     android:id="@+id/listingpagee"
     style="@style/SCREEN"
-    android:gravity="center"
-    tools:context="com.example.rr.listingpage">
+    android:gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,36 +15,21 @@
         android:background="#FFBABA"
         android:orientation="vertical"
         >
-
-        <!--     Red bar above-->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <!--        red bg-->
             <View
                 android:id="@+id/your_view"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:background="#FF5757" />
 
-            <!--        settings text-->
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="22dp"
-                android:layout_height="19dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="25dp"
-                android:scaleX="1.8"
-                android:scaleY="1.8"
-                app:srcCompat="@drawable/menu"
-                app:tint="#FFFFFF" />
-
             <EditText
-                android:layout_width="250dp"
-                android:layout_height="100px"
-                android:layout_gravity="center"
+                android:layout_width="280dp"
+                android:layout_marginLeft="30dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical"
                 android:paddingLeft="30dp"
                 android:hint=" Search location"
                 android:textColor="@color/white"
@@ -55,7 +39,7 @@
                 ></EditText>
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/filterr"
                 android:layout_width="22dp"
                 android:layout_height="19dp"
                 android:layout_gravity="end|center"
@@ -65,14 +49,12 @@
                 app:srcCompat="@drawable/filter_svgrepo_com"
                 app:tint="#FFFFFF" />
 
-
-
         </FrameLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/addingPG"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins_semibold"
@@ -86,12 +68,6 @@
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent">-->
-
-<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
 
     </LinearLayout>

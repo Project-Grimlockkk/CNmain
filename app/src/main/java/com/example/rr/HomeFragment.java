@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.learn.R;
 
@@ -24,11 +25,21 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.listingpage, container, false);
+        View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
         Button addingPGButton = rootView.findViewById(R.id.addingPG);
+        ImageView filterbutton = rootView.findViewById(R.id.filterr);
 
         addingPGButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Start the InputActivity
+                Intent intent = new Intent(getActivity(), InputActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        filterbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Start the InputActivity
