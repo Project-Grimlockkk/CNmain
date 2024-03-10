@@ -24,11 +24,12 @@ public class pg_info extends Fragment {
         View view = inflater.inflate(R.layout.pg_info, container, false);
 
         ImageView whatsappIcon = view.findViewById(R.id.WhatsappIcon);
+        ImageView callingIcon = view.findViewById(R.id.calling);
 
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "9191680 09484";
+                String phoneNumber = "91680 09484";
 
 //                if(isWhatsappInstalled()){
                     Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -40,6 +41,18 @@ public class pg_info extends Fragment {
 //                }
             }
         });
+
+        callingIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String phoneNumber = "919168009484";
+
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber));
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }

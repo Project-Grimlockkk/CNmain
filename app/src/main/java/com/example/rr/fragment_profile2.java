@@ -67,6 +67,7 @@ public class fragment_profile2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile2, container, false);
 
+
         RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
@@ -83,7 +84,7 @@ public class fragment_profile2 extends Fragment {
 
         // Load night mode state from SharedPreferences
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", false);
+        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", true);
         nightModeSwitch.setChecked(nightModeEnabled);
 
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

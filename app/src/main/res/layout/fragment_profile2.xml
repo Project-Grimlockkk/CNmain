@@ -59,6 +59,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:text="Aditya Khandare"
+                android:fontFamily="@font/poppins"
                 style="@style/TEXT"
                 android:textSize="22sp"
                 android:textStyle="bold"
@@ -68,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:fontFamily="@font/poppins"
                 android:text="+91 9168009484"
                 android:textSize="12sp"
                 style="@style/TEXT"/>
@@ -78,8 +80,9 @@
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
                 android:layout_marginTop="20sp"
+                android:fontFamily="@font/poppins_semibold"
                 android:layout_gravity="center"
-                android:background="@drawable/round_back_secondary_100"
+                android:background="@drawable/click_effect"
                 android:text="Edit Profile"
                 android:textAllCaps="false"
                 android:textColor="@color/white"/>
@@ -96,7 +99,9 @@
 
 <!--                dark mode -->
                 <RelativeLayout
+                    android:id="@+id/nightmodelayout"
                     android:layout_width="match_parent"
+                    android:background="@drawable/click_effect"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -114,6 +119,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:text="Night mode"
+                        android:fontFamily="@font/poppins"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         android:layout_toEndOf="@+id/nightModeIcon"
@@ -138,6 +144,7 @@
                 <RelativeLayout
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
+                    android:background="@drawable/click_effect"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -158,6 +165,7 @@
                         android:layout_centerVertical="true"
                         android:text="Notifications"
                         android:textColor="@color/white"
+                        android:fontFamily="@font/poppins"
                         android:textStyle="bold"
                         android:layout_toEndOf="@+id/notification_icon"
                         />
@@ -176,6 +184,7 @@
 <!--                private account-->
                 <RelativeLayout
                     android:id="@+id/changePass"
+                    android:background="@drawable/click_effect"
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -197,6 +206,7 @@
                         android:text="Change Password"
                         android:textColor="@color/white"
                         android:textStyle="bold"
+                        android:fontFamily="@font/poppins"
                         android:layout_toEndOf="@+id/privateAccountIcon"
                         />
 
@@ -244,6 +254,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Feedback &amp; Support"
+                    android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/feedbackicon"
@@ -286,6 +297,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Terms &amp; Conditions"
+                    android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/securityIcon"
@@ -306,6 +318,7 @@
                 android:id="@+id/privacy"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:background="@drawable/click_effect"
                 android:layout_height="wrap_content">
 
                 <ImageView
@@ -323,6 +336,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Privacy Policy"
+                    android:fontFamily="@font/poppins"
+
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/textSizeIcon"
@@ -343,6 +358,7 @@
                 android:id="@+id/share"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:background="@drawable/click_effect"
                 android:layout_height="wrap_content">
 
                 <ImageView
@@ -360,6 +376,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="Share This App"
+                    android:fontFamily="@font/poppins"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/languageIcon"
@@ -391,6 +408,7 @@
             <RelativeLayout
                 android:id="@+id/aboutapp"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/click_effect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -410,6 +428,7 @@
                     android:layout_centerVertical="true"
                     android:text="About App"
                     android:textColor="@color/white"
+                    android:fontFamily="@font/poppins"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/messageIcon"
                     />
@@ -429,6 +448,7 @@
                 android:id="@+id/rateus"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:background="@drawable/click_effect"
                 android:layout_height="wrap_content">
 
                 <ImageView
@@ -449,6 +469,7 @@
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/aboutusIcon"
+                    android:fontFamily="@font/poppins"
                     />
 
                 <ImageView
@@ -472,6 +493,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginStart="20dp"
+                android:fontFamily="@font/poppins"
                 android:layout_marginEnd="20dp"
                 android:layout_marginTop="20dp"
                 android:padding="15dp">
@@ -480,6 +502,7 @@
                 <RelativeLayout
                     android:id="@+id/logout"
                     android:layout_width="match_parent"
+                    android:background="@drawable/click_effect"
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -498,6 +521,7 @@
                         android:layout_centerVertical="true"
                         android:text="Log Out"
                         android:textColor="@color/white"
+                        android:fontFamily="@font/poppins"
                         android:textStyle="bold"
                         android:layout_toEndOf="@+id/logOutIcon"
                         />

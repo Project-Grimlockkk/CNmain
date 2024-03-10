@@ -1,38 +1,38 @@
 package com.example.rr;
 
+import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.learn.R;
+import com.example.rr.RateUsDialog;
 
-public class RateUsFragment extends Fragment {
+public class RateUsFragment extends DialogFragment {
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.rateus, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.rateus_main, container, false);
 
+        // Show the dialog
         RateUsDialog rateUsDialog = new RateUsDialog(requireActivity());
         rateUsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
-        rateUsDialog.setCancelable(false);
+        rateUsDialog.setCancelable(true);
         rateUsDialog.show();
 
-        View backButton = view.findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        rateUsDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
-            public void onClick(View v) {
-                // Remove the fragment when back button is clicked
+            public void onDismiss(DialogInterface dialog) {
                 getParentFragmentManager().beginTransaction().remove(RateUsFragment.this).commit();
             }
         });
-
         return view;
     }
-
 }

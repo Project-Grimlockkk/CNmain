@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true">
-        <color android:color="@color/mainTheme" />
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/mainTheme"
+    android:radius="150dp"
+    android:duration="300"
+    android:exitFadeDuration="400">
+
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/loginB"/>
+            <corners android:radius="10dp"/>
+        </shape>
     </item>
-    <item>
-        <color android:color="@android:color/transparent" />
+
+    <item android:id="@android:id/secondaryProgress">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/>
+            <stroke
+                android:width="2dp"
+                android:color="@color/loginB"/>
+            <corners android:radius="10dp"/>
+        </shape>
     </item>
-</selector>
+
+    <item android:id="@android:id/text1">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent"/>
+            <corners android:radius="10dp"/>
+        </shape>
+    </item>
+
+</ripple>
