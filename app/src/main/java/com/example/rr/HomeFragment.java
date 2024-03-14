@@ -39,24 +39,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        filterbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Start the InputActivity
-                Intent intent = new Intent(getActivity(), InputActivity.class);
-                startActivity(intent);
-            }
-        });
-
         RecyclerView recycler = rootView.findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        arrDetails.add(new RoomDetailsModel(R.drawable.pg_1, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mrs. Shailaja Babanagar", " 400m", "4", "RS 1800","Boys"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.pg_2, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mr. Dharmendra Asher", " 100m", "6", "RS 2500","Boys"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.pg_3, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mr. Manoj Mota", " 700m", "7", "RS 2000","Boys"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.pg_4, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mrs. Suvarna Salunkhe", " 400m", "6", "RS 0","Girls"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.pg_5, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mrs.Trupti Patil", " 700m", "6", "RS 2000","Boys"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.pg_6, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mr. P V Mali", " 1000m", "6", "RS 1834","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_1, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Shivdatt Apartment", " 400m", "4", "Rs. 1800/-","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_2, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Asher Villa", " 100m", "6", "Rs. 2500/-","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_3, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Silver Oak Apartment", " 700m", "7", "Rs. 2000/-","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_4, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Utkarsh Sadan", " 400m", "6", "Rs. 0/-","Girls"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_5, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Harishankar Apartment", " 700m", "6", "Rs. 2000/-","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_6, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Shree Complex", " 1000m", "6", "Rs. 1800/-","Boys"));
 
         recyclerContactAdapter adapter = new recyclerContactAdapter(getActivity(), arrDetails);
         recycler.setAdapter(adapter);

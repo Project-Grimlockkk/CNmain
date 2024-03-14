@@ -36,15 +36,22 @@
             </LinearLayout>
 
 
-            <TextView
-                android:id="@+id/apName"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingStart="10dp"
-                android:textSize="18sp"
-                android:text="Apartment"
-                android:fontFamily="@font/poppins" />
+                android:orientation="horizontal"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/apName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:text="Apartment"
+                    android:fontFamily="@font/poppins_semibold" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/apPrice"
@@ -106,21 +113,15 @@
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
-                <ImageView
-                    android:id="@+id/img_room"
-                    android:layout_width="80dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="end|center"/>
-
                 <TextView
                     android:id="@+id/forr"
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:layout_marginLeft="0dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/poppins"
-                    android:text="for:"
+                    android:text="For:"
                     />
 
                 <TextView
@@ -133,6 +134,12 @@
                     android:fontFamily="@font/poppins_bold"
                     android:text=""
                     />
+
+                <ImageView
+                    android:id="@+id/img_room"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="end|center"/>
 
             </LinearLayout>
         </LinearLayout>

@@ -58,7 +58,6 @@ public class fragment_profile2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
@@ -85,7 +84,7 @@ public class fragment_profile2 extends Fragment {
 
         // Load night mode state from SharedPreferences
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", true);
+        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", false);
         nightModeSwitch.setChecked(nightModeEnabled);
 
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -98,10 +97,10 @@ public class fragment_profile2 extends Fragment {
 
                 if (isChecked) {
                     // Enable night mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 } else {
                     // Disable night mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 }
             }
         });
@@ -134,7 +133,7 @@ public class fragment_profile2 extends Fragment {
             @Override
             public void onClick(View view) {
 
-                Fragment fragment= new pg_info();
+                Fragment fragment= new FeedbackFragment();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.profilePage, fragment);
                 transaction.addToBackStack(null);
