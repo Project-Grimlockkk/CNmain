@@ -96,6 +96,12 @@ public class InputActivity extends AppCompatActivity {
                 property.setAddress(addressEditText.getText().toString());
                 property.setRentInr(Integer.parseInt(rentInrEditText.getText().toString()));
                 property.setDepositInr(Integer.parseInt(depositInrEditText.getText().toString()));
+                property.setTenantType(tenantTypeSpinner.getSelectedItem().toString());
+                property.setNumberOfBeds(Integer.parseInt(noOfBedsSpinner.getSelectedItem().toString()));
+                property.setElectricityIncluded(radioButton1.isChecked());
+                property.setCleaningFacility(radioButton2.isChecked());
+                property.setInternetConnectivity(radioButton3.isChecked());
+                property.setWaterSupply(radioButton4.isChecked());
                 // Set other properties as needed
 
                 // Get Firestore instance
