@@ -1,270 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/SCREEN"
+
     >
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#ff5757">
+        android:layout_height="wrap_content"
+        style="@style/SCREEN">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#ff5757">
 
-        <ImageView
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="Back Button"
-            android:paddingStart="4dp"
-            android:src="@drawable/back_btn"
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Back Button"
+                android:paddingStart="4dp"
+                android:src="@drawable/back_btn"
 
-            tools:ignore="HardcodedText,RtlSymmetry" />
+                tools:ignore="HardcodedText,RtlSymmetry" />
 
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Feedback and Support"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
+        <!-- TextView below the Toolbar -->
         <TextView
-            android:id="@+id/toolbarTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Feedback and Support"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
-
-    <!-- TextView below the Toolbar -->
-    <TextView
-        android:id="@+id/belowToolbarText"
-        android:fontFamily="@font/poppins"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
-        android:layout_marginTop="16dp"
-        android:text="You are:"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
-        style="@style/TEXT"/>
-
-    <!-- RadioButtons for Student and Owner -->
-    <RadioGroup
-        android:id="@+id/roleRadioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/belowToolbarText"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radioOwner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="PG Owner"
-            style="@style/TEXT"
+            android:id="@+id/belowToolbarText"
             android:fontFamily="@font/poppins"
-            android:layout_marginLeft="30dp"
-            />
-
-        <RadioButton
-            android:id="@+id/radioStudent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins"
-            android:text="Student"
-            android:layout_marginLeft="30dp"/>
-    </RadioGroup>
-
-
-
-
-    <!-- Title for Problems Faced -->
-    <TextView
-        android:id="@+id/titleProblemsFaced"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/roleRadioGroup"
-        android:fontFamily="@font/poppins"
-        android:layout_marginTop="16dp"
-        android:text="Problems Faced:"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
-        style="@style/TEXT"/>
-
-    <LinearLayout
-        android:id="@+id/problemsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/titleProblemsFaced"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical">
-
-
-        <EditText
-            android:id="@+id/descriptionEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/problemsLayout"
+            android:layout_below="@id/toolbar"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/rounded_edittext_bg"
-            android:hint="Describe the issue..."
-            android:fontFamily="@font/poppins"
-            android:padding="10dp"
-            android:inputType="textMultiLine"
-            android:minLines="3"
-            android:textColor="@color/black"
-            android:textSize="16sp"/>
+            android:text="You are:"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            style="@style/TEXT"/>
 
-        <!-- Problem 1 -->
-        <RelativeLayout
+        <!-- RadioButtons for Student and Owner -->
+        <RadioGroup
+            android:id="@+id/roleRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+            android:layout_below="@id/belowToolbarText"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/problem1Radio"
+                android:id="@+id/radioOwner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp" />
-
-            <TextView
-                android:id="@+id/problem1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/problem1Radio"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/poppins"
-                android:text="Data Issues"
+                android:text="PG Owner"
                 style="@style/TEXT"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-        <!-- Problem 2 -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
+                android:fontFamily="@font/poppins"
+                android:layout_marginLeft="30dp"
+                />
 
             <RadioButton
-                android:id="@+id/problem2Radio"
+                android:id="@+id/radioStudent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp" />
-
-            <TextView
-                android:id="@+id/problem2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/problem2Radio"
-                android:layout_marginLeft="20dp"
                 android:fontFamily="@font/poppins"
-                android:layout_marginTop="24dp"
-                android:text="App Crashing"
-                style="@style/TEXT"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-        <!-- Problem 3 -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/problem3Radio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp" />
-
-            <TextView
-                android:id="@+id/problem3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/problem3Radio"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="24dp"
-                android:text="Content Issues"
-                android:fontFamily="@font/poppins"
-                style="@style/TEXT"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-        <!-- Problem 4 -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/problem4Radio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp" />
-
-            <TextView
-                android:id="@+id/problem4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/problem4Radio"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="24dp"
-                android:text="Data Issues"
-                style="@style/TEXT"
-                android:fontFamily="@font/poppins"
-                android:textSize="16sp" />
-        </RelativeLayout>
-
-        <!-- Problem 5 -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp">
-
-            <RadioButton
-                android:id="@+id/problem5Radio"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="2dp" />
-
-            <TextView
-                android:id="@+id/problem5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/problem5Radio"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="24dp"
-                android:text="Account Issues"
-                style="@style/TEXT"
-                android:fontFamily="@font/poppins"
-                android:textSize="16sp" />
-        </RelativeLayout>
+                android:text="Student"
+                android:layout_marginLeft="30dp"/>
+        </RadioGroup>
 
 
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/submitButton"
+
+
+        <!-- Title for Problems Faced -->
+        <TextView
+            android:id="@+id/titleProblemsFaced"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/descriptionEditText"
-           android:layout_gravity="center"
+            android:layout_below="@id/roleRadioGroup"
+            android:fontFamily="@font/poppins"
             android:layout_marginTop="16dp"
-            android:text="Submit"
-            android:fontFamily="@font/poppins_semibold"
-            android:textSize="18sp"
-            android:backgroundTint="#ff5757"
-            android:textColor="#FFFFFF"/>
+            android:text="Problems Faced:"
+            android:layout_marginLeft="10dp"
+            android:textSize="16sp"
+            style="@style/TEXT"/>
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/problemsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleProblemsFaced"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/descriptionEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/problemsLayout"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/rounded_edittext_bg"
+                android:hint="Describe the issue..."
+                android:fontFamily="@font/poppins"
+                android:padding="10dp"
+                android:inputType="textMultiLine"
+                android:minLines="3"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+            <!-- Problem 1 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/problem1Radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="2dp" />
+
+                <TextView
+                    android:id="@+id/problem1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/problem1Radio"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Data Issues"
+                    style="@style/TEXT"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- Problem 2 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/problem2Radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="2dp" />
+
+                <TextView
+                    android:id="@+id/problem2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/problem2Radio"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="24dp"
+                    android:text="App Crashing"
+                    style="@style/TEXT"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- Problem 3 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/problem3Radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="2dp" />
+
+                <TextView
+                    android:id="@+id/problem3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/problem3Radio"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Content Issues"
+                    android:fontFamily="@font/poppins"
+                    style="@style/TEXT"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- Problem 4 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/problem4Radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="2dp" />
+
+                <TextView
+                    android:id="@+id/problem4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/problem4Radio"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Data Issues"
+                    style="@style/TEXT"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- Problem 5 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <RadioButton
+                    android:id="@+id/problem5Radio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="2dp" />
+
+                <TextView
+                    android:id="@+id/problem5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/problem5Radio"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Account Issues"
+                    style="@style/TEXT"
+                    android:fontFamily="@font/poppins"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descriptionEditText"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="Submit"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="18sp"
+                android:backgroundTint="#ff5757"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
 
     <!-- EditText for Description -->
 
 
-</RelativeLayout>
+</ScrollView>
