@@ -51,9 +51,12 @@ public class HomeFragment extends Fragment {
         RecyclerView recycler = rootView.findViewById(R.id.recycler);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        arrDetails.add(new RoomDetailsModel(R.drawable.bg, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Harishankar Apartment", " 700m", "2", "RS 2000"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.bg, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Harishankar Apartment", " 700m", "2", "RS 2000"));
-        arrDetails.add(new RoomDetailsModel(R.drawable.bg, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Harishankar Apartment", " 700m", "2", "RS 2000"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_1, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mrs. Shailaja Babanagar", " 400m", "4", "RS 1800","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_2, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mr. Dharmendra Asher", " 100m", "6", "RS 2500","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_3, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mr. Manoj Mota", " 700m", "7", "RS 2000","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_4, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mrs. Suvarna Salunkhe", " 400m", "6", "RS 0","Girls"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_5, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mrs.Trupti Patil", " 700m", "6", "RS 2000","Boys"));
+        arrDetails.add(new RoomDetailsModel(R.drawable.pg_6, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Mr. P V Mali", " 1000m", "6", "RS 1834","Boys"));
 
         recyclerContactAdapter adapter = new recyclerContactAdapter(getActivity(), arrDetails);
         recycler.setAdapter(adapter);

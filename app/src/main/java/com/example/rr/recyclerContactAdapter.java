@@ -35,15 +35,15 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.apImg.setBackgroundResource(R.drawable.bg);
+        RoomDetailsModel roomDetails = arrDetails.get(position);
+        holder.apImg.setBackgroundResource(roomDetails.getApImageResource());
         holder.apName.setText(arrDetails.get(position).apName);
         holder.apPrice.setText(arrDetails.get(position).price);
         holder.apVacancy.setText(arrDetails.get(position).vacancy);
+        holder.gender.setText(arrDetails.get(position).gender);
         holder.apDistance.setText(arrDetails.get(position).distance);
         holder.vcImg.setImageResource(arrDetails.get(position).vacancyImg);
         holder.distImg.setImageResource(arrDetails.get(position).distanceImg);
-
-
     }
 
     @Override
@@ -52,12 +52,12 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView apName, apPrice, apVacancy, apDistance;
-        ImageView  vcImg, distImg;
-        LinearLayout apImg;
+        TextView apName, apPrice, apVacancy, apDistance, gender;
+        ImageView  vcImg, distImg,apImg;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             apName=itemView.findViewById(R.id.apName);
+            gender=itemView.findViewById(R.id.gender);
             apPrice=itemView.findViewById(R.id.apPrice);
             apVacancy=itemView.findViewById(R.id.apVacancy);
             apDistance=itemView.findViewById(R.id.apDistance);

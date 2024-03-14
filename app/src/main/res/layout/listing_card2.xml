@@ -21,11 +21,20 @@
             android:padding="20dp">
 
             <LinearLayout
-                android:id="@+id/apImg"
+                android:id="@+id/ap"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:orientation="vertical"
-                android:background="@drawable/rounded_sqr_bg" />
+                android:background="@drawable/rounded_sqr_bg">
+
+                <ImageView
+                    android:id="@+id/apImg"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"/>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/apName"
@@ -102,6 +111,28 @@
                     android:layout_width="80dp"
                     android:layout_height="50dp"
                     android:layout_gravity="end|center"/>
+
+                <TextView
+                    android:id="@+id/forr"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:text="for:"
+                    />
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text=""
+                    />
 
             </LinearLayout>
         </LinearLayout>
