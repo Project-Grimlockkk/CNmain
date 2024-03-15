@@ -18,19 +18,20 @@ public class Property {
     }
 
     // Constructor with parameters
-    public Property(String firstName, String lastName, String phoneNo, String address, int rentInr, int depositInr, String tenantType, int numberOfBeds, boolean electricityIncluded, boolean cleaningFacility, boolean internetConnectivity, boolean waterSupply) {
+    // String tenantType, int numberOfBeds, boolean electricityIncluded, boolean cleaningFacility, boolean internetConnectivity, boolean waterSupply
+    public Property(String firstName, String lastName, String phoneNo, String address, int rentInr, int depositInr) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.address = address;
         this.rentInr = rentInr;
         this.depositInr = depositInr;
-        this.tenantType = tenantType;
-        this.numberOfBeds = numberOfBeds;
-        this.electricityIncluded = electricityIncluded;
-        this.cleaningFacility = cleaningFacility;
-        this.internetConnectivity = internetConnectivity;
-        this.waterSupply = waterSupply;
+//        this.tenantType = tenantType;
+//        this.numberOfBeds = numberOfBeds;
+//        this.electricityIncluded = electricityIncluded;
+//        this.cleaningFacility = cleaningFacility;
+//        this.internetConnectivity = internetConnectivity;
+//        this.waterSupply = waterSupply;
     }
 
     // Getters and setters
@@ -82,51 +83,51 @@ public class Property {
         this.depositInr = depositInr;
     }
 
-    public String getTenantType() {
-        return tenantType;
-    }
-
-    public void setTenantType(String tenantType) {
-        this.tenantType = tenantType;
-    }
-
-    public int getNumberOfBeds() {
-        return numberOfBeds;
-    }
-
-    public void setNumberOfBeds(int numberOfBeds) {
-        this.numberOfBeds = numberOfBeds;
-    }
-
-    public boolean isElectricityIncluded() {
-        return electricityIncluded;
-    }
-
-    public void setElectricityIncluded(boolean electricityIncluded) {
-        this.electricityIncluded = electricityIncluded;
-    }
-
-    public boolean isCleaningFacility() {
-        return cleaningFacility;
-    }
-
-    public void setCleaningFacility(boolean cleaningFacility) {
-        this.cleaningFacility = cleaningFacility;
-    }
-
-    public boolean isInternetConnectivity() {
-        return internetConnectivity;
-    }
-
-    public void setInternetConnectivity(boolean internetConnectivity) {
-        this.internetConnectivity = internetConnectivity;
-    }
-
-    public boolean isWaterSupply() {
-        return waterSupply;
-    }
-
-    public void setWaterSupply(boolean waterSupply) {
-        this.waterSupply = waterSupply;
-    }
+//    public String getTenantType() {
+//        return tenantType;
+//    }
+//
+//    public void setTenantType(String tenantType) {
+//        this.tenantType = tenantType;
+//    }
+//
+//    public int getNumberOfBeds() {
+//        return numberOfBeds;
+//    }
+//
+//    public void setNumberOfBeds(int numberOfBeds) {
+//        this.numberOfBeds = numberOfBeds;
+//    }
+//
+//    public boolean isElectricityIncluded() {
+//        return electricityIncluded;
+//    }
+//
+//    public void setElectricityIncluded(boolean electricityIncluded) {
+//        this.electricityIncluded = electricityIncluded;
+//    }
+//
+//    public boolean isCleaningFacility() {
+//        return cleaningFacility;
+//    }
+//
+//    public void setCleaningFacility(boolean cleaningFacility) {
+//        this.cleaningFacility = cleaningFacility;
+//    }
+//
+//    public boolean isInternetConnectivity() {
+//        return internetConnectivity;
+//    }
+//
+//    public void setInternetConnectivity(boolean internetConnectivity) {
+//        this.internetConnectivity = internetConnectivity;
+//    }
+//
+//    public boolean isWaterSupply() {
+//        return waterSupply;
+//    }
+//
+//    public void setWaterSupply(boolean waterSupply) {
+//        this.waterSupply = waterSupply;
+//    }
 }
