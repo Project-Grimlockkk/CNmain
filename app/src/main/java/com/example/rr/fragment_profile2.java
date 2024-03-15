@@ -66,8 +66,6 @@ public class fragment_profile2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile2, container, false);
 
-
-
         RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
@@ -76,6 +74,7 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout feedback = view.findViewById(R.id.feedback);
         RelativeLayout logout = view.findViewById(R.id.logout);
         RelativeLayout rateus = view.findViewById(R.id.rateus);
+        RelativeLayout pGinfo = view.findViewById(R.id.PGinfo);
 
         dp = FirebaseFirestore.getInstance();
         mAuth= FirebaseAuth.getInstance();
@@ -134,6 +133,18 @@ public class fragment_profile2 extends Fragment {
             public void onClick(View view) {
 
                 Fragment fragment= new FeedbackFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.profilePage, fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        pGinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment= new pg_info();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.profilePage, fragment);
                 transaction.addToBackStack(null);
