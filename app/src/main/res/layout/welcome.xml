@@ -60,16 +60,6 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/getStartedButton"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:text="Get Started"
-                android:textColor="#FFFFFF"
-                android:fontFamily="@font/poppins_semibold"
-                android:backgroundTint="#4942CE"
-                android:layout_margin="20dp"
-                android:layout_gravity="center"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -81,7 +71,8 @@
                     android:id="@+id/spinnerTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Choose Nearby Locations"
+                    android:text="Choose Nearby Locations: "
+                    android:fontFamily="@font/poppins"
                     android:textColor="@android:color/white"
                     android:textSize="16sp"
                     android:layout_gravity="center_vertical"/>
@@ -94,6 +85,17 @@
                     tools:ignore="TouchTargetSizeCheck"
                     android:background="@drawable/spinner_background"/>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/getStartedButton"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:text="Get Started"
+                android:textColor="#FFFFFF"
+                android:fontFamily="@font/poppins_semibold"
+                android:backgroundTint="#4942CE"
+                android:layout_margin="20dp"
+                android:layout_gravity="center"/>
 
             <TextView
                 android:id="@+id/categoriesTextView"
