@@ -57,7 +57,7 @@ public class LoginScreen extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if(task.isSuccessful()){
-                                        startActivity(new Intent(LoginScreen.this,MainActivity.class));
+                                        startActivity(new Intent(LoginScreen.this,welcome.class));
                                         finish();
                                     }
                                     else{

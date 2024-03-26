@@ -3,6 +3,7 @@
     <style name="Base.Theme.RR" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:itemBackground">@color/nearby_locations_background</item>
     </style>
 
     <style name="Theme.RR" parent="Base.Theme.RR" />
@@ -51,6 +52,18 @@
         <item name="colorControlNormal">#4D0000</item>
         <item name="colorControlActivated">@color/dialog_color_1</item>
     </style>
+    
+<style name="customTextMenu" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+    <item name="android:textColor">@android:color/background_dark</item>
+</style>
+
+    <style name="MyTitleStyle">
+        <item name="android:textColor">#ff5757</item> <!-- Change text color -->
+        <item name="android:textSize">16sp</item> <!-- Change text size -->
+        <item name="android:textStyle">bold</item> <!-- Change text style -->
+
+    </style>
+
 
 
 </resources>

@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/optionLocation"
+        android:title="Nearby Locations"
+        app:showAsAction="never"
+        android:titleTextAppearance="@style/MyTitleStyle"
+        />
+    <item
+        android:id="@+id/option1"
+        android:title="100 Ft Road" />
+    <item
+        android:id="@+id/option2"
+        android:title="Walchand Backgate" />
+    <item
+        android:id="@+id/option3"
+        android:title="Government Colony" />
+    <item
+        android:id="@+id/option4"
+        android:title="Vijaynagar" />
+    <item
+        android:id="@+id/option5"
+        android:title="Vishrambagh Chowk" />
+
+    <item
+        android:id="@+id/option6"
+        android:title="Near Samruddhi Industries" />
+</menu>
