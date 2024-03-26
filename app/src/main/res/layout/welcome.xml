@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -69,6 +70,30 @@
                 android:backgroundTint="#4942CE"
                 android:layout_margin="20dp"
                 android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:id="@+id/spinnerTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Nearby Locations"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical"/>
+
+                <Spinner
+                    android:id="@+id/spinnerwelcome"
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    tools:ignore="TouchTargetSizeCheck"
+                    android:background="@drawable/spinner_background"/>
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/categoriesTextView"

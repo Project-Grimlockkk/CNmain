@@ -27,6 +27,15 @@
     <string name="axxxxxxa_gmail_com">axxxxxxa@gmail.com</string>
     <string name="social_media">Social Media</string>
 
+    <string-array name="spinner_options">
+        <item>100 Ft Road</item>
+        <item>Walchand Backgate</item>
+        <item>Government Colony</item>
+        <item>Vijaynagar</item>
+        <item>Vishrambagh Chowk</item>
+        <item>Near Samruddhi Industries</item>
 
+
+    </string-array>
     
 </resources>
