@@ -19,11 +19,11 @@
             <ImageView
                 android:id="@+id/appLogoImageView"
                 android:layout_width="match_parent"
-                android:layout_height="466dp"
+                android:layout_height="400dp"
+                android:layout_marginTop="17dp"
                 android:scaleX="0.9"
                 android:scaleY="0.9"
-                android:src="@drawable/robot"
-                android:layout_marginTop="17dp" />
+                android:src="@drawable/robot" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:layout_marginStart="25dp"
                     android:gravity="center"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"/>
+                />
 
 
             </RelativeLayout>
@@ -67,7 +67,7 @@
                 android:textColor="#FFFFFF"
                 android:fontFamily="@font/poppins_semibold"
                 android:backgroundTint="#4942CE"
-                android:layout_margin="0dp"
+                android:layout_margin="20dp"
                 android:layout_gravity="center"/>
 
             <TextView
