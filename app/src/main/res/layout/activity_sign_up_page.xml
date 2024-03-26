@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/loginB"
+    android:background="#121212"
     tools:context="com.example.rr.SignUpPage">
 
 <!--    <TextView-->
@@ -27,8 +27,8 @@
             android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="#22263E"
             android:orientation="vertical"
-            android:background="@color/white"
             android:padding="24dp">
 
             <TextView
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Create New   Account"
                 android:textAlignment="center"
-                android:textColor="@color/loginB"
+                android:textColor="#fff"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
@@ -49,7 +49,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="USERNAME"
-                android:textColor="@color/loginB"
+                android:textColor="#fff"
                 android:textSize="15sp" />
 
             <EditText
@@ -72,7 +72,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="EMAIL"
-                android:textColor="@color/loginB"
+                android:textColor="#fff"
                 android:textSize="15sp" />
 
             <EditText
@@ -95,7 +95,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="PASSWORD"
-                android:textColor="@color/loginB"
+                android:textColor="#fff"
                 android:textSize="15sp" />
 
             <EditText
@@ -106,8 +106,8 @@
                 android:drawablePadding="8dp"
                 android:fontFamily="@font/poppins_medium"
                 android:hint="Password"
-                android:paddingStart="20dp"
                 android:inputType="textPassword"
+                android:paddingStart="20dp"
                 android:textColor="@color/white"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:textColorHint="@color/white" />
@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
-                android:backgroundTint="@color/loginB"
+                android:backgroundTint="#4942CE"
                 android:fontFamily="sans-serif"
                 android:text="Sign Up"
                 android:textColor="@color/white"
@@ -130,9 +130,10 @@
                 android:id="@+id/alreadyRegistered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Already Registered? Log in here."
+                android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:layout_marginTop="5dp"/>
+                android:text="Already Registered? Log in here."
+                android:textColor="#fff" />
 
 
         </LinearLayout>
