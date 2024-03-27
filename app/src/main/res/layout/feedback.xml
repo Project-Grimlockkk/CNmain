@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/SCREEN"
 
     >
     <RelativeLayout
@@ -13,7 +14,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:background="#ff5757">
+            android:background="@color/mainTheme">
 
             <ImageView
                 android:id="@+id/backButton"
@@ -262,8 +263,8 @@
                 android:text="Submit"
                 android:fontFamily="@font/poppins_semibold"
                 android:textSize="18sp"
-                android:backgroundTint="#ff5757"
-                android:textColor="#FFFFFF"/>
+                android:backgroundTint="@color/mainTheme"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 

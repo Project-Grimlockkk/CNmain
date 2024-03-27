@@ -62,7 +62,7 @@
         android:layout_marginTop="32dp"
         android:hint="Email"
         android:textColorHint="@color/grey"
-        app:boxStrokeColor="@color/greyBar">
+        app:boxStrokeColor="@color/mainTheme">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edtForgotPasswordEmail"
@@ -91,7 +91,7 @@
             android:id="@+id/btnReset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/mainTheme"
             android:fontFamily="@font/poppins"
             android:paddingStart="20dp"
             android:paddingTop="10dp"

@@ -20,7 +20,7 @@ public class splashActivity extends AppCompatActivity {
 
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ImageView giff = findViewById(R.id.giff);
 
-        Glide.with(this).load(R.drawable.roomradar).into(giff);
+        Glide.with(this).load(R.drawable.roomradar1).into(giff);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -29,7 +29,7 @@ public class splashActivity extends AppCompatActivity {
                 startActivity(iHome);
                 finish();
             }
-        },4000);
+        },3000);
 
     }
 }

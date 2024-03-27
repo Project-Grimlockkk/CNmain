@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F57570"
+    android:background="#5271FF"
     tools:context="com.example.rr.splashActivity"
     >
 
@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:translationY="150dp"
         android:scaleType="fitXY"
-        android:src="@drawable/roomradar" />
+        android:src="@drawable/roomradar1" />
 
 
 </LinearLayout>

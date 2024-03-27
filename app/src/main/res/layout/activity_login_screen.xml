@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     android:gravity="center"
-    android:background="#fff"
+    android:background="@drawable/login_bg"
     tools:context="com.example.rr.LoginScreen">
 
 
@@ -95,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
-                android:backgroundTint="#4942ce"
+                android:backgroundTint="@color/mainTheme"
                 android:fontFamily="sans-serif"
                 android:text="Login"
                 android:textColor="@color/white"

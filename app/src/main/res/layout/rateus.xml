@@ -20,7 +20,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="@color/dialog_color_2">
+                android:background="@color/mainTheme">
 
                 <RelativeLayout
                     android:layout_width="150dp"

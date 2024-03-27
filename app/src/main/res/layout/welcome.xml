@@ -80,10 +80,10 @@
                 <Spinner
                     android:id="@+id/spinnerwelcome"
                     android:layout_width="100dp"
-                    android:layout_height="20dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    tools:ignore="TouchTargetSizeCheck"
-                    android:background="@drawable/spinner_background"/>
+                    android:background="@drawable/spinner_background"
+                    tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
 
             <Button
@@ -92,8 +92,9 @@
                 android:layout_height="50dp"
                 android:text="Get Started"
                 android:textColor="#FFFFFF"
+                android:textSize="17sp"
                 android:fontFamily="@font/poppins_semibold"
-                android:backgroundTint="#4942CE"
+                android:backgroundTint="@color/mainTheme"
                 android:layout_margin="20dp"
                 android:layout_gravity="center"/>
 

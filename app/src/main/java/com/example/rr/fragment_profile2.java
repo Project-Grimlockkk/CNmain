@@ -83,7 +83,7 @@ public class fragment_profile2 extends Fragment {
 
         // Load night mode state from SharedPreferences
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", false);
+        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", true);
         nightModeSwitch.setChecked(nightModeEnabled);
 
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -96,10 +96,10 @@ public class fragment_profile2 extends Fragment {
 
                 if (isChecked) {
                     // Enable night mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 } else {
                     // Disable night mode
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 }
             }
         });

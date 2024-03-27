@@ -30,7 +30,11 @@
     </style>
 
     <style name="SCREEN">
-        <item name="android:background">#FFF</item>
+        <item name="android:background">#E4F3FF</item>
+    </style>
+
+    <style name="mainthemes">
+        <item name="android:background">@color/mainTheme</item>
     </style>
 
     <style name="TEXT">
