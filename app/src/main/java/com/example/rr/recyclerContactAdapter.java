@@ -1,6 +1,6 @@
 package com.example.rr;
 
-import android.content.Context;
+import  android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.learn.R;
 
 import java.util.ArrayList;
@@ -36,7 +37,8 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         RoomDetailsModel roomDetails = arrDetails.get(position);
-        holder.apImg.setBackgroundResource(roomDetails.getApImageResource());
+//        holder.apImg.setBackgroundResource(roomDetails.getApImageResource());
+        Glide.with(context).load(arrDetails.get(position).getApImageResource()).into(holder.apImg);
         holder.apName.setText(arrDetails.get(position).apName);
         holder.apPrice.setText(arrDetails.get(position).price);
         holder.apVacancy.setText(arrDetails.get(position).vacancy);
