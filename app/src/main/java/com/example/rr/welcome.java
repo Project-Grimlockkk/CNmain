@@ -2,12 +2,11 @@ package com.example.rr;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.PopupMenu;
-import android.widget.TextView;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,11 +19,25 @@ public class welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
 
-        ImageView menuIcon = findViewById(R.id.menuIcon);
-        menuIcon.setOnClickListener(new View.OnClickListener() {
+        // Initialize Spinner
+        Spinner spinner = findViewById(R.id.spinnerwelcome);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.spinner_options, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        // Handle Spinner item selection
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onClick(View v) {
-                showPopupMenu(v);
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Handle spinner item selection
+                String selectedItem = parent.getItemAtPosition(position).toString();
+                // Do something with the selected item
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Handle nothing selected
             }
         });
 
@@ -37,42 +50,5 @@ public class welcome extends AppCompatActivity {
                 finish(); // Optional: Finish the current activity
             }
         });
-    }
-
-    private void showPopupMenu(View v) {
-        PopupMenu popupMenu = new PopupMenu(this, v);
-        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_location, popupMenu.getMenu());
-
-
-
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.option1) {
-                    // Handle option 1 click
-                    // Replace this comment with your desired action
-                    return true;
-                } else if (id == R.id.option2) {
-                    // Handle option 2 click
-                    // Replace this comment with your desired action
-                    return true;
-                } else if (id == R.id.option3) {
-                    // Handle option 3 click
-                    // Replace this comment with your desired action
-                    return true;
-                } else if (id == R.id.option4) {
-                    // Handle option 4 click
-                    // Replace this comment with your desired action
-                    return true;
-                } else if (id == R.id.option5) {
-                    // Handle option 5 click
-                    // Replace this comment with your desired action
-                    return true;
-                }
-                return false;
-            }
-        });
-        popupMenu.show();
     }
 }
