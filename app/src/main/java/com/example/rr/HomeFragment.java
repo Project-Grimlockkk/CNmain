@@ -15,12 +15,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.learn.R;
+import com.google.firebase.Firebase;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
     ArrayList<RoomDetailsModel> arrDetails = new ArrayList<>();
+
+    DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference("images");
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -40,6 +48,7 @@ public class HomeFragment extends Fragment {
         });
 
         RecyclerView recycler = rootView.findViewById(R.id.recycler);
+        recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         arrDetails.add(new RoomDetailsModel(R.drawable.pg_1, R.drawable.baseline_man_24, R.drawable.distance_to_travel_between_two_points_svgrepo_com, "Shivdatt Apartment", " 400m", "4", "Rs. 1800/-","Boys"));
@@ -51,6 +60,26 @@ public class HomeFragment extends Fragment {
 
         recyclerContactAdapter adapter = new recyclerContactAdapter(getActivity(), arrDetails);
         recycler.setAdapter(adapter);
+        arrDetails = new ArrayList<>();
+//        adapter= new recyclerContactAdapter(getContext(), arrDetails);
+//        recycler.setAdapter(adapter);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                arrDetails.clear();
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    RoomDetailsModel dataClass = dataSnapshot.getValue(RoomDetailsModel.class);
+                    arrDetails.add(dataClass);
+                }
+
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         return rootView;
     }

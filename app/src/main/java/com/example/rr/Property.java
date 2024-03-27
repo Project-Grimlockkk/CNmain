@@ -1,7 +1,7 @@
 package com.example.rr;
 
 public class Property {
-    private String firstName;
+    private String firstName,pgPhotos,distance,gender,apName;
     private String lastName;
     private String phoneNo;
     private String address;
@@ -19,13 +19,17 @@ public class Property {
 
     // Constructor with parameters
     // String tenantType, int numberOfBeds, boolean electricityIncluded, boolean cleaningFacility, boolean internetConnectivity, boolean waterSupply
-    public Property(String firstName, String lastName, String phoneNo, String address, int rentInr, int depositInr) {
+    public Property(String pgPhotos, String firstName, String lastName, String phoneNo, String address, int rentInr, int depositInr,String distance,String apName,String gender) {
+        this.pgPhotos=pgPhotos;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNo = phoneNo;
         this.address = address;
         this.rentInr = rentInr;
         this.depositInr = depositInr;
+        this.distance=distance;
+        this.apName=apName;
+        this.gender=gender;
 //        this.tenantType = tenantType;
 //        this.numberOfBeds = numberOfBeds;
 //        this.electricityIncluded = electricityIncluded;
@@ -81,6 +85,38 @@ public class Property {
 
     public void setDepositInr(int depositInr) {
         this.depositInr = depositInr;
+    }
+
+    public String getPgPhotos() {
+        return pgPhotos;
+    }
+
+    public void setPgPhotos(String pgPhotos) {
+        this.pgPhotos = pgPhotos;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getApName() {
+        return apName;
+    }
+
+    public void setApName(String apName) {
+        this.apName = apName;
     }
 
 //    public String getTenantType() {

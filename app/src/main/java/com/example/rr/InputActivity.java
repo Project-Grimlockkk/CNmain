@@ -1,13 +1,17 @@
 package com.example.rr;
 
+import static com.google.common.io.Files.getFileExtension;
+
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,25 +38,33 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InputActivity extends AppCompatActivity {
 
-    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText;
+    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText, distanceInput, apartmentNameInput, genderInput;
     Spinner tenantTypeSpinner, noOfBedsSpinner;
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     Button submitButton, addPgPhotos;
 
-    Uri uri;
+    Uri imgUri;
 
     private final int GALLARY_REQ_CODE= 1000;
     ImageView imgGallary;
     DatabaseReference databaseReference;
+    StorageReference storageReference;
+    List<Uri> selectedImageUris = new ArrayList<>();
+    ActivityResultLauncher<Intent> activityResultLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.input_page1);
         databaseReference = FirebaseDatabase.getInstance().getReference("properties");
+        storageReference = FirebaseStorage.getInstance().getReference();
 
 
         // Initialize views
@@ -67,6 +79,11 @@ public class InputActivity extends AppCompatActivity {
         Button AddPG= findViewById(R.id.AddImagebutton);
         tenantTypeSpinner = findViewById(R.id.tenantTypeSpinner);
         noOfBedsSpinner = findViewById(R.id.noOfBedsSpinner);
+        distanceInput = findViewById(R.id.distanceInput);
+        apartmentNameInput=findViewById(R.id.apartmentNameInput);
+        genderInput=findViewById(R.id.genderInput);
+
+
 
         radioButton1 = findViewById(R.id.radioButton1);
         radioButton2 = findViewById(R.id.radioButton2);
@@ -74,6 +91,8 @@ public class InputActivity extends AppCompatActivity {
         radioButton4 = findViewById(R.id.radioButton4);
 
         submitButton = findViewById(R.id.submitButton);
+
+
 
         ArrayAdapter<CharSequence> tenantTypeAdapter = ArrayAdapter.createFromResource(this, R.array.tenant_types, android.R.layout.simple_spinner_item);
         tenantTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -90,12 +109,16 @@ public class InputActivity extends AppCompatActivity {
                 // Handle the form submission here
                 // Your code here...
                 Property property = new Property();
+                property.setPgPhotos(imgUri.toString());
                 property.setFirstName(firstNameEditText.getText().toString());
                 property.setLastName(lastNameEditText.getText().toString());
                 property.setPhoneNo(phoneNoEditText.getText().toString());
                 property.setAddress(addressEditText.getText().toString());
                 property.setRentInr(Integer.parseInt(rentInrEditText.getText().toString()));
                 property.setDepositInr(Integer.parseInt(depositInrEditText.getText().toString()));
+                property.setDistance(distanceInput.getText().toString());
+                property.setApName(apartmentNameInput.getText().toString());
+                property.setGender(genderInput.getText().toString());
 //                property.setTenantType(tenantTypeSpinner.getSelectedItem().toString());
 //                property.setNumberOfBeds(Integer.parseInt(noOfBedsSpinner.getSelectedItem().toString()));
 //                property.setElectricityIncluded(radioButton1.isChecked());
@@ -126,15 +149,64 @@ public class InputActivity extends AppCompatActivity {
                                 Toast.makeText(InputActivity.this, "Failed to add property. Please try again.", Toast.LENGTH_SHORT).show();
                             }
                         });
+
+                if (imgUri != null){
+//                    uploadToFirebase(imgUri);
+                    String caption = descriptionEditText.getText().toString();
+                    final StorageReference imageReference = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imgUri));
+                    imageReference.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            imageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    DataClass dataClass = new DataClass(uri.toString(), caption);
+                                    String key = databaseReference.push().getKey();
+                                    if (key != null) {
+                                        databaseReference.child(key).setValue(dataClass).addOnSuccessListener(aVoid -> {
+                                            Toast.makeText(InputActivity.this, "Image uploaded and data saved", Toast.LENGTH_SHORT).show();
+                                        }).addOnFailureListener(e -> {
+                                            Toast.makeText(InputActivity.this, "Failed to save image data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        });
+                                    }
+//                                    DataClass dataClass = new DataClass(imgUri.toString(),caption);
+//                                    String key = databaseReference.push().getKey();
+//                                    databaseReference.child(key).setValue(dataClass);
+//                                    progressBar.setVisibility(View.INVISIBLE);
+                                    Toast.makeText(InputActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+//                                    Intent intent = new Intent(UploadActivity.this, MainActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+                                }
+                            });
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+//                            progressBar.setVisibility(View.INVISIBLE);
+                            Toast.makeText(InputActivity.this, "Failed" + e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else  {
+                    Toast.makeText(InputActivity.this, "Please select image", Toast.LENGTH_SHORT).show();
+                }
             }
         });
+//        private String getFileExtension(Uri fileUri){
+//            ContentResolver contentResolver = getContentResolver();
+//            MimeTypeMap mime = MimeTypeMap.getSingleton();
+//            return mime.getExtensionFromMimeType(contentResolver.getType(fileUri));
+//        }
 
         AddPG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent iGallary = new Intent(Intent.ACTION_PICK);
+                iGallary.setType("image/*");
+                iGallary.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 iGallary.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
                 startActivityForResult(iGallary,GALLARY_REQ_CODE);
             }
         });
@@ -146,8 +218,22 @@ public class InputActivity extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         if(result.getResultCode() == Activity.RESULT_OK){
                             Intent data = result.getData();
-                            uri = data.getData();
-                            imgGallary.setImageURI(uri);
+                            if (data.getClipData() != null){
+                                int count = data.getClipData().getItemCount();
+                                for (int i = 0; i < count; i++) {
+//                                    Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                                    imgUri = data.getData();
+                                    selectedImageUris.add(imgUri);
+                                    imgGallary.setImageURI(imgUri);
+                                    // Display selected image or add it to a list for display
+                                }
+                            } else if (data.getData() != null) {
+                                Uri imageUri = data.getData();
+                                selectedImageUris.add(imageUri);
+                                // Display selected image or add it to a list for display
+                            }
+                            imgUri = data.getData();
+                            imgGallary.setImageURI(imgUri);
                         }
                         else{
                             Toast.makeText(InputActivity.this, "No Image Selected", Toast.LENGTH_SHORT);
@@ -161,7 +247,14 @@ public class InputActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent photoPicker = new Intent(Intent.ACTION_PICK);
                 photoPicker.setType("image/*");
+                photoPicker.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 activityResultLauncher.launch(photoPicker);
+
+//                Intent photoPicker = new Intent();
+//                photoPicker.setAction(Intent.ACTION_GET_CONTENT);
+//                photoPicker.setType("image/*");
+//                activityResultLauncher.launch(photoPicker);
+
             }
         });
 //        submitButton.setOnClickListener(new View.OnClickListener() {
@@ -180,6 +273,36 @@ public class InputActivity extends AppCompatActivity {
         rentInrEditText.setText("");
         depositInrEditText.setText("");
         // Clear other input fields as needed
+    }
+
+    private void uploadImageToFirebase(Uri imgUri) {
+        String caption = descriptionEditText.getText().toString();
+        final StorageReference imageReference = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(imgUri));
+        imageReference.putFile(imgUri).addOnSuccessListener(taskSnapshot -> {
+            imageReference.getDownloadUrl().addOnSuccessListener(uri -> {
+                String imageUrl = uri.toString();
+                saveImageUrlToDatabase(imageUrl, caption);
+            });
+        }).addOnFailureListener(e -> {
+            Toast.makeText(InputActivity.this, "Failed" + e.getMessage(), Toast.LENGTH_LONG).show();
+        });
+    }
+
+    private void saveImageUrlToDatabase(String imageUrl, String caption) {
+        DataClass dataClass = new DataClass(imageUrl, caption);
+        String key = databaseReference.push().getKey();
+        if (key != null) {
+            databaseReference.child(key).setValue(dataClass).addOnSuccessListener(aVoid -> {
+                Toast.makeText(InputActivity.this, "Image uploaded and data saved", Toast.LENGTH_SHORT).show();
+            }).addOnFailureListener(e -> {
+                Toast.makeText(InputActivity.this, "Failed to save image data: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        }
+    }
+    private String getFileExtension(Uri fileUri){
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(contentResolver.getType(fileUri));
     }
 //    public void saveData(){
 //
