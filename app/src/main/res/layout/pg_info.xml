@@ -124,7 +124,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="340dp"
                         android:orientation="vertical"
-                        android:background="@drawable/rounded_sqr_bg" />
+                        android:background="@drawable/rounded_sqr_bg">
+
+                        <fragment
+                            android:id="@+id/mapView"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            app:liteMode="true" />
+
+
+                    </LinearLayout>
 
 
 
