@@ -37,5 +37,8 @@
 
 
     </string-array>
-    
+
+    <string name="change_photo">Change Photo</string>
+
+
 </resources>

@@ -516,7 +516,7 @@
                         android:textSize="20sp"
                         android:layout_marginTop="1dp"
                         android:text="Submit"
-                        app:backgroundTint="#ff5757"
+                        app:backgroundTint="@color/mainTheme"
                         android:textColor="@android:color/white" />
 
                 </com.google.android.material.textfield.TextInputLayout>

@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,15 +19,14 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.learn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.ktx.Firebase;
 
 public class fragment_profile2 extends Fragment {
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -42,6 +42,7 @@ public class fragment_profile2 extends Fragment {
     public fragment_profile2() {
         // Required empty public constructor
     }
+
     public static fragment_profile2 newInstance(String param1, String param2) {
         fragment_profile2 fragment = new fragment_profile2();
         Bundle args = new Bundle();
@@ -75,6 +76,7 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout logout = view.findViewById(R.id.logout);
         RelativeLayout rateus = view.findViewById(R.id.rateus);
         RelativeLayout pGinfo = view.findViewById(R.id.PGinfo);
+        AppCompatButton editProfileButton = view.findViewById(R.id.editProfileButton);
 
         dp = FirebaseFirestore.getInstance();
         mAuth= FirebaseAuth.getInstance();
@@ -104,77 +106,63 @@ public class fragment_profile2 extends Fragment {
             }
         });
 
+        editProfileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the EditProfileActivity when the button is clicked
+                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment fragment= new aboutPage();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.profilePage, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                loadFragment(fragment, true);
             }
         });
 
         termsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment fragment= new termsPage();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.profilePage, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                loadFragment(fragment, true);
             }
         });
 
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment fragment= new FeedbackFragment();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.profilePage, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                loadFragment(fragment, true);
             }
         });
 
         pGinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment fragment= new pg_info();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.profilePage, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                loadFragment(fragment, true);
             }
         });
 
         privacyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment fragment= new privacyPage();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.profilePage, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                loadFragment(fragment, true);
             }
         });
 
         rateus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Fragment fragment= new RateUsFragment();
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.profilePage, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                loadFragment(fragment, true);
             }
         });
+
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -250,5 +238,4 @@ public class fragment_profile2 extends Fragment {
         }
         transaction.commit();
     }
-
 }

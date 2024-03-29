@@ -53,26 +53,7 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/profile_icon"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Aditya Khandare"
-                android:fontFamily="@font/poppins"
-                style="@style/TEXT"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/poppins"
-                android:text="+91 9168009484"
-                android:textSize="12sp"
-                style="@style/TEXT"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -84,8 +65,11 @@
                 android:layout_gravity="center"
                 android:background="@drawable/click_effect"
                 android:text="Edit Profile"
+                android:id="@+id/editProfileButton"
                 android:textAllCaps="false"
                 android:textColor="@color/white"/>
+
+
 
             <LinearLayout
                 android:background="@drawable/round_back_white10_20"
