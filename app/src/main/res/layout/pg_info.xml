@@ -124,7 +124,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="340dp"
                         android:orientation="vertical"
-                        >
+                        android:background="@drawable/rounded_sqr_bg">
 
                         <fragment
                             android:id="@+id/mapView"

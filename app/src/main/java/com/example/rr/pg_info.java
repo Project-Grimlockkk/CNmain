@@ -1,6 +1,5 @@
 package com.example.rr;
 
-import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
+import android.Manifest;
 
 import com.example.learn.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -26,10 +25,15 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+// Import statements omitted for brevity
+
 public class pg_info extends Fragment implements OnMapReadyCallback {
 
+    // Constants for location permission
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
 
+    // Views and variables
+    private SupportMapFragment mapFragment;
     private GoogleMap mMap;
 
     @Override
@@ -45,7 +49,7 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "+919168009484"; // Include country code
+                String phoneNumber = "9168009484";
                 if (isWhatsappInstalled()) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + phoneNumber));
@@ -60,7 +64,7 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
         callingIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String phoneNumber = "9168009484"; // Include country code
+                String phoneNumber = "919168009484";
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:" + phoneNumber));
                 startActivity(intent);
@@ -68,14 +72,19 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
         });
 
         // Initialize the map fragment
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapView);
-        if (mapFragment != null) {
-            mapFragment.getMapAsync(this);
+        mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.maps);
+        if (mapFragment == null) {
+            mapFragment = SupportMapFragment.newInstance();
+            getChildFragmentManager().beginTransaction().replace(R.id.maps, mapFragment).commit();
         }
+        mapFragment.getMapAsync(this);
+
+        checkLocationPermission();
 
         return view;
     }
 
+    // Check if WhatsApp is installed
     private boolean isWhatsappInstalled() {
         PackageManager packageManager = requireActivity().getPackageManager();
         try {
@@ -89,23 +98,28 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if (mMap != null) {
             // Add a marker for a specific location (replace with your desired PG location)
-            LatLng pgLatLng = new LatLng(16.8431, 74.6012); // Example coordinates (Patna)
+            LatLng pgLatLng = new LatLng(16.8447, 74.5978); // Example coordinates (Patna)
             mMap.addMarker(new MarkerOptions().position(pgLatLng).title("PG"));
 
             // Move the camera to show the marker
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pgLatLng, 15));
-        
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pgLatLng, 17));
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        }
     }
 
+    // Function to check for location permission
     private boolean checkLocationPermission() {
         return ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
+    // Function to request location permission
     private void requestLocationPermission() {
         requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
     }
 
+    // Handle permission request results
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -114,11 +128,9 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
                 // Permission granted, proceed with actions requiring location
             } else {
                 // Permission denied, handle the case
-                showPermissionExplanationDialog();
             }
         }
     }
-
     private void showPermissionExplanationDialog() {
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(requireContext());
