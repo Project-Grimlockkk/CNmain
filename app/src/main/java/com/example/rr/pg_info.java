@@ -50,13 +50,13 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 String phoneNumber = "9168009484";
-                if (isWhatsappInstalled()) {
+//                if (isWhatsappInstalled()) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
                     intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + phoneNumber));
                     startActivity(intent);
-                } else {
-                    Toast.makeText(requireContext(), "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show();
-                }
+//                } else {
+//                    Toast.makeText(requireContext(), "WhatsApp is not installed on your device", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
 
@@ -91,6 +91,10 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
             packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
             return true;
         } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
