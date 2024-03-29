@@ -90,7 +90,7 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
             // Add a marker for a specific location (replace with your desired PG location)
-            LatLng pgLatLng = new LatLng(25.2048, 85.3301); // Example coordinates (Patna)
+            LatLng pgLatLng = new LatLng(16.8431, 74.6012); // Example coordinates (Patna)
             mMap.addMarker(new MarkerOptions().position(pgLatLng).title("PG"));
 
             // Move the camera to show the marker
