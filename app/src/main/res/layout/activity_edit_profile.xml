@@ -6,7 +6,7 @@
         android:layout_height="match_parent"
         style="@style/SCREEN"
         android:orientation="vertical"
-        tools:context="com.example.rr.EditProfileActivity">
+        tools:context="com.example.rr.EditProfileActivity1">
 
         <ImageView
             android:id="@+id/profileImageView"

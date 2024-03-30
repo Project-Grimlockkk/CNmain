@@ -46,13 +46,25 @@
             android:name="com.example.rr.LoginScreen"
             android:exported="true" />
         <activity
+            android:name="com.example.rr.PrivacyActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.rr.TermsActivity"
+            android:exported="true" />
+        <activity
             android:name="com.example.rr.MainActivity"
             android:exported="true" />
         <activity
             android:name="com.example.rr.InputActivity"
             android:exported="true" />
         <activity
-            android:name="com.example.rr.EditProfileActivity"
+            android:name="com.example.rr.FeedbackActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.rr.AboutActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.rr.EditProfileActivity1"
             android:exported="true" />
         <activity
             android:name="com.example.rr.welcome"

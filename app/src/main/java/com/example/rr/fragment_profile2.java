@@ -123,7 +123,7 @@ public class fragment_profile2 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(requireContext(), EditProfileActivity.class);
+                Intent intent = new Intent(requireContext(), EditProfileActivity1.class);
                 startActivity(intent);
             }
         });
@@ -131,35 +131,40 @@ public class fragment_profile2 extends Fragment {
 
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Fragment fragment= new aboutPage();
-                loadFragment(fragment, true);
+            public void onClick(View v) {
+                // Start the EditProfileActivity when the button is clicked
+                Intent intent = new Intent(requireContext(), AboutActivity.class);
+                startActivity(intent);
             }
         });
 
         termsView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Fragment fragment= new termsPage();
-                loadFragment(fragment, true);
+            public void onClick(View v) {
+                // Start the EditProfileActivity when the button is clicked
+                Intent intent = new Intent(requireContext(), TermsActivity.class);
+                startActivity(intent);
             }
         });
 
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Fragment fragment= new FeedbackFragment();
-                loadFragment(fragment, true);
+            public void onClick(View v) {
+                // Start the EditProfileActivity when the button is clicked
+                Intent intent = new Intent(requireContext(), FeedbackActivity.class);
+                startActivity(intent);
             }
         });
 
         privacyView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Fragment fragment= new privacyPage();
-                loadFragment(fragment, true);
+            public void onClick(View v) {
+                // Start the EditProfileActivity when the button is clicked
+                Intent intent = new Intent(requireContext(), PrivacyActivity.class);
+                startActivity(intent);
             }
         });
+
 
         rateus.setOnClickListener(new View.OnClickListener() {
             @Override
