@@ -72,7 +72,7 @@
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins_semibold"
-            android:background="@drawable/round_back_secondary_maintheme"
+            android:background="@drawable/click_effect"
             android:text="+ Add a PG"
             android:textAllCaps="false"
             android:textColor="@color/white"/>
