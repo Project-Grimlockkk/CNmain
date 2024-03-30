@@ -1,18 +1,42 @@
 package com.example.rr;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import com.bumptech.glide.Glide;
 import com.example.learn.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class pg_info2 extends AppCompatActivity {
+import java.io.IOException;
+import java.util.List;
+
+public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
+
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
+
+    // Views and variables
+    private SupportMapFragment mapFragment;
+    private GoogleMap mMap;
 
     ImageView apImage;
     TextView apName, apRent, apVacancy, apDistance, apGender;
@@ -44,7 +68,6 @@ public class pg_info2 extends AppCompatActivity {
             }
         }
 
-
         ImageView whatsappIcon = findViewById(R.id.WhatsappIcon);
         whatsappIcon.setOnClickListener(v -> {
             String phoneNumber = "91680 09484";
@@ -62,15 +85,102 @@ public class pg_info2 extends AppCompatActivity {
             callIntent.setData(Uri.parse("tel:" + phoneNumber));
             startActivity(callIntent);
         });
+
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
+        if (mapFragment == null) {
+            mapFragment = SupportMapFragment.newInstance();
+            getSupportFragmentManager().beginTransaction().replace(R.id.maps, mapFragment).commit();
+        }
+        mapFragment.getMapAsync(this);
+
+        checkLocationPermission();
     }
-    private boolean isWhatsappInstalled() {
-        PackageManager packageManager = getPackageManager();
-        try {
-            // Check if WhatsApp is installed on the device
-            packageManager.getPackageInfo("com.whatsapp", PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        if (mMap != null) {
+            // Fetch address from database (replace with your database logic)
+            String address = "walchand college of engineering, sangli";
+            // Geocode the address to get LatLng coordinates
+            new GeocodingTask().execute(address);
+        }
+    }
+
+    // Function to check for location permission
+    private void checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Permission not granted, request it
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        }
+    }
+
+    // Handle permission request results
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with actions requiring location
+            } else {
+                // Permission denied, show explanation dialog or handle the case
+                showPermissionExplanationDialog();
+            }
+        }
+    }
+
+    private void showPermissionExplanationDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Permission Required");
+        builder.setMessage("This app requires location permission to function properly. Please grant the permission.");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Request location permission again
+                checkLocationPermission();
+            }
+        });
+
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Handle cancellation
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private class GeocodingTask extends AsyncTask<String, Void, LatLng> {
+
+        @Override
+        protected LatLng doInBackground(String... strings) {
+            String address = strings[0];
+            Geocoder geocoder = new Geocoder(pg_info2.this);
+            try {
+                List<Address> addresses = geocoder.getFromLocationName(address, 1);
+                if (addresses != null && !addresses.isEmpty()) {
+                    Address firstAddress = addresses.get(0);
+                    return new LatLng(firstAddress.getLatitude(), firstAddress.getLongitude());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(LatLng latLng) {
+            super.onPostExecute(latLng);
+            if (latLng != null) {
+                // Add a marker for the location
+                mMap.addMarker(new MarkerOptions().position(latLng).title("PG"));
+                // Move the camera to show the marker
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            }
         }
     }
 }

@@ -51,6 +51,9 @@
             android:name="com.example.rr.InputActivity"
             android:exported="true" />
         <activity
+            android:name="com.example.rr.EditProfileActivity"
+            android:exported="true" />
+        <activity
             android:name="com.example.rr.welcome"
             android:exported="true" />
 

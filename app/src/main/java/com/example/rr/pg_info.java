@@ -68,9 +68,6 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
             Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
         }
 
-//=======
-        // WhatsApp action
-//>>>>>>> 06e991b3139798d6c0c8489397007f826a167854
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
