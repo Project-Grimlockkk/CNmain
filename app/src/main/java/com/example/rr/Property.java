@@ -1,32 +1,34 @@
 package com.example.rr;
 
 public class Property {
-    private String firstName,pgPhotos,distance,gender,apName;
+    private String firstName,pgPhotos,distance,gender,apName,vacancy;
     private String lastName;
     private String phoneNo;
     private String address;
     private int rentInr;
     private int depositInr;
+//    private int gender;
     private String tenantType;
     private int numberOfBeds;
     private boolean electricityIncluded;
     private boolean cleaningFacility;
     private boolean internetConnectivity;
     private boolean waterSupply;
+    private int apImageResource;
     public Property() {
         // Default constructor required for Firestore
     }
 
     // Constructor with parameters
     // String tenantType, int numberOfBeds, boolean electricityIncluded, boolean cleaningFacility, boolean internetConnectivity, boolean waterSupply
-    public Property(String pgPhotos, String firstName, String lastName, String phoneNo, String address, int rentInr, int depositInr,String distance,String apName,String gender) {
+    public Property(String pgPhotos, String vacancy, int rentInr,String distance,String apName,String gender) {
         this.pgPhotos=pgPhotos;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNo = phoneNo;
-        this.address = address;
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.phoneNo = phoneNo;
+        this.vacancy = vacancy;
         this.rentInr = rentInr;
-        this.depositInr = depositInr;
+//        this.depositInr = depositInr;
         this.distance=distance;
         this.apName=apName;
         this.gender=gender;
@@ -117,6 +119,14 @@ public class Property {
 
     public void setApName(String apName) {
         this.apName = apName;
+    }
+
+    public String getVacancy() {
+        return vacancy;
+    }
+
+    public void setVacancy(String vacancy) {
+        this.vacancy = vacancy;
     }
 
 //    public String getTenantType() {

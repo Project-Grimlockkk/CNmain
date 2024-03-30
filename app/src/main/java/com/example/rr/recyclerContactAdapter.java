@@ -1,6 +1,7 @@
 package com.example.rr;
 
 import  android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +10,22 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.learn.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContactAdapter.ViewHolder> {
 
-    Context context;
-    ArrayList<RoomDetailsModel>arrDetails;
+    private Context context;
+    List<RoomDetailsClass> arrDetails;
+//    ArrayList<Property>arrProperty;
 
-    recyclerContactAdapter(Context context, ArrayList<RoomDetailsModel>arrDetails){
+    recyclerContactAdapter(Context context, List<RoomDetailsClass>arrDetails){
         this.context=context;   
         this.arrDetails=arrDetails;
     }
@@ -29,23 +33,37 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(context).inflate(R.layout.listing_card2, parent, false);
+        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.listing_card2, parent, false);
         ViewHolder viewHolder=new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        RoomDetailsModel roomDetails = arrDetails.get(position);
+//        RoomDetailsModel roomDetails = arrDetails.get(position);
 //        holder.apImg.setBackgroundResource(roomDetails.getApImageResource());
-        Glide.with(context).load(arrDetails.get(position).getApImageResource()).into(holder.apImg);
-        holder.apName.setText(arrDetails.get(position).apName);
-        holder.apPrice.setText(arrDetails.get(position).price);
-        holder.apVacancy.setText(arrDetails.get(position).vacancy);
-        holder.gender.setText(arrDetails.get(position).gender);
-        holder.apDistance.setText(arrDetails.get(position).distance);
-        holder.vcImg.setImageResource(arrDetails.get(position).vacancyImg);
-        holder.distImg.setImageResource(arrDetails.get(position).distanceImg);
+        Glide.with(context).load(arrDetails.get(position).getPgPhotos()).into(holder.apImg);
+        holder.apName.setText(arrDetails.get(position).getApName());
+        holder.apPrice.setText(arrDetails.get(position).getRentInr());
+        holder.apVacancy.setText(arrDetails.get(position).getVaccancy());
+        holder.gender.setText(arrDetails.get(position).getGender());
+        holder.apDistance.setText(arrDetails.get(position).getDistance());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(context, pg_info2.class);
+                intent.putExtra("pgPhotos", arrDetails.get(holder.getAdapterPosition()).getPgPhotos());
+                intent.putExtra("apName", arrDetails.get(holder.getAdapterPosition()).getApName());
+                intent.putExtra("Vacancy", arrDetails.get(holder.getAdapterPosition()).getVaccancy());
+                intent.putExtra("rentInr", arrDetails.get(holder.getAdapterPosition()).getRentInr());
+                intent.putExtra("distance", arrDetails.get(holder.getAdapterPosition()).getDistance());
+
+                context.startActivity(intent);
+
+            }
+        });
+//        holder.vcImg.setImageResource(arrDetails.get(position).vacancyImg);
+//        holder.distImg.setImageResource(arrDetails.get(position).distanceImg);
     }
 
     @Override
@@ -56,6 +74,8 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView apName, apPrice, apVacancy, apDistance, gender;
         ImageView  vcImg, distImg,apImg;
+
+        CardView cardView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             apName=itemView.findViewById(R.id.apName);
@@ -66,6 +86,7 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
             vcImg=itemView.findViewById(R.id.vcImg);
             distImg=itemView.findViewById(R.id.distImg);
             apImg=itemView.findViewById(R.id.apImg);
+            cardView=itemView.findViewById(R.id.cardView);
         }
     }
 }

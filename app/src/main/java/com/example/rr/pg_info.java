@@ -8,14 +8,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
 import com.example.learn.R;
 
 public class pg_info extends Fragment {
+
+    ImageView apImage;
+    TextView apName, apRent, apVacancy, apDistance,apGender;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -25,6 +30,23 @@ public class pg_info extends Fragment {
 
         ImageView whatsappIcon = view.findViewById(R.id.WhatsappIcon);
         ImageView callingIcon = view.findViewById(R.id.calling);
+
+        apImage=view.findViewById(R.id.apImgg);
+        apName=view.findViewById(R.id.apName);
+        apRent=view.findViewById(R.id.apPrice);
+        apVacancy=view.findViewById(R.id.apVacancy);
+        apDistance=view.findViewById(R.id.apDistance);
+        apGender=view.findViewById(R.id.gender);
+
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+            apName.setText(bundle.getString("apName"));
+            apRent.setText(bundle.getString("rentInr"));
+            apVacancy.setText(bundle.getString("Vacancy"));
+            apDistance.setText(bundle.getString("distance"));
+            apGender.setText(bundle.getString("gender"));
+            Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
+        }
 
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
