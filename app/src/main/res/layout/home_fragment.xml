@@ -37,6 +37,22 @@
 <!--                android:background="@drawable/roundedsqr"-->
 <!--                ></EditText>-->
 
+<!--<<<<<<< HEAD-->
+<!--            <androidx.appcompat.widget.SearchView-->
+<!--                android:layout_width="340dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:layout_marginEnd="12dp"-->
+<!--                android:layout_marginStart="12dp"-->
+<!--                android:layout_gravity="center_vertical"-->
+<!--                android:id="@+id/searching"-->
+<!--                app:iconifiedByDefault="false"-->
+<!--                app:searchHintIcon="@null"-->
+<!--                app:queryHint="Search..."-->
+<!--                android:focusable="false"-->
+<!--                android:background="@drawable/roundedsqr"/>-->
+<!--=======-->
+<!--&gt;>>>>>> 06e991b3139798d6c0c8489397007f826a167854-->
 
 
             <LinearLayout

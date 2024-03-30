@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.Manifest;
 
+import com.bumptech.glide.Glide;
 import com.example.learn.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,6 +38,9 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;
 
+    ImageView apImage;
+    TextView apName, apRent, apVacancy, apDistance,apGender;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,7 +50,27 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
         ImageView whatsappIcon = view.findViewById(R.id.WhatsappIcon);
         ImageView callingIcon = view.findViewById(R.id.calling);
 
+//<<<<<<< HEAD
+        apImage=view.findViewById(R.id.apImgg);
+        apName=view.findViewById(R.id.apName);
+        apRent=view.findViewById(R.id.apPrice);
+        apVacancy=view.findViewById(R.id.apVacancy);
+        apDistance=view.findViewById(R.id.apDistance);
+        apGender=view.findViewById(R.id.gender);
+
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+            apName.setText(bundle.getString("apName"));
+            apRent.setText(bundle.getString("rentInr"));
+            apVacancy.setText(bundle.getString("Vacancy"));
+            apDistance.setText(bundle.getString("distance"));
+            apGender.setText(bundle.getString("gender"));
+            Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
+        }
+
+//=======
         // WhatsApp action
+//>>>>>>> 06e991b3139798d6c0c8489397007f826a167854
         whatsappIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     style="@style/SCREEN"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context="com.example.rr.pg_info2">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,19 +56,46 @@
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:textSize="18sp"
-                        android:text="Shivdatta Apartment"
+                        android:text="Apartment"
                         android:fontFamily="@font/poppins" />
 
+<!--                    <TextView-->
+<!--                        android:id="@+id/apPrice"-->
+<!--                        android:layout_width="100dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:paddingStart="10dp"-->
+<!--                        android:textSize="18dp"-->
+<!--                        android:text="2000"-->
+<!--                        android:textColor="#888888"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:fontFamily="@font/poppins" />-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
                     <TextView
                         android:id="@+id/apPrice"
-                        android:layout_width="match_parent"
+                        android:layout_width="70dp"
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
                         android:textSize="18dp"
-                        android:text="1800 INR/Monthly"
+                        android:text="2000"
                         android:textColor="#888888"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins" />
+
+                    <TextView
+                        android:id="@+id/apPriceText"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:text="INR/Months"
+                        android:textColor="#888888"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/poppins" />
+
+                </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -114,7 +142,7 @@
                             android:layout_gravity="center"
                             android:layout_marginLeft="15dp"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="550m"
+                            android:text="800m"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -131,20 +159,21 @@
 
                         <TextView
                             android:id="@+id/gender"
-                            android:layout_width="60dp"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
+
                             android:textSize="18sp"
-                            android:layout_marginLeft="0dp"
+                            android:layout_marginLeft="2dp"
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins_bold"
-                            android:text=""
+                            android:text="gender"
                             />
 
-<!--                        <ImageView-->
-<!--                            android:id="@+id/img_room"-->
-<!--                            android:layout_width="80dp"-->
-<!--                            android:layout_height="50dp"-->
-<!--                            android:layout_gravity="end|center"/>-->
+                        <!--                        <ImageView-->
+                        <!--                            android:id="@+id/img_room"-->
+                        <!--                            android:layout_width="80dp"-->
+                        <!--                            android:layout_height="50dp"-->
+                        <!--                            android:layout_gravity="end|center"/>-->
 
 
                     </LinearLayout>
@@ -154,18 +183,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="340dp"
                         android:orientation="vertical"
-                        android:background="@drawable/rounded_sqr_bg">
-
-                        <fragment
-                            android:id="@+id/mapView"
-                            android:name="com.google.android.gms.maps.SupportMapFragment"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="5dp"
-                            app:liteMode="true" />
-
-
-                    </LinearLayout>
+                        android:background="@drawable/rounded_sqr_bg" />
 
 
 
@@ -244,8 +262,7 @@
             <LinearLayout
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/round_back_white10_201"
-                android:layout_width="360dp"
-                android:layout_gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="20dp"
@@ -253,7 +270,7 @@
 
                 <RelativeLayout
                     android:id="@+id/logout"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
@@ -285,5 +302,6 @@
 
 
     </LinearLayout>
+
 
 </ScrollView>
