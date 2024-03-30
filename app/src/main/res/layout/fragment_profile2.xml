@@ -337,44 +337,6 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/PGinfo"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/click_effect"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/languagfIcon"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:padding="12dp"
-                    android:src="@drawable/share_round_svgrepo_com"
-
-                    app:tint="#020253" />
-
-                <TextView
-                    android:layout_marginStart="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="PG Info"
-                    android:fontFamily="@font/poppins"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/languagfIcon"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/right_arrow_icon"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    />
-
-            </RelativeLayout>
-
         </LinearLayout>
 
         <LinearLayout

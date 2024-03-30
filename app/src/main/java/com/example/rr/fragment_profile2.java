@@ -75,7 +75,6 @@ public class fragment_profile2 extends Fragment {
         RelativeLayout feedback = view.findViewById(R.id.feedback);
         RelativeLayout logout = view.findViewById(R.id.logout);
         RelativeLayout rateus = view.findViewById(R.id.rateus);
-        RelativeLayout pGinfo = view.findViewById(R.id.PGinfo);
         AppCompatButton editProfileButton = view.findViewById(R.id.editProfileButton);
 
         dp = FirebaseFirestore.getInstance();
@@ -135,14 +134,6 @@ public class fragment_profile2 extends Fragment {
             @Override
             public void onClick(View view) {
                 Fragment fragment= new FeedbackFragment();
-                loadFragment(fragment, true);
-            }
-        });
-
-        pGinfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment= new pg_info();
                 loadFragment(fragment, true);
             }
         });
