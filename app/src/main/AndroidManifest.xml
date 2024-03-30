@@ -5,7 +5,16 @@
     <uses-permission
         android:name="android.permission.CALL_PHONE"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+<!--<<<<<<< HEAD-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<!--=======-->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:ignore="CoarseFineLocation" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
+<!--&gt;>>>>>> 06e991b3139798d6c0c8489397007f826a167854-->
 
     <application
         android:allowBackup="true"
@@ -19,7 +28,7 @@
         tools:targetApi="31">
         <activity
             android:name="com.example.rr.pg_info2"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name="com.example.rr.splashActivity"
             android:exported="true">
@@ -45,6 +54,9 @@
             android:name="com.example.rr.welcome"
             android:exported="true" />
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAAkipjr54oXixnQXujJhv5sGh7oWeNt-s" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -43,13 +43,23 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore:24.11.0")
     implementation("com.google.firebase:firebase-storage:20.3.0")
 //<<<<<<< HEAD
+//<<<<<<< HEAD
     implementation("com.google.android.gms:play-services-tasks:18.1.0")
 //=======
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
 //>>>>>>> 42ac61a904c36670db9a2c213b661033f7d47fd4
 
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
+//=======
+    implementation("com.google.android.gms:play-services-tasks:18.1.0")
+    implementation("androidx.cardview:cardview:1.0.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+//>>>>>>> 06e991b3139798d6c0c8489397007f826a167854
     testImplementation("junit:junit:4.13.2")
+
+    implementation("com.google.maps.android:android-maps-utils:3.8.0")
+
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 

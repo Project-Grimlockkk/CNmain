@@ -53,26 +53,7 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/profile_icon"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="Aditya Khandare"
-                android:fontFamily="@font/poppins"
-                style="@style/TEXT"
-                android:textSize="22sp"
-                android:textStyle="bold"
-                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/poppins"
-                android:text="+91 9168009484"
-                android:textSize="12sp"
-                style="@style/TEXT"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -84,8 +65,11 @@
                 android:layout_gravity="center"
                 android:background="@drawable/click_effect"
                 android:text="Edit Profile"
+                android:id="@+id/editProfileButton"
                 android:textAllCaps="false"
                 android:textColor="@color/white"/>
+
+
 
             <LinearLayout
                 android:background="@drawable/round_back_white10_20"
@@ -141,47 +125,8 @@
                 </RelativeLayout>
 
 <!--                Notification-->
-                <RelativeLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:background="@drawable/click_effect"
-                    android:layout_height="wrap_content">
 
-                    <ImageView
-                        android:id="@+id/notification_icon"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:padding="12dp"
-                        android:src="@drawable/notifications_off_circle_sharp_svgrepo_com"
-
-
-                        app:tint="@color/profileIcons" />
-<!--                    android:background="@drawable/round_back_notifications"-->
-
-                    <TextView
-                        android:layout_marginStart="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="Notifications"
-                        android:textColor="@color/white"
-                        android:fontFamily="@font/poppins"
-                        android:textStyle="bold"
-                        android:layout_toEndOf="@+id/notification_icon"
-                        />
-
-                    <Switch
-                        android:layout_width="wrap_content"
-                        android:height="48dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp"
-                        android:theme="@style/notifiactionSwitch"/>
-
-                </RelativeLayout>
-
-<!--                private account-->
+                <!--                private account-->
                 <RelativeLayout
                     android:id="@+id/changePass"
                     android:background="@drawable/click_effect"

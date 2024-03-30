@@ -55,7 +55,7 @@
                         android:layout_marginTop="10dp"
                         android:paddingStart="10dp"
                         android:textSize="18sp"
-                        android:text="Apartment"
+                        android:text="Shivdatta Apartment"
                         android:fontFamily="@font/poppins" />
 
                     <TextView
@@ -64,7 +64,7 @@
                         android:layout_height="wrap_content"
                         android:paddingStart="10dp"
                         android:textSize="18dp"
-                        android:text="2000 INR/Monthly"
+                        android:text="1800 INR/Monthly"
                         android:textColor="#888888"
                         android:textStyle="bold"
                         android:fontFamily="@font/poppins" />
@@ -114,7 +114,7 @@
                             android:layout_gravity="center"
                             android:layout_marginLeft="15dp"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="800m"
+                            android:text="550m"
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
@@ -154,7 +154,18 @@
                         android:layout_width="match_parent"
                         android:layout_height="340dp"
                         android:orientation="vertical"
-                        android:background="@drawable/rounded_sqr_bg" />
+                        android:background="@drawable/rounded_sqr_bg">
+
+                        <fragment
+                            android:id="@+id/mapView"
+                            android:name="com.google.android.gms.maps.SupportMapFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            app:liteMode="true" />
+
+
+                    </LinearLayout>
 
 
 
