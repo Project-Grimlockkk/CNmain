@@ -47,6 +47,7 @@
             </RelativeLayout>
 
             <ImageView
+                android:id="@+id/profileImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
@@ -56,14 +57,14 @@
 
             <TextView
                 android:id="@+id/usernameTextView"
-                android:layout_width="129dp"
-                android:layout_height="25dp"
-                android:layout_marginStart="156dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_width="409dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:text=""
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"

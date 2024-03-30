@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
@@ -17,11 +18,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.learn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -40,6 +43,7 @@ public class fragment_profile2 extends Fragment {
     private FirebaseFirestore dp;
 
     TextView usernameTextView;
+    ImageView profileImageView;
 
     public fragment_profile2() {
         // Required empty public constructor
@@ -71,6 +75,7 @@ public class fragment_profile2 extends Fragment {
 
 
         usernameTextView = view.findViewById(R.id.usernameTextView);
+        profileImageView = view.findViewById(R.id.profileImageView);
         RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
@@ -83,6 +88,8 @@ public class fragment_profile2 extends Fragment {
 
         dp = FirebaseFirestore.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        loadProfileData();
 
         nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
 
@@ -226,6 +233,33 @@ public class fragment_profile2 extends Fragment {
             }
         });
         return view;
+    }
+
+    private void loadProfileData() {
+        SharedPreferences prefs = getActivity().getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+        String savedUsername = prefs.getString("username", "");
+        String savedImageUri = prefs.getString("imageUri", "");
+
+        // Set username
+        usernameTextView.setText(savedUsername);
+
+        // Load profile picture using Glide
+        if (!savedImageUri.isEmpty()) {
+            // Check if the URI scheme is valid
+            if (savedImageUri.startsWith("content://") || savedImageUri.startsWith("file://")) {
+                Glide.with(this)
+                        .load(Uri.parse(savedImageUri))
+                        .placeholder(R.drawable.profile_icon) // Placeholder image while loading
+                        .error(R.drawable.profile_icon) // Error image if loading fails
+                        .into(profileImageView);
+            } else {
+                // Invalid URI scheme, set default image
+                profileImageView.setImageResource(R.drawable.profile_icon);
+            }
+        } else {
+            // If no profile picture is set, display a default image
+            profileImageView.setImageResource(R.drawable.profile_icon);
+        }
     }
 
     private void loadFragment(Fragment fragment, boolean isAppInitialized) {

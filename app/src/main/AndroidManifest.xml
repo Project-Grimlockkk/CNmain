@@ -7,6 +7,7 @@
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
 <!--<<<<<<< HEAD-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 <!--=======-->
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
