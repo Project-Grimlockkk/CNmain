@@ -59,6 +59,8 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
+
+
     // Method to show a dialog for selecting a photo from gallery
     private void showPhotoSelectionDialog() {
         Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -90,9 +92,16 @@ public class EditProfileActivity extends AppCompatActivity {
         editor.putString("imageUri", profileImageView.getTag().toString());
         editor.apply();
 
+        Intent intent = new Intent(EditProfileActivity.this, fragment_profile2.class);
+        intent.putExtra("username", usernameEditText.getText().toString());
+        startActivity(intent);
+
+
         // Show a toast message to indicate that the changes are saved
         Toast.makeText(this, "Changes saved!", Toast.LENGTH_SHORT).show();
     }
+
+
 
     // Method to load saved data from SharedPreferences and populate EditText fields
     private void loadSavedData() {

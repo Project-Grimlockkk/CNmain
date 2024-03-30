@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.learn.R;
@@ -37,7 +38,8 @@ public class fragment_profile2 extends Fragment {
     private String mParam1;
     private String mParam2;
     private FirebaseFirestore dp;
-    private FirebaseAuth mAuth;
+
+    TextView usernameTextView;
 
     public fragment_profile2() {
         // Required empty public constructor
@@ -67,6 +69,8 @@ public class fragment_profile2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile2, container, false);
 
+
+        usernameTextView = view.findViewById(R.id.usernameTextView);
         RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
         RelativeLayout termsView = view.findViewById(R.id.termss);
         RelativeLayout privacyView = view.findViewById(R.id.privacy);
@@ -79,7 +83,7 @@ public class fragment_profile2 extends Fragment {
         AppCompatButton editProfileButton = view.findViewById(R.id.editProfileButton);
 
         dp = FirebaseFirestore.getInstance();
-        mAuth= FirebaseAuth.getInstance();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
 
@@ -88,6 +92,9 @@ public class fragment_profile2 extends Fragment {
         nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", true);
         nightModeSwitch.setChecked(nightModeEnabled);
 
+        SharedPreferences prefs = getActivity().getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+        String savedUsername = prefs.getString("username", "");
+        usernameTextView.setText(savedUsername);
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -110,10 +117,11 @@ public class fragment_profile2 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(getActivity(), EditProfileActivity.class);
+                Intent intent = new Intent(requireContext(), EditProfileActivity.class);
                 startActivity(intent);
             }
         });
+
 
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
