@@ -48,11 +48,11 @@
 
             <ImageView
                 android:id="@+id/profileImageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="140dp"
+                android:layout_height="94dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/profile_icon"/>
+                android:src="@drawable/wcesangli" />
 
 
             <TextView
