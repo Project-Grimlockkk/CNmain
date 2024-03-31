@@ -40,9 +40,6 @@ public class MainActivity extends AppCompatActivity {
                     // Start ProfileActivity when profile menu item is clicked
                     startActivity(new Intent(MainActivity.this, ProfileActivity.class));
                     return true;
-                } else if (itemId == R.id.navSaved) {
-                    loadFragment(new SavedFragment(), false);
-                    return true;
                 }
                 return false;
             }
