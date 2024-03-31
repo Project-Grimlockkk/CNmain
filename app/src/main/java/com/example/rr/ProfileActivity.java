@@ -209,16 +209,16 @@ public class ProfileActivity extends AppCompatActivity {
             if (savedImageUri.startsWith("content://") || savedImageUri.startsWith("file://")) {
                 Glide.with(this)
                         .load(Uri.parse(savedImageUri))
-                        .placeholder(R.drawable.profile_icon) // Placeholder image while loading
-                        .error(R.drawable.profile_icon) // Error image if loading fails
+                        .placeholder(R.drawable.wcesangli) // Placeholder image while loading
+                        .error(R.drawable.wcesangli) // Error image if loading fails
                         .into(profileImageView);
             } else {
                 // Invalid URI scheme, set default image
-                profileImageView.setImageResource(R.drawable.profile_icon);
+                profileImageView.setImageResource(R.drawable.wcesangli);
             }
         } else {
             // If no profile picture is set, display a default image
-            profileImageView.setImageResource(R.drawable.profile_icon);
+            profileImageView.setImageResource(R.drawable.wcesangli);
         }
     }
 

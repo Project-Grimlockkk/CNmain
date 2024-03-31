@@ -7,7 +7,7 @@
     android:id="@+id/profilePage"
     android:orientation="vertical"
     style="@style/SCREEN"
-    tools:context="com.example.rr.fragment_profile2">
+    tools:context="com.example.rr.ProfileActivity">
 
     <!-- TODO: Update blank fragment layout -->
 
