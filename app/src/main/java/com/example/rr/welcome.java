@@ -66,7 +66,7 @@ public class welcome extends AppCompatActivity {
                         // Finish the current activity
                         finish();
                     }
-                }, 2000); // Adjust the delay as needed
+                }, 2500); // Adjust the delay as needed
             }
         });
     }

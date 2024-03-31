@@ -1,7 +1,9 @@
 package com.example.rr;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
@@ -27,7 +29,22 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_nav_view);
         frameLayout = findViewById(R.id.frame);
 
+        // Show loading dialog
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Opening...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        // Load the initial fragment
         loadFragment(new HomeFragment(), true);
+
+        // Dismiss loading dialog after a delay
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 2000); // 2000 milliseconds (2 seconds)
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -56,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             fragmentTransaction.replace(R.id.frame, fragment);
         }
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }
