@@ -69,6 +69,15 @@
         <activity
             android:name="com.example.rr.welcome"
             android:exported="true" />
+        <activity
+            android:name="com.example.rr.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.rr.ForgetPasswordActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.example.rr.RateUsActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

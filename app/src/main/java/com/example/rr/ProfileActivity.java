@@ -6,17 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,81 +14,59 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.bumptech.glide.Glide;
 import com.example.learn.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class fragment_profile2 extends Fragment {
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class ProfileActivity extends AppCompatActivity {
 
     Switch nightModeSwitch;
     boolean nightModeEnabled;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    private String mParam1;
-    private String mParam2;
     private FirebaseFirestore dp;
 
     TextView usernameTextView;
     ImageView profileImageView;
 
-    public fragment_profile2() {
-        // Required empty public constructor
-    }
-
-    public static fragment_profile2 newInstance(String param1, String param2) {
-        fragment_profile2 fragment = new fragment_profile2();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+        setContentView(R.layout.fragment_profile2);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile2, container, false);
-
-
-        usernameTextView = view.findViewById(R.id.usernameTextView);
-        profileImageView = view.findViewById(R.id.profileImageView);
-        RelativeLayout aboutView = view.findViewById(R.id.aboutapp);
-        RelativeLayout termsView = view.findViewById(R.id.termss);
-        RelativeLayout privacyView = view.findViewById(R.id.privacy);
-        RelativeLayout shareView = view.findViewById(R.id.share);
-        RelativeLayout changePass = view.findViewById(R.id.changePass);
-        RelativeLayout feedback = view.findViewById(R.id.feedback);
-        RelativeLayout logout = view.findViewById(R.id.logout);
-        RelativeLayout rateus = view.findViewById(R.id.rateus);
-        AppCompatButton editProfileButton = view.findViewById(R.id.editProfileButton);
+        usernameTextView = findViewById(R.id.usernameTextView);
+        profileImageView = findViewById(R.id.profileImageView);
+        RelativeLayout aboutView = findViewById(R.id.aboutapp);
+        RelativeLayout termsView = findViewById(R.id.termss);
+        RelativeLayout privacyView = findViewById(R.id.privacy);
+        RelativeLayout shareView = findViewById(R.id.share);
+        RelativeLayout changePass = findViewById(R.id.changePass);
+        RelativeLayout feedback = findViewById(R.id.feedback);
+        RelativeLayout logout = findViewById(R.id.logout);
+        RelativeLayout rateus = findViewById(R.id.rateus);
+        AppCompatButton editProfileButton = findViewById(R.id.editProfileButton);
 
         dp = FirebaseFirestore.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         loadProfileData();
 
-        nightModeSwitch = view.findViewById(R.id.nightModeSwitch1);
+        nightModeSwitch = findViewById(R.id.nightModeSwitch1);
 
         // Load night mode state from SharedPreferences
-        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = getPreferences(Context.MODE_PRIVATE);
         nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", true);
         nightModeSwitch.setChecked(nightModeEnabled);
 
-        SharedPreferences prefs = getActivity().getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
         String savedUsername = prefs.getString("username", "");
         usernameTextView.setText(savedUsername);
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -123,7 +91,7 @@ public class fragment_profile2 extends Fragment {
             @Override
             public void onClick(View v) {
                 // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(requireContext(), EditProfileActivity1.class);
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity1.class);
                 startActivity(intent);
             }
         });
@@ -132,8 +100,8 @@ public class fragment_profile2 extends Fragment {
         aboutView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(requireContext(), AboutActivity.class);
+                // Start the AboutActivity when the button is clicked
+                Intent intent = new Intent(ProfileActivity.this, AboutActivity.class);
                 startActivity(intent);
             }
         });
@@ -141,8 +109,8 @@ public class fragment_profile2 extends Fragment {
         termsView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(requireContext(), TermsActivity.class);
+                // Start the TermsActivity when the button is clicked
+                Intent intent = new Intent(ProfileActivity.this, TermsActivity.class);
                 startActivity(intent);
             }
         });
@@ -150,8 +118,8 @@ public class fragment_profile2 extends Fragment {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(requireContext(), FeedbackActivity.class);
+                // Start the FeedbackActivity when the button is clicked
+                Intent intent = new Intent(ProfileActivity.this, FeedbackActivity.class);
                 startActivity(intent);
             }
         });
@@ -159,40 +127,28 @@ public class fragment_profile2 extends Fragment {
         privacyView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the EditProfileActivity when the button is clicked
-                Intent intent = new Intent(requireContext(), PrivacyActivity.class);
+                // Start the PrivacyActivity when the button is clicked
+                Intent intent = new Intent(ProfileActivity.this, PrivacyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        rateus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the ForgetPasswordActivity when the button is clicked
+                Intent intent = new Intent(ProfileActivity.this, RateUsActivity.class);
                 startActivity(intent);
             }
         });
 
 
-        rateus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Fragment fragment= new RateUsFragment();
-                loadFragment(fragment, true);
-            }
-        });
-
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fragment_forgetPass forgetPassFragment = new fragment_forgetPass();
-
-                // Get the FragmentManager
-                FragmentManager fragmentManager = getParentFragmentManager();
-
-                // Begin a FragmentTransaction
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
-
-                // Replace the current fragment with fragment_forgetPass
-                transaction.replace(R.id.profilePage, forgetPassFragment);
-
-                // Add the transaction to the back stack
-                transaction.addToBackStack(null);
-
-                // Commit the transaction
-                transaction.commit();
+                // Start the ForgetPasswordActivity when the button is clicked
+                Intent intent = new Intent(ProfileActivity.this, ForgetPasswordActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -213,17 +169,17 @@ public class fragment_profile2 extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
                 builder.setTitle("Log Out");
                 builder.setMessage("Are you sure you want to logout?");
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         mAuth.signOut();
-                        Intent intent = new Intent(requireContext(), LoginScreen.class);
+                        Intent intent = new Intent(ProfileActivity.this, LoginScreen.class);
                         startActivity(intent);
-                        requireActivity().finish();
-                        Toast.makeText(requireContext(), "Successfully logged out", Toast.LENGTH_SHORT).show();
+                        finish();
+                        Toast.makeText(ProfileActivity.this, "Successfully logged out", Toast.LENGTH_SHORT).show();
                     }
                 });
                 builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -237,11 +193,10 @@ public class fragment_profile2 extends Fragment {
                 dialog.show();
             }
         });
-        return view;
     }
 
     private void loadProfileData() {
-        SharedPreferences prefs = getActivity().getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
         String savedUsername = prefs.getString("username", "");
         String savedImageUri = prefs.getString("imageUri", "");
 
@@ -268,11 +223,11 @@ public class fragment_profile2 extends Fragment {
     }
 
     private void loadFragment(Fragment fragment, boolean isAppInitialized) {
-        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (isAppInitialized) {
-            transaction.replace(R.id.profilePage, fragment);
+            transaction.add(R.id.frame, fragment);
         } else {
-            transaction.replace(R.id.profilePage, fragment);
+            transaction.replace(R.id.frame, fragment);
         }
         transaction.commit();
     }
