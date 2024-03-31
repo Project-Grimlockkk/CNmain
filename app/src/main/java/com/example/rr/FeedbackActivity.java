@@ -1,10 +1,12 @@
 package com.example.rr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -31,6 +33,7 @@ public class FeedbackActivity extends AppCompatActivity {
         RadioGroup roleRadioGroup = findViewById(R.id.roleRadioGroup);
         EditText descriptionEditText = findViewById(R.id.descriptionEditText);
         Button submitButton = findViewById(R.id.submitButton);
+        ImageView backButton = findViewById(R.id.backButton);
 
         RadioButton problem1Radio = findViewById(R.id.problem1Radio);
         RadioButton problem2Radio = findViewById(R.id.problem2Radio);
@@ -53,7 +56,8 @@ public class FeedbackActivity extends AppCompatActivity {
                     // Get description from the EditText
                     String description = descriptionEditText.getText().toString();
 
-                    StringBuilder selectedOptionBuilder = new StringBuilder();
+                    // Reset selectedOptions
+                    selectedOptions = "";
 
                     if (problem1Radio.isChecked()) {
                         selectedOptions += problem1Radio.getText().toString() + ", ";
@@ -78,6 +82,16 @@ public class FeedbackActivity extends AppCompatActivity {
                     // No radio button is selected
                     Toast.makeText(FeedbackActivity.this, "Please select a role.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        // Set click listener for the back button
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate back to the main page using an Intent
+                Intent intent = new Intent(FeedbackActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
     }
