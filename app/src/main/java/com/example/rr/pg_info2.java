@@ -82,20 +82,20 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 address.setText(bundle.getString("address"));
 //                address.setText("xyz");
                 apPhoneNo.setText(bundle.getString("phoneNo"));
-                if (bundle.containsKey("xyz") && bundle.getString("electricity").equals("yes")) {
-                    apElectricity.setImageResource(R.drawable.yes_image);
+                if (bundle.containsKey("electricity") && bundle.getString("electricity").equals("yes")) {
+                    apElectricity.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
                 } else {
-                    apElectricity.setImageResource(R.drawable.no_image);
+                    apElectricity.setImageResource(R.drawable.cross_circle_svgrepo_com);
                 }
-                if (bundle.containsKey("xyz") && bundle.getString("waterSupply").equals("yes")) {
-                    apWaterSupply.setImageResource(R.drawable.yes_image);
+                if (bundle.containsKey("waterSupply") && bundle.getString("waterSupply").equals("yes")) {
+                    apWaterSupply.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
                 } else {
-                    apWaterSupply.setImageResource(R.drawable.no_image);
+                    apWaterSupply.setImageResource(R.drawable.cross_circle_svgrepo_com);
                 }
-                if (bundle.containsKey("xyz") && bundle.getString("cleaningFacility").equals("yes")) {
-                    apCleaning.setImageResource(R.drawable.yes_image);
+                if (bundle.containsKey("cleaningFacility") && bundle.getString("cleaningFacility").equals("yes")) {
+                    apCleaning.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
                 } else {
-                    apCleaning.setImageResource(R.drawable.no_image);
+                    apCleaning.setImageResource(R.drawable.cross_circle_svgrepo_com);
                 }
                 // Load image using Glide
                 Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
@@ -135,9 +135,9 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
         mMap = googleMap;
         if (mMap != null) {
             // Fetch address from database (replace with your database logic)
-            String address = "walchand college of engineering, sangli";
-            // Geocode the address to get LatLng coordinates
-            new GeocodingTask().execute(address);
+                String pgaddress = address.getText().toString();
+            // Geocode the address to get LatLng coordites
+            new GeocodingTask().execute(pgaddress);
         }
     }
 

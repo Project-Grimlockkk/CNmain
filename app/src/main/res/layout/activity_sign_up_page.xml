@@ -118,7 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
-                android:backgroundTint="@color/mainTheme"
+                android:background="@drawable/click_effect"
                 android:fontFamily="sans-serif"
                 android:text="Sign Up"
                 android:textColor="@color/white"
@@ -130,10 +130,12 @@
                 android:id="@+id/alreadyRegistered"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:gravity="center"
+
                 android:text="Already Registered? Log in here."
-                android:textColor="#fff" />
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/loginB" />
 
 
         </LinearLayout>

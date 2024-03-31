@@ -44,6 +44,7 @@
                         <ImageView
                             android:layout_width="300dp"
                             android:layout_height="match_parent"
+                            android:layout_gravity="center"
                             android:id="@+id/apImgg"
                             />
                     </LinearLayout>
@@ -278,12 +279,23 @@
                 android:layout_margin="10dp"
                 android:layout_height="340dp"
                 android:orientation="vertical"
-                android:background="@drawable/lightgreyrect"
+                android:background="@drawable/roundbackblue"
                 >
+
+
                 <LinearLayout
+
                     android:layout_width="match_parent"
+                    android:id="@+id/addressbars"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginBottom="5dp"
+                    >
 
                     <TextView
                         android:layout_marginStart="10dp"
@@ -293,7 +305,7 @@
                         android:layout_height="wrap_content"
                         android:text="Address:"
                         android:fontFamily="@font/poppins_semibold"
-                        android:textColor="@color/black"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         />
@@ -305,32 +317,36 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Address"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold"
                         />
 
                 </LinearLayout>
 
-
                 <LinearLayout
+
                     android:layout_width="match_parent"
+                    android:id="@+id/addressbar"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_margin="5dp"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:weightSum="2"
+                    >
 
                     <TextView
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
                         android:id="@+id/phoneNOOO"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Phone No.: "
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:textColor="@color/black"
+                        android:text="Phone No.: "
+                        android:textColor="@color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold"
-                        />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_marginStart="10dp"
@@ -339,11 +355,209 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Phone No. "
-                        android:fontFamily="@font/poppins_semibold"
-                        android:textColor="@color/black"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
                         android:textSize="20sp"
+                        />
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:id="@+id/elec"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:weightSum="2"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/electrivity1"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+
+                        android:text="Electricity Included"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
                         android:textStyle="bold"
                         />
+
+                    <ImageView
+                        android:id="@+id/electricity"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="12dp"
+                        android:scaleX="0.8"
+                        android:layout_weight="0.3"
+                        android:scaleY="0.8"
+                        android:src="@drawable/checkmark_circle_svgrepo_com"
+                        app:tint="@color/profileIcons" />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:id="@+id/water"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:weightSum="2"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:text="Water Supply"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+                    <ImageView
+                        android:id="@+id/waterSupply"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="12dp"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/checkmark_circle_svgrepo_com"
+                        app:tint="@color/profileIcons" />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:id="@+id/clean"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:weightSum="2"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/cleaningfacility"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:text="Cleaning Facility"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+                    <ImageView
+                        android:id="@+id/cleaningFacility"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="12dp"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/checkmark_circle_svgrepo_com"
+                        app:tint="@color/profileIcons" />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:weightSum="2"
+                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/internet"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="280dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:text="Internet Connectivity"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+                    <ImageView
+                        android:id="@+id/intenetconnect"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="12dp"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/checkmark_circle_svgrepo_com"
+                        app:tint="@color/profileIcons" />
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:id="@+id/feedback"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/click_effect"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:weightSum="2"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/feedbacktext"
+                        android:layout_marginStart="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:layout_weight="1.63"
+                        android:text="Electricity Included"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+
+                    <ImageView
+                        android:id="@+id/feedbackicon"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:padding="12dp"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/checkmark_circle_svgrepo_com"
+                        app:tint="@color/profileIcons" />
 
                 </LinearLayout>
 

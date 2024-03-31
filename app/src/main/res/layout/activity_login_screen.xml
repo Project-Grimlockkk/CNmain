@@ -92,9 +92,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
-                android:backgroundTint="@color/mainTheme"
                 android:fontFamily="sans-serif"
                 android:text="Login"
+                android:background="@drawable/click_effect"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -112,10 +112,12 @@
                 android:id="@+id/signUpLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/loginB"
                 android:gravity="center_horizontal"
                 android:text="Signup !"
-                android:textColor="#fff"/>
+               />
 
 
         </LinearLayout>
