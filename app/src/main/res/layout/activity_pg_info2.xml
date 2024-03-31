@@ -195,7 +195,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:weightSum="4"> <!-- Divide the layout into 4 equal parts -->
+                    android:weightSum="3"> <!-- Divide the layout into 4 equal parts -->
 
                     <ImageView
                         android:id="@+id/calling"
@@ -206,16 +206,6 @@
                         android:layout_weight="1"
                         android:padding="12dp"
                         android:src="@drawable/call" />
-
-                    <ImageView
-                        android:id="@+id/sharebutton"
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:layout_weight="1"
-                        android:scaleY="1.5"
-                        android:scaleX="1.5"
-                        android:padding="12dp"
-                        android:src="@drawable/share" />
 
                     <ImageView
                         android:id="@+id/addTOfavs"
