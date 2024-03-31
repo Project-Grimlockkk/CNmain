@@ -15,11 +15,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpPage extends AppCompatActivity {
 
     private ActivitySignUpPageBinding binding;
     private FirebaseAuth auth;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentusr = auth.getCurrentUser();
+        if(currentusr!= null){
+            startActivity(new Intent(SignUpPage.this,MainActivity.class));
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
