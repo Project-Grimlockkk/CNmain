@@ -63,8 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Load night mode state from SharedPreferences
         sharedPreferences = getPreferences(Context.MODE_PRIVATE);
-        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", true);
-        nightModeSwitch.setChecked(nightModeEnabled);
+        nightModeEnabled = sharedPreferences.getBoolean("nightModeEnabled", false);
 
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", Context.MODE_PRIVATE);
         String savedUsername = prefs.getString("username", "");
