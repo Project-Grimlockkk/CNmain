@@ -120,6 +120,8 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
             startActivity(callIntent);
         });
 
+        ImageView savingIcon= findViewById(R.id.addTOfavs);
+
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.maps);
         if (mapFragment == null) {
             mapFragment = SupportMapFragment.newInstance();
