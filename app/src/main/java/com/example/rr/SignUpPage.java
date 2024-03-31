@@ -3,36 +3,23 @@ package com.example.rr;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.learn.R;
-import com.example.learn.databinding.ActivityMainBinding;
 import com.example.learn.databinding.ActivitySignUpPageBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpPage extends AppCompatActivity {
 
     private ActivitySignUpPageBinding binding;
     private FirebaseAuth auth;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentusr = auth.getCurrentUser();
-        if(currentusr!= null){
-            startActivity(new Intent(SignUpPage.this,MainActivity.class));
-            finish();
-        }
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,45 +28,54 @@ public class SignUpPage extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         auth = FirebaseAuth.getInstance();
+
         binding.alreadyRegistered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignUpPage.this,LoginScreen.class));
+                // Navigate to LoginScreen activity
+                startActivity(new Intent(SignUpPage.this, LoginScreen.class));
                 finish();
             }
         });
 
-
         binding.loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String usrname=binding.urname.getText().toString();
+                // Extract user input
+                String username = binding.urname.getText().toString();
                 String email = binding.email.getText().toString();
                 String password = binding.password.getText().toString();
 
-                if(usrname.equals("") || email.equals("") || password.equals("") ){
+                // Validate user input
+                if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
                     Toast.makeText(SignUpPage.this, "Please fill all details", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    auth.createUserWithEmailAndPassword(email,password)
+                } else {
+                    // Show loading dialog
+                    ProgressDialog progressDialog = new ProgressDialog(SignUpPage.this);
+                    progressDialog.setMessage("Signing...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+
+                    // Perform user registration
+                    auth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(SignUpPage.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(task.isSuccessful()){
+                                    progressDialog.dismiss(); // Dismiss loading dialog
+
+                                    if (task.isSuccessful()) {
+                                        // Registration successful
                                         Toast.makeText(SignUpPage.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(SignUpPage.this,LoginScreen.class));
+                                        startActivity(new Intent(SignUpPage.this, LoginScreen.class));
                                         finish();
-                                    }
-                                    else{
-                                        Toast.makeText(SignUpPage.this, "Registration Failed!?", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        // Registration failed, display error message
+                                        Toast.makeText(SignUpPage.this, "Registration Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });
-
                 }
             }
         });
-
     }
 }
