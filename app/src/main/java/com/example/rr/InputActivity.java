@@ -133,15 +133,15 @@ public class InputActivity extends AppCompatActivity {
                         String lastName=lastNameEditText.getText().toString();
                         String phoneNo=phoneNoEditText.getText().toString();
                         String vaccancy = vacancyInput.getText().toString();
-//                        String address=addressEditText.getText().toString();
+                        String address=addressEditText.getText().toString();
 //                        Integer rent=Integer.parseInt(rentInrEditText.getText().toString());
                         String rent = rentInrEditText.getText().toString();
 //                        Integer deposit=Integer.parseInt(depositInrEditText.getText().toString());
                         String distance=distanceInput.getText().toString();
                         String apName=apartmentNameInput.getText().toString();
-                        String gender=genderInput.getText().toString();
+                        String apGender=genderInput.getText().toString();
 
-                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, gender);
+                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender,address,phoneNo);
 
 //                        Property property1= new Property(imageUrl,vaccancy,rent,distance,apName,gender);
 //                        RoomDetailsModel roomDetailsModel= new RoomDetailsModel(imgurii,apName, distance,vacancy,rent,gender);

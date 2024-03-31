@@ -30,6 +30,9 @@
             android:name="com.example.rr.pg_info2"
             android:exported="true" />
         <activity
+            android:name="com.example.rr.EditProfileActivity"
+            android:exported="true" />
+        <activity
             android:name="com.example.rr.splashActivity"
             android:exported="true">
             <intent-filter>

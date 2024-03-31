@@ -54,7 +54,16 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Handle Save Changes button click
-                onSaveChangesClicked();
+//                onSaveChangesClicked();
+                SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
+                editor.putString("username", usernameEditText.getText().toString());
+                editor.putString("email", emailEditText.getText().toString());
+                editor.putString("phone", phoneEditText.getText().toString());
+                editor.putString("imageUri", profileImageView.getTag().toString());
+                editor.apply();
+
+                // Show a toast message to indicate that the changes are saved
+                Toast.makeText(EditProfileActivity.this, "Changes saved!", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -100,10 +109,14 @@ public class EditProfileActivity extends AppCompatActivity {
         String savedUsername = prefs.getString("username", "");
         String savedEmail = prefs.getString("email", "");
         String savedPhone = prefs.getString("phone", "");
+        String savedImageUri = prefs.getString("imageUri", "");
 
         // Populate EditText fields with saved data
         usernameEditText.setText(savedUsername);
         emailEditText.setText(savedEmail);
         phoneEditText.setText(savedPhone);
+//        if (savedImageUri != null && !savedImageUri.isEmpty()) {
+//            profileImageView.setImageURI(Uri.parse(savedImageUri));
+//        }
     }
 }
