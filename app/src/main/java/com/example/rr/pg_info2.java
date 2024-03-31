@@ -116,9 +116,9 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
         mMap = googleMap;
         if (mMap != null) {
             // Fetch address from database (replace with your database logic)
-            String address = "walchand college of engineering, sangli";
-            // Geocode the address to get LatLng coordinates
-            new GeocodingTask().execute(address);
+                String pgaddress = address.getText().toString();
+            // Geocode the address to get LatLng coordites
+            new GeocodingTask().execute(pgaddress);
         }
     }
 
