@@ -1,7 +1,9 @@
 package com.example.rr;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,14 +16,12 @@ import com.example.learn.R;
 
 public class EditProfileActivity1 extends AppCompatActivity {
 
-    private static final int REQUEST_IMAGE_PICK = 1;
-    private static final int REQUEST_PERMISSION_READ_EXTERNAL_STORAGE = 101;
     private static final String PREFS_NAME = "MyPrefsFile";
 
     private ImageView profileImageView;
-    private Button changePhotoButton;
     private EditText usernameEditText;
     private Button saveChangesButton;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,25 +32,11 @@ public class EditProfileActivity1 extends AppCompatActivity {
         usernameEditText = findViewById(R.id.usernameEditText);
         saveChangesButton = findViewById(R.id.saveChangesButton);
 
-        loadSavedData();
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Refreshing ...");
+        progressDialog.setCancelable(false);
 
-//        changePhotoButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                // Check if permission is grantedx
-//                if (ContextCompat.checkSelfPermission(EditProfileActivity.this,
-//                        Manifest.permission.READ_EXTERNAL_STORAGE)
-//                        == PackageManager.PERMISSION_GRANTED) {
-//                    // Permission is already granted, proceed with photo selection
-//                    showPhotoSelectionDialog();
-//                } else {
-//                    // Permission is not granted, request it
-//                    ActivityCompat.requestPermissions(EditProfileActivity.this,
-//                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-//                            REQUEST_PERMISSION_READ_EXTERNAL_STORAGE);
-//                }
-//            }
-//        });
+        loadSavedData();
 
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,56 +46,27 @@ public class EditProfileActivity1 extends AppCompatActivity {
         });
     }
 
-//    private void showPhotoSelectionDialog() {
-//        Intent pickPhotoIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//        pickPhotoIntent.setType("image/*");
-//        startActivityForResult(pickPhotoIntent, REQUEST_IMAGE_PICK);
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode == RESULT_OK && requestCode == REQUEST_IMAGE_PICK && data != null) {
-//            Uri selectedImageUri = data.getData();
-//            profileImageView.setImageURI(selectedImageUri);
-//            if (selectedImageUri != null) {
-//                profileImageView.setTag(selectedImageUri.toString());
-//            }
-//        }
-//    }
-
     private void onSaveChangesClicked() {
+        progressDialog.show();
         SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         editor.putString("username", usernameEditText.getText().toString());
         editor.putString("imageUri", profileImageView.getTag() != null ? profileImageView.getTag().toString() : "");
         editor.apply();
 
-        Toast.makeText(this, "Changes saved! Please refresh this page", Toast.LENGTH_SHORT).show();
+        // Simulate delay for refreshing profile
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+                Toast.makeText(EditProfileActivity1.this, "Profile Saved!", Toast.LENGTH_SHORT).show();
+            }
+        }, 2000); // 2000 milliseconds (2 seconds)
     }
 
     private void loadSavedData() {
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String savedUsername = prefs.getString("username", "");
-        String savedImageUri = prefs.getString("imageUri", "");
 
         usernameEditText.setText(savedUsername);
-
-//        if (!savedImageUri.isEmpty()) {
-//            profileImageView.setImageURI(Uri.parse(savedImageUri));
-//            profileImageView.setTag(savedImageUri);
-//        }
     }
-
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
-//                                           @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if (requestCode == REQUEST_PERMISSION_READ_EXTERNAL_STORAGE) {
-//            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                showPhotoSelectionDialog();
-//            } else {
-//                Toast.makeText(this, "Permission denied. Cannot access photos.", Toast.LENGTH_SHORT).show();
-//            }
-//        }
-//    }
 }
