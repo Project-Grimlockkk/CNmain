@@ -49,7 +49,6 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
 
         Button addingPGButton = rootView.findViewById(R.id.addingPG);
-        ImageView filterbutton = rootView.findViewById(R.id.filterr);
 
         addingPGButton.setOnClickListener(new View.OnClickListener() {
             @Override

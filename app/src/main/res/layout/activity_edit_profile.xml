@@ -1,113 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.rr.EditProfileActivity">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/SCREEN"
+        android:orientation="vertical"
+        tools:context="com.example.rr.EditProfileActivity1">
 
     <ImageView
         android:id="@+id/profileImageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:src="@drawable/profile_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
-    <Button
-        android:id="@+id/changePhotoButton"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:text="Upload"
-        android:onClick="onChangePhotoButtonClicked"
-        android:backgroundTint="#5271FF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/profileImageView" />
+        android:layout_width="150dp"
+        android:layout_height="126dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/wcesangli" />
 
     <!-- Username -->
-    <TextView
-        android:id="@+id/usernameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username:"
-        android:fontFamily="@font/poppins_bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/changePhotoButton"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
 
-    <EditText
-        android:id="@+id/usernameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Enter username"
-        app:layout_constraintEnd_toEndOf="@id/changePhotoButton"
-        app:layout_constraintStart_toStartOf="@id/usernameLabel"
-        app:layout_constraintTop_toBottomOf="@id/usernameLabel" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/usernameEditText1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_margin="20dp"
+            android:hint="Enter Username"
+            android:textColorHint="@color/grey"
+            app:boxStrokeColor="@color/mainTheme">
 
-    <!-- Email -->
-    <TextView
-        android:id="@+id/emailLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email:"
-        android:fontFamily="@font/poppins_bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/usernameEditText"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                style="@style/TEXT" />
 
-    <EditText
-        android:id="@+id/emailEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Enter email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="@id/changePhotoButton"
-        app:layout_constraintStart_toStartOf="@id/emailLabel"
-        app:layout_constraintTop_toBottomOf="@id/emailLabel" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Phone Number -->
-    <TextView
-        android:id="@+id/phoneLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone:"
-        android:fontFamily="@font/poppins_bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/emailEditText"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"/>
 
-    <EditText
-        android:id="@+id/phoneEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="Enter phone number"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@id/changePhotoButton"
-        app:layout_constraintStart_toStartOf="@id/phoneLabel"
-        app:layout_constraintTop_toBottomOf="@id/phoneLabel" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailEditText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:hint="Enter Email"
+            android:textColorHint="@color/grey"
+            app:boxStrokeColor="@color/mainTheme">
 
-    <Button
-        android:id="@+id/saveChangesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save Changes"
-        android:onClick="onSaveChangesClicked"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#5271FF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/phoneEditText" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                style="@style/TEXT" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Phone Number -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneEditText"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:hint="Enter Phone No."
+            android:textColorHint="@color/grey"
+            app:boxStrokeColor="@color/mainTheme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEditText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:inputType="textEmailAddress"
+                android:singleLine="true"
+                style="@style/TEXT" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/saveChangesButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Changes"
+            android:fontFamily="@font/poppins_semibold"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="#5271FF"/>
+
+    </LinearLayout>

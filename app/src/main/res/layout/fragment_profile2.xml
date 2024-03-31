@@ -47,13 +47,24 @@
             </RelativeLayout>
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/profileImageView"
+                android:layout_width="140dp"
+                android:layout_height="94dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/profile_icon"/>
+                android:src="@drawable/wcesangli" />
 
 
+            <TextView
+                android:id="@+id/usernameTextView"
+                android:layout_width="409dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text=""
+                android:textSize="20sp" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="wrap_content"
@@ -325,44 +336,6 @@
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:layout_toEndOf="@+id/languageIcon"
-                    />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/right_arrow_icon"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/PGinfo"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/click_effect"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/languagfIcon"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:padding="12dp"
-                    android:src="@drawable/share_round_svgrepo_com"
-
-                    app:tint="#020253" />
-
-                <TextView
-                    android:layout_marginStart="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="PG Info"
-                    android:fontFamily="@font/poppins"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:layout_toEndOf="@+id/languagfIcon"
                     />
 
                 <ImageView

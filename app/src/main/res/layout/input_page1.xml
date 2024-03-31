@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:scrollbars="none"
     tools:context="com.example.rr.InputActivity" >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         >
 
         <androidx.cardview.widget.CardView
@@ -48,7 +49,7 @@
                     android:layout_marginTop="30dp"
                     android:hint="First Name"
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/FirstNameInput"
@@ -70,7 +71,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Last Name"
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/LastNameInput"
@@ -80,7 +81,7 @@
                         android:fontFamily="@font/poppins"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="@color/black" />
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,7 +93,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Phone No."
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
 
 
@@ -105,7 +106,7 @@
                         android:fontFamily="@font/poppins"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="@color/black" />
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -117,7 +118,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Apartment Name"
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/apartmentNameInput"
@@ -127,7 +128,7 @@
                         android:fontFamily="@font/poppins"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="@color/black" />
+                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -139,7 +140,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Address"
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/AddressInput"
@@ -161,7 +162,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Distance for college(in meter)"
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/distanceInput"
@@ -171,7 +172,7 @@
                         android:fontFamily="@font/poppins"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="@color/black" />
+                        />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -183,7 +184,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="For: (Boys or Girls)"
                     android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/black">
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/genderInput"
@@ -194,6 +195,7 @@
 
                         android:singleLine="true"
                         android:textColor="@color/black" />
+
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -215,7 +217,7 @@
                         android:fontFamily="@font/poppins"
                         android:inputType="textEmailAddress"
                         android:singleLine="true"
-                        android:textColor="@color/black" />
+                       />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -239,9 +241,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:hint="Rent in INR"
+                            android:hint=" Rent in INR"
                             android:textColorHint="@color/grey"
-                            app:boxStrokeColor="@color/black">
+                            app:boxStrokeColor="@color/grey">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/RentInput"
@@ -252,7 +254,7 @@
                                 android:fontFamily="@font/poppins"
                                 android:inputType="textEmailAddress"
                                 android:singleLine="true"
-                                android:textColor="@color/black" />
+                                />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -272,7 +274,7 @@
                             android:layout_marginTop="5dp"
                             android:hint="Deposit in INR"
                             android:textColorHint="@color/grey"
-                            app:boxStrokeColor="@color/black">
+                            app:boxStrokeColor="@color/grey">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/DepositInput"
@@ -283,7 +285,7 @@
                                 android:fontFamily="@font/poppins"
                                 android:inputType="textEmailAddress"
                                 android:singleLine="true"
-                                android:textColor="@color/black" />
+                                />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -495,14 +497,12 @@
             android:layout_below="@id/cardView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
-            app:cardBackgroundColor="#FFEFEA"
             app:cardCornerRadius="18dp"
             app:cardElevation="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -513,12 +513,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:hint="Description or Review"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black">
+                    android:textColorHint="@color/grey"
+                    app:boxStrokeColor="@color/grey">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/DescriptionInput"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_margin="20dp"
                         android:fontFamily="@font/poppins"
@@ -537,7 +537,7 @@
                         android:fontFamily="@font/poppins_semibold"
                         android:textSize="20sp"
                         android:layout_marginTop="1dp"
-                        android:text="Submit"
+                        android:text="Submit !"
                         app:backgroundTint="@color/mainTheme"
                         android:textColor="@android:color/white" />
 

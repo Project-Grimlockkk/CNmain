@@ -34,7 +34,7 @@ public class EditProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_profile);
 
         profileImageView = findViewById(R.id.profileImageView);
-        changePhotoButton = findViewById(R.id.changePhotoButton);
+//        changePhotoButton = findViewById(R.id.changePhotoButton);
         usernameEditText = findViewById(R.id.usernameEditText);
         emailEditText = findViewById(R.id.emailEditText);
         phoneEditText = findViewById(R.id.phoneEditText);

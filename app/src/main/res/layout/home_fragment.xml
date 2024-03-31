@@ -76,17 +76,7 @@
                     android:focusable="false"
                     android:background="@drawable/roundedsqr"/>
 
-                <ImageView
-                    android:id="@+id/filterr"
-                    android:layout_width="22dp"
-                    android:layout_height="19dp"
-                    android:layout_gravity="end|center"
-                    android:layout_marginRight="25dp"
-                    android:scaleX="1.8"
-                    android:layout_weight="1"
-                    android:scaleY="1.8"
-                    app:srcCompat="@drawable/filter_svgrepo_com"
-                    app:tint="#FFFFFF" />
+
             </LinearLayout>
 
         </FrameLayout>
@@ -98,13 +88,94 @@
             android:layout_margin="5dp"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins_semibold"
-            android:background="@drawable/round_back_secondary_maintheme"
+            android:background="@drawable/click_effect"
             android:text="+ Add a PG"
             android:textAllCaps="false"
             android:textColor="@color/white"/>
 
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:scrollbars="none"
+            >
+            <RadioGroup
+                android:id="@+id/filterGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-    <androidx.recyclerview.widget.RecyclerView
+                <RadioButton
+                    android:id="@+id/filterBoys"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="10dp"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Boys"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/roundedsqr"/>
+
+                <RadioButton
+                    android:id="@+id/filterGirls"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="10dp"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Girls"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/roundedsqr"/>
+
+                <RadioButton
+                    android:id="@+id/Veg"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="10dp"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Veg"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/roundedsqr"/>
+
+                <RadioButton
+                    android:id="@+id/filterNonveg"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="10dp"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Non-Veg"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/roundedsqr"/>
+
+                <RadioButton
+                    android:id="@+id/filterveryclose"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="10dp"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Veryclose"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/roundedsqr"/>
+
+                <RadioButton
+                    android:id="@+id/filterMeddistance"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:layout_marginLeft="10dp"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="Medium distance"
+                    android:fontFamily="@font/poppins"
+                    android:background="@drawable/roundedsqr"/>
+
+                <!-- Add more radio buttons here -->
+
+            </RadioGroup>
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
