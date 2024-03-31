@@ -115,7 +115,7 @@
 
             ImageView whatsappIcon = findViewById(R.id.WhatsappIcon);
             whatsappIcon.setOnClickListener(v -> {
-                String phoneNumber = "91680 09484";
+                String phoneNumber = apPhoneNo.getText().toString();
                 // Open WhatsApp with the provided phone number
                 Intent whatsappIntent = new Intent(Intent.ACTION_VIEW);
                 whatsappIntent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + phoneNumber));
@@ -124,7 +124,7 @@
 
             ImageView callingIcon = findViewById(R.id.calling);
             callingIcon.setOnClickListener(v -> {
-                String phoneNumber = "919168009484";
+                String phoneNumber = apPhoneNo.getText().toString();
                 // Open phone dialer with the provided phone number
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
                 callIntent.setData(Uri.parse("tel:" + phoneNumber));
