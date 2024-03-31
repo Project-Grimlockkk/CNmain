@@ -72,8 +72,8 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.add(R.id.frame, fragment);
         } else {
             fragmentTransaction.replace(R.id.frame, fragment);
+            fragmentTransaction.addToBackStack(null); // Add to back stack for back navigation
         }
-        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }
