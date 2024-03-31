@@ -1,13 +1,16 @@
 package com.example.rr;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import android.widget.ProgressBar; // Import ProgressBar
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class FeedbackActivity extends AppCompatActivity {
 
     private String selectedOptions = "";
+    private ProgressBar loadingProgressBar; // Declare ProgressBar
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,8 @@ public class FeedbackActivity extends AppCompatActivity {
         RadioGroup roleRadioGroup = findViewById(R.id.roleRadioGroup);
         EditText descriptionEditText = findViewById(R.id.descriptionEditText);
         Button submitButton = findViewById(R.id.submitButton);
+        ImageView backButton = findViewById(R.id.backButton);
+        loadingProgressBar = findViewById(R.id.loadingProgressBar); // Initialize ProgressBar
 
         RadioButton problem1Radio = findViewById(R.id.problem1Radio);
         RadioButton problem2Radio = findViewById(R.id.problem2Radio);
@@ -42,6 +48,9 @@ public class FeedbackActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Show loading ProgressBar
+                loadingProgressBar.setVisibility(View.VISIBLE);
+
                 // Get selected radio button from the radio group
                 int selectedRadioButtonId = roleRadioGroup.getCheckedRadioButtonId();
 
@@ -53,7 +62,8 @@ public class FeedbackActivity extends AppCompatActivity {
                     // Get description from the EditText
                     String description = descriptionEditText.getText().toString();
 
-                    StringBuilder selectedOptionBuilder = new StringBuilder();
+                    // Reset selectedOptions
+                    selectedOptions = "";
 
                     if (problem1Radio.isChecked()) {
                         selectedOptions += problem1Radio.getText().toString() + ", ";
@@ -77,7 +87,20 @@ public class FeedbackActivity extends AppCompatActivity {
                 } else {
                     // No radio button is selected
                     Toast.makeText(FeedbackActivity.this, "Please select a role.", Toast.LENGTH_SHORT).show();
+
+                    // Hide loading ProgressBar
+                    loadingProgressBar.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        // Set click listener for the back button
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Navigate back to the main page using an Intent
+                Intent intent = new Intent(FeedbackActivity.this, ProfileActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -97,6 +120,9 @@ public class FeedbackActivity extends AppCompatActivity {
                         public void onSuccess(Void aVoid) {
                             // Data added successfully
                             Toast.makeText(FeedbackActivity.this, "Feedback submitted successfully!", Toast.LENGTH_SHORT).show();
+
+                            // Hide loading ProgressBar
+                            loadingProgressBar.setVisibility(View.GONE);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -104,10 +130,16 @@ public class FeedbackActivity extends AppCompatActivity {
                         public void onFailure(@NonNull Exception e) {
                             // Failed to add data
                             Toast.makeText(FeedbackActivity.this, "Failed to submit feedback. Please try again.", Toast.LENGTH_SHORT).show();
+
+                            // Hide loading ProgressBar
+                            loadingProgressBar.setVisibility(View.GONE);
                         }
                     });
         } else {
             Toast.makeText(FeedbackActivity.this, "Failed to generate feedback ID. Please try again.", Toast.LENGTH_SHORT).show();
+
+            // Hide loading ProgressBar
+            loadingProgressBar.setVisibility(View.GONE);
         }
     }
 }

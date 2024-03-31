@@ -1,7 +1,9 @@
 package com.example.rr;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -45,9 +47,26 @@ public class welcome extends AppCompatActivity {
         getStartedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start MainActivity
-                startActivity(new Intent(welcome.this, MainActivity.class));
-                finish(); // Optional: Finish the current activity
+                // Show loading dialog
+                ProgressDialog progressDialog = new ProgressDialog(welcome.this);
+                progressDialog.setMessage("Loading...");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+
+                // Simulate a delay before starting MainActivity
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Dismiss the loading dialog
+                        progressDialog.dismiss();
+
+                        // Start MainActivity
+                        startActivity(new Intent(welcome.this, MainActivity.class));
+
+                        // Finish the current activity
+                        finish();
+                    }
+                }, 2000); // Adjust the delay as needed
             }
         });
     }
