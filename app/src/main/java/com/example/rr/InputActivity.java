@@ -47,7 +47,11 @@ import java.util.List;
 
 public class InputActivity extends AppCompatActivity {
 
-    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText, distanceInput, apartmentNameInput, genderInput, vacancyInput;
+//<<<<<<< HEAD
+    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText, distanceInput, apartmentNameInput, genderInput,vacancyInput, waterSupply, electricity, cleaningFacility;
+//=======
+//    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText, distanceInput, apartmentNameInput, genderInput, vacancyInput;
+//>>>>>>> 88eb193fb7e724b8e2dbf88f6cb561acad833424
     Spinner tenantTypeSpinner, noOfBedsSpinner;
 
     Button submitButton, addPgPhotos;
@@ -83,9 +87,21 @@ public class InputActivity extends AppCompatActivity {
 
         Button AddPG = findViewById(R.id.AddImagebutton);
         distanceInput = findViewById(R.id.distanceInput);
-        apartmentNameInput = findViewById(R.id.apartmentNameInput);
-        genderInput = findViewById(R.id.genderInput);
-        vacancyInput = findViewById(R.id.VacancyInput);
+//<<<<<<< HEAD
+        apartmentNameInput=findViewById(R.id.apartmentNameInput);
+        genderInput=findViewById(R.id.genderInput);
+        vacancyInput= findViewById(R.id.VacancyInput);
+        waterSupply= findViewById(R.id.waterSupply);
+        electricity= findViewById(R.id.electricity);
+        cleaningFacility= findViewById(R.id.cleaningFacility);
+
+
+
+////=======
+//        apartmentNameInput = findViewById(R.id.apartmentNameInput);
+//        genderInput = findViewById(R.id.genderInput);
+//        vacancyInput = findViewById(R.id.VacancyInput);
+//>>>>>>> 88eb193fb7e724b8e2dbf88f6cb561acad833424
 
 
         submitButton = findViewById(R.id.submitButton);
@@ -118,11 +134,22 @@ public class InputActivity extends AppCompatActivity {
 //                        Integer rent=Integer.parseInt(rentInrEditText.getText().toString());
                         String rent = rentInrEditText.getText().toString();
 //                        Integer deposit=Integer.parseInt(depositInrEditText.getText().toString());
-                        String distance = distanceInput.getText().toString();
-                        String apName = apartmentNameInput.getText().toString();
-                        String apGender = genderInput.getText().toString();
+//<<<<<<< HEAD
+                        String distance=distanceInput.getText().toString();
+                        String apName=apartmentNameInput.getText().toString();
+                        String apGender=genderInput.getText().toString();
+                        String apElectricity=electricity.getText().toString();
+                        String apWaterSupply=waterSupply.getText().toString();
+                        String apCleaningFacility=cleaningFacility.getText().toString();
 
-                        RoomDetailsClass roomDetailsClass = new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender, address, phoneNo);
+                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender,address,phoneNo,apElectricity,apWaterSupply,apCleaningFacility);
+////=======
+//                        String distance = distanceInput.getText().toString();
+//                        String apName = apartmentNameInput.getText().toString();
+//                        String apGender = genderInput.getText().toString();
+//
+//                        RoomDetailsClass roomDetailsClass = new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender, address, phoneNo);
+//>>>>>>> 88eb193fb7e724b8e2dbf88f6cb561acad833424
 
 //                        Property property1= new Property(imageUrl,vaccancy,rent,distance,apName,gender);
 //                        RoomDetailsModel roomDetailsModel= new RoomDetailsModel(imgurii,apName, distance,vacancy,rent,gender);

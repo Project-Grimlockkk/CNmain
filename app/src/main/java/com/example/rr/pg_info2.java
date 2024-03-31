@@ -39,22 +39,26 @@
         private SupportMapFragment mapFragment;
         private GoogleMap mMap;
 
-        ImageView apImage;
-        TextView apName, apRent, apVacancy, apDistance, apGender,address,apPhoneNo;
+    ImageView apImage, apElectricity, apWaterSupply, apCleaning ;
+    TextView apName, apRent, apVacancy, apDistance, apGender,address,apPhoneNo;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_pg_info2);
 
-            apImage = findViewById(R.id.apImgg);
-            apName = findViewById(R.id.apName);
-            apRent = findViewById(R.id.apPrice);
-            apVacancy = findViewById(R.id.apVacancy);
-            apDistance = findViewById(R.id.apDistance);
-            apGender = findViewById(R.id.apGender);
-            address = findViewById(R.id.address);
-            apPhoneNo = findViewById(R.id.phoneNO);
+        apImage = findViewById(R.id.apImgg);
+        apName = findViewById(R.id.apName);
+        apRent = findViewById(R.id.apPrice);
+        apVacancy = findViewById(R.id.apVacancy);
+        apDistance = findViewById(R.id.apDistance);
+        apGender = findViewById(R.id.apGender);
+        address = findViewById(R.id.address);
+        apPhoneNo = findViewById(R.id.phoneNO);
+        apElectricity = findViewById(R.id.electricity);
+        apWaterSupply = findViewById(R.id.waterSupply);
+        apCleaning = findViewById(R.id.cleaningFacility);
+
 
             Intent intent = getIntent();
             if (intent != null) {
@@ -81,6 +85,32 @@
                     // Load image using Glide
                     Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
                 }
+                // Set data to corresponding views
+                apName.setText(bundle.getString("apName"));
+                apRent.setText(bundle.getString("rentInr"));
+                apVacancy.setText(bundle.getString("Vacancy"));
+                apDistance.setText(bundle.getString("distance"));
+                apGender.setText(bundle.getString("gender"));
+                address.setText(bundle.getString("address"));
+//                address.setText("xyz");
+                apPhoneNo.setText(bundle.getString("phoneNo"));
+                if (bundle.containsKey("electricity") && bundle.getString("electricity").equals("yes")) {
+                    apElectricity.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
+                } else {
+                    apElectricity.setImageResource(R.drawable.cross_circle_svgrepo_com);
+                }
+                if (bundle.containsKey("waterSupply") && bundle.getString("waterSupply").equals("yes")) {
+                    apWaterSupply.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
+                } else {
+                    apWaterSupply.setImageResource(R.drawable.cross_circle_svgrepo_com);
+                }
+                if (bundle.containsKey("cleaningFacility") && bundle.getString("cleaningFacility").equals("yes")) {
+                    apCleaning.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
+                } else {
+                    apCleaning.setImageResource(R.drawable.cross_circle_svgrepo_com);
+                }
+                // Load image using Glide
+                Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
             }
 
             ImageView whatsappIcon = findViewById(R.id.WhatsappIcon);
