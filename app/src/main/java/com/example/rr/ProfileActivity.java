@@ -1,5 +1,6 @@
 package com.example.rr;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -118,9 +119,8 @@ public class ProfileActivity extends AppCompatActivity {
         feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the FeedbackActivity when the button is clicked
-                Intent intent = new Intent(ProfileActivity.this, FeedbackActivity.class);
-                startActivity(intent);
+                // Show loading dialog before starting the FeedbackActivity
+                showLoading();
             }
         });
 
@@ -142,7 +142,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,7 +150,6 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
         shareView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -222,13 +220,20 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    private void loadFragment(Fragment fragment, boolean isAppInitialized) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (isAppInitialized) {
-            transaction.add(R.id.frame, fragment);
-        } else {
-            transaction.replace(R.id.frame, fragment);
-        }
-        transaction.commit();
+    private void showLoading() {
+        ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+        // Start the FeedbackActivity after a delay (for demonstration)
+        new android.os.Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        progressDialog.dismiss();
+                        startActivity(new Intent(ProfileActivity.this, FeedbackActivity.class));
+                    }
+                },
+                2000); // Adjust the delay as per your requirement
     }
 }
