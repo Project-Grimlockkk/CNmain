@@ -47,7 +47,7 @@ import java.util.List;
 
 public class InputActivity extends AppCompatActivity {
 
-    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText, distanceInput, apartmentNameInput, genderInput,vacancyInput;
+    EditText firstNameEditText, lastNameEditText, phoneNoEditText, addressEditText, rentInrEditText, depositInrEditText, descriptionEditText, distanceInput, apartmentNameInput, genderInput,vacancyInput, waterSupply, electricity, cleaningFacility;
     Spinner tenantTypeSpinner, noOfBedsSpinner;
     RadioButton radioButton1, radioButton2, radioButton3, radioButton4;
     Button submitButton, addPgPhotos;
@@ -89,6 +89,12 @@ public class InputActivity extends AppCompatActivity {
         apartmentNameInput=findViewById(R.id.apartmentNameInput);
         genderInput=findViewById(R.id.genderInput);
         vacancyInput= findViewById(R.id.VacancyInput);
+        waterSupply= findViewById(R.id.waterSupply);
+        electricity= findViewById(R.id.electricity);
+        cleaningFacility= findViewById(R.id.cleaningFacility);
+
+
+
 
 
 
@@ -140,8 +146,11 @@ public class InputActivity extends AppCompatActivity {
                         String distance=distanceInput.getText().toString();
                         String apName=apartmentNameInput.getText().toString();
                         String apGender=genderInput.getText().toString();
+                        String apElectricity=genderInput.getText().toString();
+                        String apWaterSupply=genderInput.getText().toString();
+                        String apCleaningFacility=genderInput.getText().toString();
 
-                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender,address,phoneNo);
+                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender,address,phoneNo,apElectricity,apWaterSupply,apCleaningFacility);
 
 //                        Property property1= new Property(imageUrl,vaccancy,rent,distance,apName,gender);
 //                        RoomDetailsModel roomDetailsModel= new RoomDetailsModel(imgurii,apName, distance,vacancy,rent,gender);

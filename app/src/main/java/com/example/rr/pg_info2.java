@@ -39,7 +39,7 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;
 
-    ImageView apImage;
+    ImageView apImage, apElectricity, apWaterSupply, apCleaning ;
     TextView apName, apRent, apVacancy, apDistance, apGender,address,apPhoneNo;
 
     @Override
@@ -55,6 +55,10 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
         apGender = findViewById(R.id.apGender);
         address = findViewById(R.id.address);
         apPhoneNo = findViewById(R.id.phoneNO);
+        apElectricity = findViewById(R.id.electricity);
+        apWaterSupply = findViewById(R.id.waterSupply);
+        apCleaning = findViewById(R.id.cleaningFacility);
+
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -78,6 +82,21 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 address.setText(bundle.getString("address"));
 //                address.setText("xyz");
                 apPhoneNo.setText(bundle.getString("phoneNo"));
+                if (bundle.containsKey("xyz") && bundle.getString("electricity").equals("yes")) {
+                    apElectricity.setImageResource(R.drawable.yes_image);
+                } else {
+                    apElectricity.setImageResource(R.drawable.no_image);
+                }
+                if (bundle.containsKey("xyz") && bundle.getString("waterSupply").equals("yes")) {
+                    apWaterSupply.setImageResource(R.drawable.yes_image);
+                } else {
+                    apWaterSupply.setImageResource(R.drawable.no_image);
+                }
+                if (bundle.containsKey("xyz") && bundle.getString("cleaningFacility").equals("yes")) {
+                    apCleaning.setImageResource(R.drawable.yes_image);
+                } else {
+                    apCleaning.setImageResource(R.drawable.no_image);
+                }
                 // Load image using Glide
                 Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
             }

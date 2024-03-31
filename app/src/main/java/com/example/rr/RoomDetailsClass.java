@@ -2,7 +2,7 @@ package com.example.rr;
 
 public class RoomDetailsClass {
 
-    private String apName, rentInr, Vaccancy, distance, pgPhotos,apGender,address,phoneNo;
+    private String apName, rentInr, Vaccancy, distance, pgPhotos,apGender,address,phoneNo,electricity,cleaningFacility,waterSupply;
 
     public String getApName() {
         return apName;
@@ -48,7 +48,7 @@ public class RoomDetailsClass {
         return apGender;
     }
 
-    public RoomDetailsClass(String apName, String rentInr, String vaccancy, String distance, String pgPhotos, String apGender,String address, String phoneNo) {
+    public RoomDetailsClass(String apName, String rentInr, String vaccancy, String distance, String pgPhotos, String apGender,String address, String phoneNo,String electricity, String waterSupply, String cleaningFacility) {
         this.apName = apName;
         this.rentInr = rentInr;
         this.Vaccancy = vaccancy;
@@ -57,6 +57,10 @@ public class RoomDetailsClass {
         this.apGender = apGender;
         this.address=address;
         this.phoneNo=phoneNo;
+        this.electricity=electricity;
+        this.waterSupply=waterSupply;
+        this.cleaningFacility=cleaningFacility;
+
     }
     public RoomDetailsClass(){
 
@@ -76,5 +80,29 @@ public class RoomDetailsClass {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    public String getElectricity() {
+        return electricity;
+    }
+
+    public void setElectricity(String electricity) {
+        this.electricity = electricity;
+    }
+
+    public String getCleaningFacility() {
+        return cleaningFacility;
+    }
+
+    public void setCleaningFacility(String cleaningFacility) {
+        this.cleaningFacility = cleaningFacility;
+    }
+
+    public String getWaterSupply() {
+        return waterSupply;
+    }
+
+    public void setWaterSupply(String waterSupply) {
+        this.waterSupply = waterSupply;
     }
 }
