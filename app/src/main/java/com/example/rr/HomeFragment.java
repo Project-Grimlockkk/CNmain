@@ -100,10 +100,10 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot itemSnapshot: snapshot.getChildren()){
 //                    DataClass dataClass= itemSnapshot.getValue(D)
                     String apName= itemSnapshot.getKey();
-//                    String key= itemSnapshot.getKey();
-//                    String parentKey = snapshot.getKey();
-//                    Log.d("FirebaseKey", "Parent Key: " + parentKey);
-//                    Log.d("FirebaseKey", "Key: " + key);
+                    String key= itemSnapshot.getKey();
+                    String parentKey = snapshot.getKey();
+                    Log.d("FirebaseKey", "Parent Key: " + parentKey);
+                    Log.d("FirebaseKey", "Key: " + key);
 //                    String apDistance =itemSnapshot.child("distance").getValue(String.class);
 //                    String gender =itemSnapshot.child("gender").getValue(String.class);
 //                    String apRent =itemSnapshot.child("rentInr").getValue(String.class);
@@ -118,14 +118,14 @@ public class HomeFragment extends Fragment {
 //                    roomDetailsClass.setVaccancy(apVacancy);
 //                    roomDetailsClass.setPgPhotos(apPhoto);
 //                    roomDetailsClass.setApName(apName);
-//                    for(DataSnapshot childSnapshot: itemSnapshot.getChildren()){
-//                        String grandChildKey = childSnapshot.getKey();
-//                        Log.d("FirebaseKey", "Grandchild Key: " + grandChildKey);
+                    for(DataSnapshot childSnapshot: itemSnapshot.getChildren()){
+                        String grandChildKey = childSnapshot.getKey();
+                        Log.d("FirebaseKey", "Grandchild Key: " + grandChildKey);
 //                        roomDetailsClass= itemSnapshot.getValue(RoomDetailsClass.class);
 //                        roomDetailsClass.setApName(apName);
 //                        roomDetailsClass.setRentInr(rentInr);
 //                        datalist.add(roomDetailsClass);
-//                    }
+                    }
                     RoomDetailsClass roomDetailsClass= itemSnapshot.getValue(RoomDetailsClass.class);
                     datalist.add(roomDetailsClass);
                 }

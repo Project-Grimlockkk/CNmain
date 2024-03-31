@@ -9,12 +9,6 @@
 
         android:title="@string/home" />
     <item
-        android:id="@+id/navSaved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:icon="@drawable/save"
-        android:title="@string/saved" />
-    <item
         android:id="@+id/navProfile"
         android:iconTintMode="add"
         android:layout_width="wrap_content"
