@@ -116,7 +116,8 @@
                 android:fontFamily="@font/poppins"
                 android:textColor="@color/loginB"
                 android:gravity="center_horizontal"
-                android:text="Signup !" />
+                android:text="Signup !"
+                android:textColor="#fff"/>
 
 
         </LinearLayout>

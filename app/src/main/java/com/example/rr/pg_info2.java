@@ -9,6 +9,7 @@ import android.location.Geocoder;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +40,7 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
 
     ImageView apImage;
-    TextView apName, apRent, apVacancy, apDistance, apGender;
+    TextView apName, apRent, apVacancy, apDistance, apGender,address,apPhoneNo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +52,32 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
         apRent = findViewById(R.id.apPrice);
         apVacancy = findViewById(R.id.apVacancy);
         apDistance = findViewById(R.id.apDistance);
-        apGender = findViewById(R.id.gender);
+        apGender = findViewById(R.id.apGender);
+        address = findViewById(R.id.address);
+        apPhoneNo = findViewById(R.id.phoneNO);
 
         Intent intent = getIntent();
         if (intent != null) {
             Bundle bundle = intent.getExtras(); // Retrieve data passed from the previous activity
             if (bundle != null) {
+                Log.d("BundleData", "gender: " + bundle.getString("gender"));
+                for (String key : bundle.keySet()) {
+                    Object value = bundle.get(key);
+                    if (value != null) {
+                        Log.d("BundleData", key + ": " + value.toString());
+                    } else {
+                        Log.d("BundleData", key + ": null");
+                    }
+                }
                 // Set data to corresponding views
                 apName.setText(bundle.getString("apName"));
                 apRent.setText(bundle.getString("rentInr"));
                 apVacancy.setText(bundle.getString("Vacancy"));
                 apDistance.setText(bundle.getString("distance"));
                 apGender.setText(bundle.getString("gender"));
+                address.setText(bundle.getString("address"));
+//                address.setText("xyz");
+                apPhoneNo.setText(bundle.getString("phoneNo"));
                 // Load image using Glide
                 Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
             }

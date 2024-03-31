@@ -48,6 +48,7 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
         holder.apVacancy.setText(arrDetails.get(position).getVaccancy());
         holder.gender.setText(arrDetails.get(position).getGender());
         holder.apDistance.setText(arrDetails.get(position).getDistance());
+
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +58,9 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
                 intent.putExtra("Vacancy", arrDetails.get(holder.getAdapterPosition()).getVaccancy());
                 intent.putExtra("rentInr", arrDetails.get(holder.getAdapterPosition()).getRentInr());
                 intent.putExtra("distance", arrDetails.get(holder.getAdapterPosition()).getDistance());
+                intent.putExtra("gender", arrDetails.get(holder.getAdapterPosition()).getGender());
+                intent.putExtra("address", arrDetails.get(holder.getAdapterPosition()).getAddress());
+                intent.putExtra("phoneNo", arrDetails.get(holder.getAdapterPosition()).getPhoneNo());
 
                 context.startActivity(intent);
 

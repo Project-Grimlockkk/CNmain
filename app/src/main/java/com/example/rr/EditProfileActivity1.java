@@ -93,6 +93,7 @@ public class EditProfileActivity1 extends AppCompatActivity {
         String savedImageUri = prefs.getString("imageUri", "");
 
         usernameEditText.setText(savedUsername);
+
 //        if (!savedImageUri.isEmpty()) {
 //            profileImageView.setImageURI(Uri.parse(savedImageUri));
 //            profileImageView.setTag(savedImageUri);

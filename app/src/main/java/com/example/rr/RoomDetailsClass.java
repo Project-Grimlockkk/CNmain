@@ -2,7 +2,7 @@ package com.example.rr;
 
 public class RoomDetailsClass {
 
-    private String apName, rentInr, Vaccancy, distance, pgPhotos,gender;
+    private String apName, rentInr, Vaccancy, distance, pgPhotos,apGender,address,phoneNo;
 
     public String getApName() {
         return apName;
@@ -24,8 +24,8 @@ public class RoomDetailsClass {
     public void setPgPhotos(String pgPhotos) {
         this.pgPhotos = pgPhotos;
     }
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setGender(String apGender) {
+        this.apGender = apGender;
     }
 
     public String getRentInr() {
@@ -45,18 +45,36 @@ public class RoomDetailsClass {
     }
 
     public String getGender() {
-        return gender;
+        return apGender;
     }
 
-    public RoomDetailsClass(String apName, String rentInr, String vaccancy, String distance, String pgPhotos, String gender) {
+    public RoomDetailsClass(String apName, String rentInr, String vaccancy, String distance, String pgPhotos, String apGender,String address, String phoneNo) {
         this.apName = apName;
         this.rentInr = rentInr;
         this.Vaccancy = vaccancy;
         this.distance = distance;
         this.pgPhotos = pgPhotos;
-        this.gender = gender;
+        this.apGender = apGender;
+        this.address=address;
+        this.phoneNo=phoneNo;
     }
     public RoomDetailsClass(){
 
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 }
