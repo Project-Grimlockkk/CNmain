@@ -77,7 +77,7 @@ public class InputActivity extends AppCompatActivity {
 
         // Initialize views
         firstNameEditText = findViewById(R.id.FirstNameInput);
-        lastNameEditText = findViewById(R.id.LastNameInput);
+//        lastNameEditText = findViewById(R.id.LastNameInput);
         phoneNoEditText = findViewById(R.id.PhoneNoText);
         addressEditText = findViewById(R.id.AddressInput);
         rentInrEditText = findViewById(R.id.RentInput);
@@ -127,7 +127,7 @@ public class InputActivity extends AppCompatActivity {
                         // upload data
 //                        Integer imgurii = Integer.parseInt(imgUri.toString());
                         String firstName = firstNameEditText.getText().toString();
-                        String lastName = lastNameEditText.getText().toString();
+//                        String lastName = lastNameEditText.getText().toString();
                         String phoneNo = phoneNoEditText.getText().toString();
                         String vaccancy = vacancyInput.getText().toString();
                         String address = addressEditText.getText().toString();
@@ -141,8 +141,9 @@ public class InputActivity extends AppCompatActivity {
                         String apElectricity=electricity.getText().toString();
                         String apWaterSupply=waterSupply.getText().toString();
                         String apCleaningFacility=cleaningFacility.getText().toString();
+                        String deposit= depositInrEditText.getText().toString();
 
-                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender,address,phoneNo,apElectricity,apWaterSupply,apCleaningFacility);
+                        RoomDetailsClass roomDetailsClass= new RoomDetailsClass(apName, rent, vaccancy, distance, imageUrl, apGender,address,phoneNo,apElectricity,apWaterSupply,apCleaningFacility,firstName,deposit);
 ////=======
 //                        String distance = distanceInput.getText().toString();
 //                        String apName = apartmentNameInput.getText().toString();

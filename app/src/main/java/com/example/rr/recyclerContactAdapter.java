@@ -64,6 +64,8 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
                 intent.putExtra("electricity", arrDetails.get(holder.getAdapterPosition()).getElectricity());
                 intent.putExtra("waterSupply", arrDetails.get(holder.getAdapterPosition()).getWaterSupply());
                 intent.putExtra("cleaningFacility", arrDetails.get(holder.getAdapterPosition()).getCleaningFacility());
+                intent.putExtra("pgOwner", arrDetails.get(holder.getAdapterPosition()).getPgOwner());
+                intent.putExtra("deposit", arrDetails.get(holder.getAdapterPosition()).getDeposit());
 
                 context.startActivity(intent);
 
