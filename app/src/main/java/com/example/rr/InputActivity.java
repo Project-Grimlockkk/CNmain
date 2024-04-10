@@ -77,7 +77,6 @@ public class InputActivity extends AppCompatActivity {
 
         // Initialize views
         firstNameEditText = findViewById(R.id.FirstNameInput);
-        lastNameEditText = findViewById(R.id.LastNameInput);
         phoneNoEditText = findViewById(R.id.PhoneNoText);
         addressEditText = findViewById(R.id.AddressInput);
         rentInrEditText = findViewById(R.id.RentInput);

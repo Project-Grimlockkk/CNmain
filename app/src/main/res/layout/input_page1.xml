@@ -47,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:hint="First Name"
+                    android:hint="PG Owner Full Name"
                     android:textColorHint="@color/grey"
                     app:boxStrokeColor="@color/grey">
 
@@ -63,27 +63,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/LastName"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="Last Name"
-                    android:textColorHint="@color/grey"
-                    app:boxStrokeColor="@color/grey">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/LastNameInput"
-                        android:layout_gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:inputType="textEmailAddress"
-                        android:singleLine="true"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/PhoneNo"
