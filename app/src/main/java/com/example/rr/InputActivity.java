@@ -77,7 +77,6 @@ public class InputActivity extends AppCompatActivity {
 
         // Initialize views
         firstNameEditText = findViewById(R.id.FirstNameInput);
-        lastNameEditText = findViewById(R.id.LastNameInput);
         phoneNoEditText = findViewById(R.id.PhoneNoText);
         addressEditText = findViewById(R.id.AddressInput);
         rentInrEditText = findViewById(R.id.RentInput);
@@ -85,7 +84,7 @@ public class InputActivity extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.DescriptionInput);
         imgGallary = findViewById(R.id.PGphotos);
 
-        Button AddPG = findViewById(R.id.AddImagebutton);
+
         distanceInput = findViewById(R.id.distanceInput);
 //<<<<<<< HEAD
         apartmentNameInput=findViewById(R.id.apartmentNameInput);
