@@ -84,7 +84,7 @@ public class InputActivity extends AppCompatActivity {
         descriptionEditText = findViewById(R.id.DescriptionInput);
         imgGallary = findViewById(R.id.PGphotos);
 
-        Button AddPG = findViewById(R.id.AddImagebutton);
+
         distanceInput = findViewById(R.id.distanceInput);
 //<<<<<<< HEAD
         apartmentNameInput=findViewById(R.id.apartmentNameInput);
