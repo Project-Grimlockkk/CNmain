@@ -89,10 +89,26 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 apGender.setText(bundle.getString("gender"));
                 address.setText(bundle.getString("address"));
                 apPhoneNo.setText(bundle.getString("phoneNo"));
+                if (bundle.containsKey("electricity") && (bundle.getString("electricity").equals("yes") || bundle.getString("electricity").equals("Yes"))) {
+                    apElectricity.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
+                } else {
+                    apElectricity.setImageResource(R.drawable.cross_circle_svgrepo_com);
+                }
+                if (bundle.containsKey("waterSupply") && (bundle.getString("waterSupply").equals("yes") || bundle.getString("waterSupply").equals("Yes"))) {
+                    apWaterSupply.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
+                } else {
+                    apWaterSupply.setImageResource(R.drawable.cross_circle_svgrepo_com);
+                }
+                if (bundle.containsKey("cleaningFacility") && (bundle.getString("cleaningFacility").equals("yes") || bundle.getString("cleaningFacility").equals("Yes"))) {
+                    apCleaning.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
+                } else {
+                    apCleaning.setImageResource(R.drawable.cross_circle_svgrepo_com);
+                }
                 // Load image using Glide
                 Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
             }
         }
+
 
         // Set electricity, water supply, and cleaning facility icons based on bundle data
 
