@@ -30,8 +30,49 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+//<<<<<<< HEAD
 import java.util.Arrays;
+//=======
+import java.util.Collections;
+import java.util.Comparator;
+//>>>>>>> d10b120a82efb2e733cde0bf32e034d2bd3da674
 import java.util.List;
+
+class RoomDetailsComparator implements Comparator<RoomDetailsClass> {
+    @Override
+    public int compare(RoomDetailsClass room1, RoomDetailsClass room2) {
+        // Compare by apName
+
+        int result = room1.getGender().compareToIgnoreCase(room2.getGender());
+        if (result != 0) {
+            return result;
+        }
+        result = room1.getDistance().compareToIgnoreCase(room2.getDistance());
+        if (result != 0) {
+            return result;
+        }
+
+        result = room1.getVaccancy().compareToIgnoreCase(room2.getVaccancy());
+        if (result != 0) {
+            return result;
+        }
+
+        result = room1.getRentInr().compareToIgnoreCase(room2.getRentInr());
+        if (result != 0) {
+            return result;
+        }
+
+        result = room1.getApName().compareToIgnoreCase(room2.getApName());
+        if (result != 0) {
+            return result;
+        }
+
+        // If prices are equal, compare by another parameter
+        // Add more comparisons as needed
+        // For example, compare by vacancy
+        return room1.getVaccancy().compareToIgnoreCase(room2.getVaccancy());
+    }
+}
 
 public class HomeFragment extends Fragment {
 
@@ -40,12 +81,9 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView1;
     List<RoomDetailsClass> datalist;
-    ArrayList<RoomDetailsModel> arrDetails = new ArrayList<>();
-    ValueEventListener valueEventListener;
-    private ProgressDialog loadingDialog;
+    recyclerContactAdapter adapter;
     DatabaseReference databaseReference;
-    SearchView searchView;
-    recyclerContactAdapter adapter; // Declare adapter as a member variable
+    ValueEventListener valueEventListener;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -106,42 +144,38 @@ public class HomeFragment extends Fragment {
         addingPGButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Start the InputActivity
                 Intent intent = new Intent(getActivity(), InputActivity.class);
                 startActivity(intent);
             }
         });
 
         recyclerView1 = rootView.findViewById(R.id.recycler);
-        GridLayoutManager gridLayoutManager= new GridLayoutManager(getContext(),1);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView1.setLayoutManager(gridLayoutManager);
 
         datalist = new ArrayList<>();
+//<<<<<<< HEAD
 
 //        recyclerContactAdapter adapter = new recyclerContactAdapter(getActivity(), datalist);
 //        recyclerView1.setAdapter(adapter);
 
         adapter = new recyclerContactAdapter(getActivity(), datalist); // Initialize adapter
         recyclerView1.setAdapter(adapter);   // Set adapter to RecyclerView
+//=======
+//        adapter = new recyclerContactAdapter(getActivity(), datalist);
+//        recyclerView1.setAdapter(adapter);
+//>>>>>>> d10b120a82efb2e733cde0bf32e034d2bd3da674
 
-        databaseReference= FirebaseDatabase.getInstance().getReference("PGs");
+        databaseReference = FirebaseDatabase.getInstance().getReference("PGs");
 
-        valueEventListener= databaseReference.addValueEventListener(new ValueEventListener() {
+
+
+        valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 datalist.clear();
-                for(DataSnapshot itemSnapshot: snapshot.getChildren()){
-                    String apName= itemSnapshot.getKey();
-                    String key= itemSnapshot.getKey();
-                    String parentKey = snapshot.getKey();
-                    Log.d("FirebaseKey", "Parent Key: " + parentKey);
-                    Log.d("FirebaseKey", "Key: " + key);
-
-                    for(DataSnapshot childSnapshot: itemSnapshot.getChildren()){
-                        String grandChildKey = childSnapshot.getKey();
-                        Log.d("FirebaseKey", "Grandchild Key: " + grandChildKey);
-                    }
-                    RoomDetailsClass roomDetailsClass= itemSnapshot.getValue(RoomDetailsClass.class);
+                for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
+                    RoomDetailsClass roomDetailsClass = itemSnapshot.getValue(RoomDetailsClass.class);
                     datalist.add(roomDetailsClass);
                 }
                 adapter.notifyDataSetChanged();
@@ -154,19 +188,21 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        searchView = rootView.findViewById(R.id.search);
-
+//<<<<<<< HEAD
+//        searchView = rootView.findViewById(R.id.search);
+//
+//=======
+        SearchView searchView = rootView.findViewById(R.id.search);
+//>>>>>>> d10b120a82efb2e733cde0bf32e034d2bd3da674
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                // Perform search when user submits query
                 filterData(query);
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // Perform search as user types
                 filterData(newText);
                 return true;
             }
@@ -192,13 +228,19 @@ public class HomeFragment extends Fragment {
         if (adapter != null) {
             ArrayList<RoomDetailsClass> filteredList = new ArrayList<>();
             for (RoomDetailsClass roomDetails : datalist) {
-                if (roomDetails.getApName().toLowerCase().contains(query.toLowerCase())) {
+                if (roomDetails.getApName().toLowerCase().contains(query.toLowerCase()) ||
+                        roomDetails.getGender().toLowerCase().contains(query.toLowerCase()) ||
+                        roomDetails.getVaccancy().toLowerCase().contains(query.toLowerCase()) ||
+                        roomDetails.getRentInr().toLowerCase().contains(query.toLowerCase()) ||
+                        roomDetails.getDistance().toLowerCase().contains(query.toLowerCase())) {
                     filteredList.add(roomDetails);
                 }
             }
+            Collections.sort(filteredList, new RoomDetailsComparator());
             adapter.filterList(filteredList);
         }
     }
+//<<<<<<< HEAD
     private void filterDataa(List<String> apartmentNames) {
         ArrayList<RoomDetailsClass> filteredList = new ArrayList<>();
         for (RoomDetailsClass roomDetails : datalist) {
@@ -209,6 +251,16 @@ public class HomeFragment extends Fragment {
         }
         // Update RecyclerView adapter with filtered data
         adapter.filterList(filteredList);
+    }
+//=======
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (databaseReference != null && valueEventListener != null) {
+            databaseReference.removeEventListener(valueEventListener);
+        }
+//>>>>>>> d10b120a82efb2e733cde0bf32e034d2bd3da674
     }
 }
 //>>>>>>> 1fa2790b91dd183859b7cfd76c59c5cdc53e448a

@@ -101,68 +101,68 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/filterBoys"
+                    android:id="@+id/backgate"
                     android:layout_width="100dp"
                     android:layout_height="26dp"
                     android:layout_marginLeft="10dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Boys"
+                    android:text="Backgate"
                     android:fontFamily="@font/poppins"
                     android:background="@drawable/roundedsqr"/>
 
                 <RadioButton
-                    android:id="@+id/filterGirls"
+                    android:id="@+id/ft100"
                     android:layout_width="100dp"
                     android:layout_height="26dp"
                     android:layout_marginLeft="10dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Girls"
+                    android:text="100 Ft. Road"
                     android:fontFamily="@font/poppins"
                     android:background="@drawable/roundedsqr"/>
 
                 <RadioButton
-                    android:id="@+id/Veg"
+                    android:id="@+id/vijaynagar"
                     android:layout_width="100dp"
                     android:layout_height="26dp"
                     android:layout_marginLeft="10dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Veg"
+                    android:text="Vijaynagar"
                     android:fontFamily="@font/poppins"
                     android:background="@drawable/roundedsqr"/>
 
                 <RadioButton
-                    android:id="@+id/filterNonveg"
+                    android:id="@+id/govtcolony"
                     android:layout_width="100dp"
                     android:layout_height="26dp"
                     android:layout_marginLeft="10dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Non-Veg"
+                    android:text="Govt. Colony"
                     android:fontFamily="@font/poppins"
                     android:background="@drawable/roundedsqr"/>
 
                 <RadioButton
-                    android:id="@+id/filterveryclose"
+                    android:id="@+id/chowk"
                     android:layout_width="100dp"
                     android:layout_height="26dp"
                     android:layout_marginLeft="10dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Veryclose"
+                    android:text="Vishrambagh Chowk"
                     android:fontFamily="@font/poppins"
                     android:background="@drawable/roundedsqr"/>
 
                 <RadioButton
-                    android:id="@+id/filterMeddistance"
+                    android:id="@+id/spurti"
                     android:layout_width="100dp"
                     android:layout_height="26dp"
                     android:layout_marginLeft="10dp"
                     android:button="@null"
                     android:gravity="center"
-                    android:text="Medium distance"
+                    android:text="Sphurti Chowk"
                     android:fontFamily="@font/poppins"
                     android:background="@drawable/roundedsqr"/>
 
