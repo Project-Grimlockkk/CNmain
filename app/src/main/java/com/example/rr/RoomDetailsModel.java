@@ -4,16 +4,13 @@ import android.net.Uri;
 
 public class RoomDetailsModel {
     int mainImg, vacancyImg, distanceImg;
-    private String apName, distance, vacancy, gender;
-
-    private String price;
+    private String apName, distance, vacancy, gender, price;
 
     private int apImageResource;
 
     public RoomDetailsModel(int apImageResource, String apName, String distance, String vacancy, String price, String gender){
         this.apImageResource = apImageResource;
-//        this.vacancyImg=vacancyImg;
-//        this.distanceImg=distanceImg;
+
         this.apName=apName;
         this.distance=distance;
         this.vacancy=vacancy;
