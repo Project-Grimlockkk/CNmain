@@ -2,7 +2,7 @@ package com.example.rr;
 
 public class RoomDetailsClass {
 
-    private String apName, rentInr, Vaccancy, distance, pgPhotos,apGender,address,phoneNo,electricity,cleaningFacility,waterSupply;
+    private String apName, rentInr, Vaccancy, distance, pgPhotos,apGender,address,phoneNo,electricity,cleaningFacility,waterSupply,pgOwner, deposit;
 
     public String getApName() {
         return apName;
@@ -48,7 +48,7 @@ public class RoomDetailsClass {
         return apGender;
     }
 
-    public RoomDetailsClass(String apName, String rentInr, String vaccancy, String distance, String pgPhotos, String apGender,String address, String phoneNo,String electricity, String waterSupply, String cleaningFacility) {
+    public RoomDetailsClass(String apName, String rentInr, String vaccancy, String distance, String pgPhotos, String apGender,String address, String phoneNo,String electricity, String waterSupply, String cleaningFacility, String pgOwner, String deposit) {
         this.apName = apName;
         this.rentInr = rentInr;
         this.Vaccancy = vaccancy;
@@ -60,6 +60,8 @@ public class RoomDetailsClass {
         this.electricity=electricity;
         this.waterSupply=waterSupply;
         this.cleaningFacility=cleaningFacility;
+        this.pgOwner=pgOwner;
+        this.deposit=deposit;
 
     }
     public RoomDetailsClass(){
@@ -104,5 +106,21 @@ public class RoomDetailsClass {
 
     public void setWaterSupply(String waterSupply) {
         this.waterSupply = waterSupply;
+    }
+
+    public String getPgOwner() {
+        return pgOwner;
+    }
+
+    public void setPgOwner(String pgOwner) {
+        this.pgOwner = pgOwner;
+    }
+
+    public String getDeposit() {
+        return deposit;
+    }
+
+    public void setDeposit(String deposit) {
+        this.deposit = deposit;
     }
 }

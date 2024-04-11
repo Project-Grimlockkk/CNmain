@@ -43,7 +43,7 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
 
     ImageView apImage, apElectricity, apWaterSupply, apCleaning;
-    TextView apName, apRent, apVacancy, apDistance, apGender, address, apPhoneNo;
+    TextView apName, apRent, apVacancy, apDistance, apGender, address, apPhoneNo,apDeposit,pgOwner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,8 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
         apElectricity = findViewById(R.id.electricity);
         apWaterSupply = findViewById(R.id.waterSupply);
         apCleaning = findViewById(R.id.cleaningFacility);
+        apDeposit = findViewById(R.id.apDeposit);
+        pgOwner = findViewById(R.id.pgOwner);
 
         // Show loading dialog
         loadingDialog = new ProgressDialog(this);
@@ -89,6 +91,8 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 apGender.setText(bundle.getString("gender"));
                 address.setText(bundle.getString("address"));
                 apPhoneNo.setText(bundle.getString("phoneNo"));
+                apDeposit.setText(bundle.getString("deposit"));
+                pgOwner.setText(bundle.getString("pgOwner"));
                 if (bundle.containsKey("electricity") && (bundle.getString("electricity").equals("yes") || bundle.getString("electricity").equals("Yes"))) {
                     apElectricity.setImageResource(R.drawable.checkmark_circle_svgrepo_com);
                 } else {
