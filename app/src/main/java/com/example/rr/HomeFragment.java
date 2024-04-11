@@ -92,6 +92,8 @@ public class HomeFragment extends Fragment {
 
         databaseReference = FirebaseDatabase.getInstance().getReference("PGs");
 
+
+
         valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
