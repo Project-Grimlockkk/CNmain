@@ -23,11 +23,14 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
 
     private Context context;
     List<RoomDetailsClass> arrDetails;
+
+    private List<RoomDetailsClass> filteredList;
 //    ArrayList<Property>arrProperty;
 
     recyclerContactAdapter(Context context, List<RoomDetailsClass>arrDetails){
         this.context=context;   
         this.arrDetails=arrDetails;
+//        this.filteredList = new ArrayList<>(arrDetails);
     }
 
     @NonNull
@@ -42,6 +45,7 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 //        RoomDetailsModel roomDetails = arrDetails.get(position);
 //        holder.apImg.setBackgroundResource(roomDetails.getApImageResource());
+//        RoomDetailsClass roomDetails = filteredList.get(position);
         Glide.with(context).load(arrDetails.get(position).getPgPhotos()).into(holder.apImg);
         holder.apName.setText(arrDetails.get(position).getApName());
         holder.apPrice.setText(arrDetails.get(position).getRentInr());
@@ -53,6 +57,7 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(context, pg_info2.class);
+//                RoomDetailsClass selectedRoom = filteredList.get(holder.getAdapterPosition());
                 intent.putExtra("pgPhotos", arrDetails.get(holder.getAdapterPosition()).getPgPhotos());
                 intent.putExtra("apName", arrDetails.get(holder.getAdapterPosition()).getApName());
                 intent.putExtra("Vacancy", arrDetails.get(holder.getAdapterPosition()).getVaccancy());
@@ -79,6 +84,20 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
     public int getItemCount() {
         return arrDetails.size();
     }
+
+//    public void filterList(String genderFilter) {
+//        filteredList.clear();
+//        if (genderFilter.equals("All")) {
+//            filteredList.addAll(arrDetails);
+//        } else {
+//            for (RoomDetailsClass room : arrDetails) {
+//                if (room.getGender().equals(genderFilter)) {
+//                    filteredList.add(room);
+//                }
+//            }
+//        }
+//        notifyDataSetChanged();
+//    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView apName, apPrice, apVacancy, apDistance, gender;

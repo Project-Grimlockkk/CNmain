@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.bumptech.glide.load.engine.Resource;
 import com.example.learn.R;
@@ -33,6 +35,9 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    RadioButton filterBoys, filterGirls, filterVeg, filterNonveg, filterVeryClose, filterMedDistance;
+    RadioGroup filterGroup;
+
     RecyclerView recyclerView1;
     List<RoomDetailsClass> datalist;
 
@@ -47,6 +52,24 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.home_fragment, container, false);
+
+//        filterGroup = rootView.findViewById(R.id.filterGroup);
+//        filterBoys = rootView.findViewById(R.id.filterBoys);
+//        filterGirls = rootView.findViewById(R.id.filterGirls);
+//        filterVeg = rootView.findViewById(R.id.filterVeg);
+//        filterNonveg = rootView.findViewById(R.id.filterNonveg);
+//        filterVeryClose = rootView.findViewById(R.id.filterveryclose);
+//        filterMedDistance = rootView.findViewById(R.id.filterMeddistance);
+//
+//        filterGroup.setOnCheckedChangeListener((group, checkedId) -> {
+//            if (checkedId == R.id.filterBoys) {
+//                filterData("Boys");
+//            } else if (checkedId == R.id.filterGirls) {
+//                filterData("Girls");
+//            } else {
+//                    // Handle default case
+//                }
+//        });
 
         Button addingPGButton = rootView.findViewById(R.id.addingPG);
 
@@ -132,6 +155,7 @@ public class HomeFragment extends Fragment {
                 adapter.notifyDataSetChanged();
             }
 
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
@@ -159,4 +183,14 @@ public class HomeFragment extends Fragment {
 
         return rootView;
     }
+//    private void filterData(String genderFilter) {
+////        List<RoomDetailsClass> filteredList = new ArrayList<>();
+////        for (RoomDetailsClass room : datalist) {
+////            if (room.getGender().equals(filter)) {
+////                filteredList.add(room);
+////            }
+////        }
+//        recyclerContactAdapter adapter = (recyclerContactAdapter) recyclerView1.getAdapter();
+//        adapter.filterList(genderFilter);
+//    }
 }
