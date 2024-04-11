@@ -239,7 +239,7 @@
                     android:layout_marginRight="5dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:weightSum="3"> <!-- Divide the layout into 4 equal parts -->
+                    android:weightSum="2"> <!-- Divide the layout into 4 equal parts -->
 
                     <ImageView
                         android:id="@+id/calling"
@@ -251,15 +251,6 @@
                         android:padding="12dp"
                         android:src="@drawable/call" />
 
-                    <ImageView
-                        android:id="@+id/addTOfavs"
-                        android:layout_width="0dp"
-                        android:layout_height="60dp"
-                        android:scaleY="1.5"
-                        android:scaleX="1.5"
-                        android:layout_weight="1"
-                        android:padding="12dp"
-                        android:src="@drawable/heart" />
 
                     <ImageView
                         android:id="@+id/WhatsappIcon"
@@ -373,28 +364,27 @@
                     >
 
                     <TextView
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center"
                         android:id="@+id/addressss"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Address:"
                         android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:textSize="17sp"
                         />
 
                     <TextView
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center"
                         android:id="@+id/address"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Address"
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         />
 
                 </LinearLayout>
@@ -403,7 +393,7 @@
 
                     android:layout_width="match_parent"
                     android:id="@+id/addressbar"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:layout_margin="5dp"
                     android:background="@drawable/click_effect"
                     android:clickable="true"
@@ -415,24 +405,25 @@
                         android:id="@+id/phoneNOOO"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/poppins_semibold"
                         android:text="Phone No.: "
+
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_gravity="center"
                         android:id="@+id/phoneNO"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Phone No. "
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         />
 
                 </LinearLayout>

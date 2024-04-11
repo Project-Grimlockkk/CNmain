@@ -1,12 +1,11 @@
 package com.example.rr;
 
-import  android.content.Context;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,40 +21,65 @@ import java.util.List;
 public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContactAdapter.ViewHolder> {
 
     private Context context;
+//<<<<<<< HEAD
     List<RoomDetailsClass> arrDetails;
 
-    private List<RoomDetailsClass> filteredList;
+//    private List<RoomDetailsClass> filteredList;
 //    ArrayList<Property>arrProperty;
 
-    recyclerContactAdapter(Context context, List<RoomDetailsClass>arrDetails){
-        this.context=context;   
-        this.arrDetails=arrDetails;
+//    recyclerContactAdapter(Context context, List<RoomDetailsClass>arrDetails){
+//        this.context=context;
+//        this.arrDetails=arrDetails;
 //        this.filteredList = new ArrayList<>(arrDetails);
+//=======
+//    private List<RoomDetailsClass> arrDetails;
+    List<RoomDetailsClass> arrDetailsFiltered;
+
+    recyclerContactAdapter(Context context, List<RoomDetailsClass> arrDetails) {
+        this.context = context;
+        this.arrDetails = arrDetails;
+        this.arrDetailsFiltered = new ArrayList<>(arrDetails);
+    }
+
+    public void filterList(ArrayList<RoomDetailsClass> filteredList) {
+        arrDetailsFiltered = filteredList;
+        notifyDataSetChanged(); // Notify adapter of data change
+//>>>>>>> 1fa2790b91dd183859b7cfd76c59c5cdc53e448a
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=LayoutInflater.from(parent.getContext()).inflate(R.layout.listing_card2, parent, false);
-        ViewHolder viewHolder=new ViewHolder(view);
-        return viewHolder;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listing_card2, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+//<<<<<<< HEAD
 //        RoomDetailsModel roomDetails = arrDetails.get(position);
 //        holder.apImg.setBackgroundResource(roomDetails.getApImageResource());
 //        RoomDetailsClass roomDetails = filteredList.get(position);
-        Glide.with(context).load(arrDetails.get(position).getPgPhotos()).into(holder.apImg);
-        holder.apName.setText(arrDetails.get(position).getApName());
-        holder.apPrice.setText(arrDetails.get(position).getRentInr());
-        holder.apVacancy.setText(arrDetails.get(position).getVaccancy());
-        holder.gender.setText(arrDetails.get(position).getGender());
-        holder.apDistance.setText(arrDetails.get(position).getDistance());
+//        Glide.with(context).load(arrDetails.get(position).getPgPhotos()).into(holder.apImg);
+//        holder.apName.setText(arrDetails.get(position).getApName());
+//        holder.apPrice.setText(arrDetails.get(position).getRentInr());
+//        holder.apVacancy.setText(arrDetails.get(position).getVaccancy());
+//        holder.gender.setText(arrDetails.get(position).getGender());
+//        holder.apDistance.setText(arrDetails.get(position).getDistance());
+//=======
+        RoomDetailsClass roomDetails = arrDetailsFiltered.get(position);
+        Glide.with(context).load(roomDetails.getPgPhotos()).into(holder.apImg);
+        holder.apName.setText(roomDetails.getApName());
+        holder.apPrice.setText(roomDetails.getRentInr());
+        holder.apVacancy.setText(roomDetails.getVaccancy());
+        holder.gender.setText(roomDetails.getGender());
+        holder.apDistance.setText(roomDetails.getDistance());
+//>>>>>>> 1fa2790b91dd183859b7cfd76c59c5cdc53e448a
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//<<<<<<< HEAD
                 Intent intent=new Intent(context, pg_info2.class);
 //                RoomDetailsClass selectedRoom = filteredList.get(holder.getAdapterPosition());
                 intent.putExtra("pgPhotos", arrDetails.get(holder.getAdapterPosition()).getPgPhotos());
@@ -71,18 +95,31 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
                 intent.putExtra("cleaningFacility", arrDetails.get(holder.getAdapterPosition()).getCleaningFacility());
                 intent.putExtra("pgOwner", arrDetails.get(holder.getAdapterPosition()).getPgOwner());
                 intent.putExtra("deposit", arrDetails.get(holder.getAdapterPosition()).getDeposit());
+//=======
+//                Intent intent = new Intent(context, pg_info2.class);
+//                intent.putExtra("pgPhotos", roomDetails.getPgPhotos());
+//                intent.putExtra("apName", roomDetails.getApName());
+//                intent.putExtra("Vacancy", roomDetails.getVaccancy());
+//                intent.putExtra("rentInr", roomDetails.getRentInr());
+//                intent.putExtra("distance", roomDetails.getDistance());
+//                intent.putExtra("gender", roomDetails.getGender());
+//                intent.putExtra("address", roomDetails.getAddress());
+//                intent.putExtra("phoneNo", roomDetails.getPhoneNo());
+//                intent.putExtra("electricity", roomDetails.getElectricity());
+//                intent.putExtra("waterSupply", roomDetails.getWaterSupply());
+//                intent.putExtra("cleaningFacility", roomDetails.getCleaningFacility());
+//                intent.putExtra("pgOwner", roomDetails.getPgOwner());
+//                intent.putExtra("deposit", roomDetails.getDeposit());
+//>>>>>>> 1fa2790b91dd183859b7cfd76c59c5cdc53e448a
 
                 context.startActivity(intent);
-
             }
         });
-//        holder.vcImg.setImageResource(arrDetails.get(position).vacancyImg);
-//        holder.distImg.setImageResource(arrDetails.get(position).distanceImg);
     }
 
     @Override
     public int getItemCount() {
-        return arrDetails.size();
+        return arrDetailsFiltered.size();
     }
 
 //    public void filterList(String genderFilter) {
@@ -101,20 +138,20 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView apName, apPrice, apVacancy, apDistance, gender;
-        ImageView  vcImg, distImg,apImg;
-
+        ImageView  vcImg, distImg, apImg;
         CardView cardView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            apName=itemView.findViewById(R.id.apName);
-            gender=itemView.findViewById(R.id.gender);
-            apPrice=itemView.findViewById(R.id.apPrice);
-            apVacancy=itemView.findViewById(R.id.apVacancy);
-            apDistance=itemView.findViewById(R.id.apDistance);
-            vcImg=itemView.findViewById(R.id.vcImg);
-            distImg=itemView.findViewById(R.id.distImg);
-            apImg=itemView.findViewById(R.id.apImg);
-            cardView=itemView.findViewById(R.id.cardView);
+            apName = itemView.findViewById(R.id.apName);
+            gender = itemView.findViewById(R.id.gender);
+            apPrice = itemView.findViewById(R.id.apPrice);
+            apVacancy = itemView.findViewById(R.id.apVacancy);
+            apDistance = itemView.findViewById(R.id.apDistance);
+            vcImg = itemView.findViewById(R.id.vcImg);
+            distImg = itemView.findViewById(R.id.distImg);
+            apImg = itemView.findViewById(R.id.apImg);
+            cardView = itemView.findViewById(R.id.cardView);
         }
     }
 }
