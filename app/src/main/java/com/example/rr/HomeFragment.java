@@ -236,7 +236,7 @@ public class HomeFragment extends Fragment {
                     filteredList.add(roomDetails);
                 }
             }
-            Collections.sort(filteredList, new RoomDetailsComparator());
+//            Collections.sort(filteredList, new RoomDetailsComparator());
             adapter.filterList(filteredList);
         }
     }
