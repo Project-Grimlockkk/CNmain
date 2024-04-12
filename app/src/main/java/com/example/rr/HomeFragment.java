@@ -115,8 +115,8 @@ public class HomeFragment extends Fragment {
         spinner.setAdapter(adapter2);
 
         List<List<String>> apartmentNamesList = new ArrayList<>();
-        apartmentNamesList.add(Arrays.asList("Asher Villa", "Flat","Room", "Shivdatt Apartment"));
-        apartmentNamesList.add(Arrays.asList("Silver Oak Apartment", "Sahara Boys Hostel"));
+        apartmentNamesList.add(Arrays.asList("Asher Villa", "Flat","Room", "Shivdatt Apartment","--", "Flat", "Ganesh Sahanivas","Silver Oak Apartment Flat No 9"));
+        apartmentNamesList.add(Arrays.asList("Silver Oak Apartment", "Sahara Boys Hostel","Harishankar Apartment","Room"));
         apartmentNamesList.add(Arrays.asList("Shree Complex", "Sahara Boys Hostel", "Unknown"));
         apartmentNamesList.add(Arrays.asList("bshwjdbe", "-"));
         apartmentNamesList.add(Arrays.asList("Not known", "Ganesh Sahanivas"));
