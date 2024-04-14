@@ -88,88 +88,88 @@
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:scrollbars="none"
-            android:layout_marginTop="10dp"
-            >
-            <RadioGroup
-                android:id="@+id/filterGroup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+<!--        <HorizontalScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:scrollbars="none"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            >-->
+<!--            <RadioGroup-->
+<!--                android:id="@+id/filterGroup"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal">-->
 
-                <RadioButton
-                    android:id="@+id/backgate"
-                    android:layout_width="100dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="Backgate"
-                    android:fontFamily="@font/poppins"
-                    android:background="@drawable/roundedsqr"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/backgate"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:button="@null"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Backgate"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:background="@drawable/roundedsqr"/>-->
 
-                <RadioButton
-                    android:id="@+id/ft100"
-                    android:layout_width="100dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="100 Ft. Road"
-                    android:fontFamily="@font/poppins"
-                    android:background="@drawable/roundedsqr"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/ft100"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:button="@null"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="100 Ft. Road"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:background="@drawable/roundedsqr"/>-->
 
-                <RadioButton
-                    android:id="@+id/vijaynagar"
-                    android:layout_width="100dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="Vijaynagar"
-                    android:fontFamily="@font/poppins"
-                    android:background="@drawable/roundedsqr"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/vijaynagar"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:button="@null"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Vijaynagar"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:background="@drawable/roundedsqr"/>-->
 
-                <RadioButton
-                    android:id="@+id/govtcolony"
-                    android:layout_width="100dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="Govt. Colony"
-                    android:fontFamily="@font/poppins"
-                    android:background="@drawable/roundedsqr"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/govtcolony"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:button="@null"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Govt. Colony"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:background="@drawable/roundedsqr"/>-->
 
-                <RadioButton
-                    android:id="@+id/chowk"
-                    android:layout_width="100dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="Vishrambagh Chowk"
-                    android:fontFamily="@font/poppins"
-                    android:background="@drawable/roundedsqr"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/chowk"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:button="@null"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Vishrambagh Chowk"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:background="@drawable/roundedsqr"/>-->
 
-                <RadioButton
-                    android:id="@+id/spurti"
-                    android:layout_width="100dp"
-                    android:layout_height="26dp"
-                    android:layout_marginLeft="10dp"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:text="Sphurti Chowk"
-                    android:fontFamily="@font/poppins"
-                    android:background="@drawable/roundedsqr"/>
+<!--                <RadioButton-->
+<!--                    android:id="@+id/spurti"-->
+<!--                    android:layout_width="100dp"-->
+<!--                    android:layout_height="26dp"-->
+<!--                    android:layout_marginLeft="10dp"-->
+<!--                    android:button="@null"-->
+<!--                    android:gravity="center"-->
+<!--                    android:text="Sphurti Chowk"-->
+<!--                    android:fontFamily="@font/poppins"-->
+<!--                    android:background="@drawable/roundedsqr"/>-->
 
-                <!-- Add more radio buttons here -->
+<!--                &lt;!&ndash; Add more radio buttons here &ndash;&gt;-->
 
-            </RadioGroup>
-        </HorizontalScrollView>
+<!--            </RadioGroup>-->
+<!--        </HorizontalScrollView>-->
 
         <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
