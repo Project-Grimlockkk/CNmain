@@ -154,26 +154,18 @@ public class HomeFragment extends Fragment {
         recyclerView1.setLayoutManager(gridLayoutManager);
 
         datalist = new ArrayList<>();
-//<<<<<<< HEAD
-
-//        recyclerContactAdapter adapter = new recyclerContactAdapter(getActivity(), datalist);
-//        recyclerView1.setAdapter(adapter);
 
         adapter = new recyclerContactAdapter(getActivity(), datalist); // Initialize adapter
         recyclerView1.setAdapter(adapter);   // Set adapter to RecyclerView
-//=======
-//        adapter = new recyclerContactAdapter(getActivity(), datalist);
-//        recyclerView1.setAdapter(adapter);
-//>>>>>>> d10b120a82efb2e733cde0bf32e034d2bd3da674
 
         databaseReference = FirebaseDatabase.getInstance().getReference("PGs");
-
 
 
         valueEventListener = databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 datalist.clear();
+
                 for (DataSnapshot itemSnapshot : snapshot.getChildren()) {
                     RoomDetailsClass roomDetailsClass = itemSnapshot.getValue(RoomDetailsClass.class);
                     datalist.add(roomDetailsClass);
@@ -188,12 +180,8 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//<<<<<<< HEAD
-//        searchView = rootView.findViewById(R.id.search);
-//
-//=======
         SearchView searchView = rootView.findViewById(R.id.search);
-//>>>>>>> d10b120a82efb2e733cde0bf32e034d2bd3da674
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -210,19 +198,7 @@ public class HomeFragment extends Fragment {
 
         return rootView;
     }
-//<<<<<<< HEAD
-//    private void filterData(String genderFilter) {
-////        List<RoomDetailsClass> filteredList = new ArrayList<>();
-////        for (RoomDetailsClass room : datalist) {
-////            if (room.getGender().equals(filter)) {
-////                filteredList.add(room);
-////            }
-////        }
-//        recyclerContactAdapter adapter = (recyclerContactAdapter) recyclerView1.getAdapter();
-//        adapter.filterList(genderFilter);
-//    }
 
-//=======
 
     private void filterData(String query) {
         if (adapter != null) {
@@ -240,7 +216,6 @@ public class HomeFragment extends Fragment {
             adapter.filterList(filteredList);
         }
     }
-//<<<<<<< HEAD
     private void filterDataa(List<String> apartmentNames) {
         ArrayList<RoomDetailsClass> filteredList = new ArrayList<>();
         for (RoomDetailsClass roomDetails : datalist) {
@@ -252,7 +227,6 @@ public class HomeFragment extends Fragment {
         // Update RecyclerView adapter with filtered data
         adapter.filterList(filteredList);
     }
-//=======
 
     @Override
     public void onDestroy() {
