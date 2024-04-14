@@ -38,10 +38,24 @@
 
     </string-array>
 
-<!--<<<<<<< HEAD-->
-<!--=======-->
+    <string-array name="spinner_Apartments">
+        <item>Asher Villa</item>
+        <item>Ganesh Sahanivas</item>
+        <item>Harishankar Apartment</item>
+        <item>Shivdatt Apartment</item>
+        <item>Sahara Boys Hostel</item>
+        <item>Shree Complex</item>
+        <item>Silver Oak Apartment</item>
+        <item>Silver Oak Apartment Flat No 9</item>
+
+
+
+    </string-array>
+
+    <!--<<<<<<< HEAD-->
+    <!--=======-->
     <string name="change_photo">Change Photo</string>
 
 
-<!--&gt;>>>>>> 06e991b3139798d6c0c8489397007f826a167854-->
+    <!--&gt;>>>>>> 06e991b3139798d6c0c8489397007f826a167854-->
 </resources>

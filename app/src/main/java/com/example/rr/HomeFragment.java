@@ -149,6 +149,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        Button addingReviewButton = rootView.findViewById(R.id.addingReviews);
+        addingReviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), reviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
         recyclerView1 = rootView.findViewById(R.id.recycler);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView1.setLayoutManager(gridLayoutManager);

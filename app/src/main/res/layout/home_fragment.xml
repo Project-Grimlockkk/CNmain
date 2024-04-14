@@ -51,17 +51,38 @@
 
         </FrameLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/addingPG"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_margin="5dp"
-            android:layout_gravity="center"
-            android:fontFamily="@font/poppins_semibold"
-            android:background="@drawable/click_effect"
-            android:text="+ Add a PG"
-            android:textAllCaps="false"
-            android:textColor="@color/white"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addingPG"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:background="@drawable/click_effect"
+                android:text="+ Add a PG"
+                android:textAllCaps="false"
+                android:textColor="@color/white"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/addingReviews"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:background="@drawable/click_effect"
+                android:text="+ Add a Review"
+                android:textAllCaps="false"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="wrap_content"
