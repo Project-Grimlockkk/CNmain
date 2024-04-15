@@ -44,7 +44,7 @@ public class pg_info extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.pg_info, container, false);
+        View view = inflater.inflate(R.layout.activity_pg_info2, container, false);
 
         // Initialize views
         ImageView whatsappIcon = view.findViewById(R.id.WhatsappIcon);

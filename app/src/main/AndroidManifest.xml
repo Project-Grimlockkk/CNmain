@@ -4,18 +4,14 @@
 
     <uses-permission
         android:name="android.permission.CALL_PHONE"
-        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
-<!--<<<<<<< HEAD-->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-<!--=======-->
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" /> <!-- <<<<<<< HEAD -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- ======= -->
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
         tools:ignore="CoarseFineLocation" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
-<!--&gt;>>>>>> 06e991b3139798d6c0c8489397007f826a167854-->
 
     <application
         android:allowBackup="true"
@@ -27,6 +23,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RR"
         tools:targetApi="31">
+        <activity
+            android:name="com.example.rr.reviewActivity"
+            android:exported="false" />
         <activity
             android:name="com.example.rr.pg_info2"
             android:exported="true" />

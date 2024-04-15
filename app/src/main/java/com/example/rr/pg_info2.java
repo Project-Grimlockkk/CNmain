@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
@@ -12,9 +14,15 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -30,8 +38,16 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
@@ -42,15 +58,22 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
     // Views and variables
     private SupportMapFragment mapFragment;
     private GoogleMap mMap;
+    private RatingBar ratingBar;
+    private float userRate = 0;
+
 
     ImageView apImage, apElectricity, apWaterSupply, apCleaning;
-    TextView apName, apRent, apVacancy, apDistance, apGender, address, apPhoneNo,apDeposit,pgOwner;
+    TextView apName, apRent, apVacancy, apDistance, apGender, address, apPhoneNo, apDeposit, pgOwner;
+    TextView reviewButton;
+    LinearLayout reviewsLayout;
+    TextView apName1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pg_info2);
 
+        ratingBar = findViewById(R.id.ratingBar);
         apImage = findViewById(R.id.apImgg);
         apName = findViewById(R.id.apName);
         apRent = findViewById(R.id.apPrice);
@@ -70,6 +93,18 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
         loadingDialog.setMessage("Loading Info...");
         loadingDialog.setCancelable(false);
         loadingDialog.show();
+
+        // Set initial color of the RatingBar
+        changeRatingBarColor(ratingBar, ratingBar.getRating());
+
+        // Add a listener to the rating bar to change color when rating changes
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                // Change the color of the RatingBar based on the rating
+                changeRatingBarColor(ratingBar, rating);
+            }
+        });
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -113,6 +148,159 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 Glide.with(this).load(bundle.getString("pgPhotos")).into(apImage);
             }
         }
+
+        apName1 = findViewById(R.id.apName);
+        reviewButton = findViewById(R.id.reviewText);
+        reviewsLayout = findViewById(R.id.reviews);
+
+        // Set onClickListener for the review button
+        reviewsLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                fetchReviewsFromFirebase(apName.getText().toString());
+                DatabaseReference reviewsRef = FirebaseDatabase.getInstance().getReference("PGs")
+                        .child(apName.getText().toString())
+                        .child("reviews");
+
+                reviewsRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        reviewsLayout.removeAllViews(); // Clear existing reviews
+
+                        if (dataSnapshot.exists()) {
+                            int reviewCount = 1;
+//                            TextView reviewTextView = new TextView(getApplicationContext());
+                            StringBuilder reviewsText = new StringBuilder();
+//                            String all;
+                            for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
+                                String review = reviewSnapshot.getValue(String.class);
+
+                                reviewsText.append(reviewCount).append(". ").append(review).append("\n");
+//                                addReviewToLayout(review);
+//                                TextView reviewTextView = new TextView(getApplicationContext());
+//                                reviewTextView.setText(reviewCount + ". " + review);
+//                                reviewTextView.setTextSize(20); // Set text size to 16sp (adjust as needed)
+//                                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+//                                        LinearLayout.LayoutParams.MATCH_PARENT,
+//                                        LinearLayout.LayoutParams.WRAP_CONTENT
+//                                );
+//                                layoutParams.setMargins(10, 5, 0, 5); // Set margins (adjust as needed)
+//                                reviewTextView.setLayoutParams(layoutParams);
+//                                reviewsLayout.addView(reviewTextView);
+                                reviewCount++;
+
+                            }
+                            TextView reviewsTextView = new TextView(pg_info2.this);
+                            reviewsTextView.setText(reviewsText.toString());
+                            reviewsTextView.setTextSize(20); // Change the text size as needed
+
+                            // Set margins
+                            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                                    LinearLayout.LayoutParams.MATCH_PARENT,
+                                    LinearLayout.LayoutParams.WRAP_CONTENT
+                            );
+                            layoutParams.setMargins(10, 5, 0, 5); // Set margins (adjust as needed)
+                            reviewsTextView.setLayoutParams(layoutParams);
+                            // Add TextView to the LinearLayout
+                            reviewsLayout.addView(reviewsTextView);
+//                            reviewButton.setText(reviewsText.toString());
+//                            reviewsLayout.addView(reviewTextView);
+                        } else {
+                            Toast.makeText(pg_info2.this, "No reviews available for this apartment", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(pg_info2.this, "Failed to fetch reviews: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        Button addReviewButton = findViewById(R.id.addReview);
+        addReviewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add EditText dynamically
+//                addReviewEditText();
+                addReviewButton.setVisibility(View.GONE);
+                LinearLayout linearLayout = new LinearLayout(getApplicationContext());
+                linearLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                linearLayout.setOrientation(LinearLayout.VERTICAL);
+                linearLayout.setPadding(20, 10, 20, 10); // Set padding
+
+                // Create EditText programmatically
+                EditText reviewEditText = new EditText(getApplicationContext());
+                reviewEditText.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                reviewEditText.setHint("Enter your review"); // Set hint text
+                reviewEditText.setSingleLine(false); // Allow multiple lines
+                reviewEditText.setLines(4); // Set number of lines
+                linearLayout.addView(reviewEditText); // Add EditText to the layout
+
+                // Create submit button programmatically
+                Button submitButton = new Button(getApplicationContext());
+                submitButton.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+                submitButton.setText("Submit");
+                submitButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Get review text from EditText
+                        String reviewText = reviewEditText.getText().toString().trim();
+                        if (!reviewText.isEmpty()) {
+                            // Save the review to Firebase (replace this with your Firebase logic)
+//                            saveReviewToFirebase(reviewText);
+                            String apartmentName = apName.getText().toString();
+
+                            // Get a reference to your Firebase database
+                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+                            // Create a reference to the "Reviews" node under the specific apartment
+                            DatabaseReference reviewsRef = databaseReference.child("PGs").child(apartmentName).child("reviews");
+
+                            // Generate a unique key for the review
+                            String reviewId = reviewsRef.push().getKey();
+                            // You can also include other details like user ID, timestamp, etc., if needed
+
+                            // Save the review data to the database under the generated key
+                            if (reviewId != null) {
+                                reviewsRef.child(reviewId).setValue(reviewText)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Toast.makeText(pg_info2.this, "Review added successfully", Toast.LENGTH_SHORT).show();
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(pg_info2.this, "Failed to add review: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                            }
+                            // Optionally, clear the EditText after submitting the review
+                            reviewEditText.setText("");
+                        } else {
+                            Toast.makeText(pg_info2.this, "Please enter a review", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                linearLayout.addView(submitButton); // Add submit button to the layout
+
+                // Add the LinearLayout to your main layout
+                LinearLayout mainLayout = findViewById(R.id.mainLayout); // Replace "mainLayout" with your actual layout ID
+                mainLayout.addView(linearLayout);
+            }
+        });
 
 
         // Set electricity, water supply, and cleaning facility icons based on bundle data
@@ -228,6 +416,7 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
             return null;
         }
 
+
         @Override
         protected void onPostExecute(LatLng latLng) {
             super.onPostExecute(latLng);
@@ -249,5 +438,14 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 }
             }, 2000); // 2000 milliseconds (2 seconds)
         }
+
     }
+
+    // Method to change the color of the RatingBar based on the rating
+    private void changeRatingBarColor(RatingBar ratingBar, float rating) {
+        int goldenYellow = Color.parseColor("#FFD700");
+        ratingBar.setProgressTintList(ColorStateList.valueOf(goldenYellow));
+    }
+
+
 }

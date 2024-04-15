@@ -80,36 +80,37 @@ public class recyclerContactAdapter extends RecyclerView.Adapter<recyclerContact
             @Override
             public void onClick(View v) {
 //<<<<<<< HEAD
+//                RoomDetailsClass roomDetails = arrDetailsFiltered.get(holder.getAdapterPosition());
                 Intent intent=new Intent(context, pg_info2.class);
-//                RoomDetailsClass selectedRoom = filteredList.get(holder.getAdapterPosition());
-                intent.putExtra("pgPhotos", arrDetails.get(holder.getAdapterPosition()).getPgPhotos());
-                intent.putExtra("apName", arrDetails.get(holder.getAdapterPosition()).getApName());
-                intent.putExtra("Vacancy", arrDetails.get(holder.getAdapterPosition()).getVaccancy());
-                intent.putExtra("rentInr", arrDetails.get(holder.getAdapterPosition()).getRentInr());
-                intent.putExtra("distance", arrDetails.get(holder.getAdapterPosition()).getDistance());
-                intent.putExtra("gender", arrDetails.get(holder.getAdapterPosition()).getGender());
-                intent.putExtra("address", arrDetails.get(holder.getAdapterPosition()).getAddress());
-                intent.putExtra("phoneNo", arrDetails.get(holder.getAdapterPosition()).getPhoneNo());
-                intent.putExtra("electricity", arrDetails.get(holder.getAdapterPosition()).getElectricity());
-                intent.putExtra("waterSupply", arrDetails.get(holder.getAdapterPosition()).getWaterSupply());
-                intent.putExtra("cleaningFacility", arrDetails.get(holder.getAdapterPosition()).getCleaningFacility());
-                intent.putExtra("pgOwner", arrDetails.get(holder.getAdapterPosition()).getPgOwner());
-                intent.putExtra("deposit", arrDetails.get(holder.getAdapterPosition()).getDeposit());
+
+                intent.putExtra("pgPhotos", arrDetailsFiltered.get(holder.getAdapterPosition()).getPgPhotos());
+                intent.putExtra("apName", arrDetailsFiltered.get(holder.getAdapterPosition()).getApName());
+                intent.putExtra("Vacancy", arrDetailsFiltered.get(holder.getAdapterPosition()).getVaccancy());
+                intent.putExtra("rentInr", arrDetailsFiltered.get(holder.getAdapterPosition()).getRentInr());
+                intent.putExtra("distance", arrDetailsFiltered.get(holder.getAdapterPosition()).getDistance());
+                intent.putExtra("gender", arrDetailsFiltered.get(holder.getAdapterPosition()).getGender());
+                intent.putExtra("address", arrDetailsFiltered.get(holder.getAdapterPosition()).getAddress());
+                intent.putExtra("phoneNo", arrDetailsFiltered.get(holder.getAdapterPosition()).getPhoneNo());
+                intent.putExtra("electricity", arrDetailsFiltered.get(holder.getAdapterPosition()).getElectricity());
+                intent.putExtra("waterSupply", arrDetailsFiltered.get(holder.getAdapterPosition()).getWaterSupply());
+                intent.putExtra("cleaningFacility", arrDetailsFiltered.get(holder.getAdapterPosition()).getCleaningFacility());
+                intent.putExtra("pgOwner", arrDetailsFiltered.get(holder.getAdapterPosition()).getPgOwner());
+                intent.putExtra("deposit", arrDetailsFiltered.get(holder.getAdapterPosition()).getDeposit());
 //=======
-//                Intent intent = new Intent(context, pg_info2.class);
-//                intent.putExtra("pgPhotos", roomDetails.getPgPhotos());
-//                intent.putExtra("apName", roomDetails.getApName());
-//                intent.putExtra("Vacancy", roomDetails.getVaccancy());
-//                intent.putExtra("rentInr", roomDetails.getRentInr());
-//                intent.putExtra("distance", roomDetails.getDistance());
-//                intent.putExtra("gender", roomDetails.getGender());
-//                intent.putExtra("address", roomDetails.getAddress());
-//                intent.putExtra("phoneNo", roomDetails.getPhoneNo());
-//                intent.putExtra("electricity", roomDetails.getElectricity());
-//                intent.putExtra("waterSupply", roomDetails.getWaterSupply());
-//                intent.putExtra("cleaningFacility", roomDetails.getCleaningFacility());
-//                intent.putExtra("pgOwner", roomDetails.getPgOwner());
-//                intent.putExtra("deposit", roomDetails.getDeposit());
+                Intent intent2 = new Intent(context, pg_info2.class);
+                intent.putExtra("pgPhotos", roomDetails.getPgPhotos());
+                intent.putExtra("apName", roomDetails.getApName());
+                intent.putExtra("Vacancy", roomDetails.getVaccancy());
+                intent.putExtra("rentInr", roomDetails.getRentInr());
+                intent.putExtra("distance", roomDetails.getDistance());
+                intent.putExtra("gender", roomDetails.getGender());
+                intent.putExtra("address", roomDetails.getAddress());
+                intent.putExtra("phoneNo", roomDetails.getPhoneNo());
+                intent.putExtra("electricity", roomDetails.getElectricity());
+                intent.putExtra("waterSupply", roomDetails.getWaterSupply());
+                intent.putExtra("cleaningFacility", roomDetails.getCleaningFacility());
+                intent.putExtra("pgOwner", roomDetails.getPgOwner());
+                intent.putExtra("deposit", roomDetails.getDeposit());
 //>>>>>>> 1fa2790b91dd183859b7cfd76c59c5cdc53e448a
 
                 context.startActivity(intent);

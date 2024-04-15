@@ -322,7 +322,7 @@
                     >
 
                     <TextView
-                        android:layout_marginStart="10dp"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:id="@+id/pgOwnerText"
                         android:layout_width="wrap_content"
@@ -330,7 +330,7 @@
                         android:text="PG Owner :"
                         android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         android:textStyle="bold"
                         />
 
@@ -343,7 +343,7 @@
                         android:text="owner"
                         android:fontFamily="@font/poppins"
                         android:textColor="@color/white"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         />
 
                 </LinearLayout>
@@ -546,10 +546,71 @@
 
 
 
-
             </LinearLayout>
 
 
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:id="@+id/reviews"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/click_effect"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="5dp"
+                >
+
+                <TextView
+                    android:layout_marginStart="10dp"
+                    android:layout_margin="20dp"
+                    android:id="@+id/reviewText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="review"
+                    android:fontFamily="@font/poppins"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mainLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:layout_marginTop="20sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_gravity="center"
+                    android:background="@drawable/click_effect"
+                    android:text="Add Review +"
+                    android:id="@+id/addReview"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:numStars="5"
+                android:rating="0"
+                android:stepSize="0.5"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
 
