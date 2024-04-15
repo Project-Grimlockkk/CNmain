@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -237,6 +238,7 @@ public class pg_info2 extends AppCompatActivity implements OnMapReadyCallback {
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
                 mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             }
+
             // Dismiss the loading dialog after a delay
             new Handler().postDelayed(new Runnable() {
                 @Override
