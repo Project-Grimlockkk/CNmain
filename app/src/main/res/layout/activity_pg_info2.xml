@@ -576,20 +576,32 @@
 
             </LinearLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <LinearLayout
+                android:id="@+id/mainLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="48dp"
-                android:paddingStart="30dp"
-                android:paddingEnd="30dp"
-                android:layout_marginTop="20sp"
-                android:fontFamily="@font/poppins_semibold"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_gravity="center"
-                android:background="@drawable/click_effect"
-                android:text="Add Review +"
-                android:id="@+id/addReview"
-                android:textSize="20sp"
-                android:textAllCaps="false"
-                android:textColor="@color/white"/>
+                android:layout_marginBottom="10dp"
+                >
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:paddingStart="30dp"
+                    android:paddingEnd="30dp"
+                    android:layout_marginTop="20sp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_gravity="center"
+                    android:background="@drawable/click_effect"
+                    android:text="Add Review +"
+                    android:id="@+id/addReview"
+                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </LinearLayout>
